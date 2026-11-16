@@ -1,0 +1,77 @@
+{
+ "id": "sharex-8091",
+ "rotulo": "gemini",
+ "modelo_pedido": "gemini-3.5-flash",
+ "meio": "API",
+ "data": "2026-11-08T06:01:46",
+ "reg_arquivo": [
+  {
+   "texto": "```json\n{\n  \"files\": [\n    \"ShareX.ImageEffectsLib/Drawings/DrawBorder.cs\",\n    \"ShareX.ImageEffectsLib/Manipulations/Canvas.cs\",\n    \"ShareX.ImageEffectsLib/ImageEffect.cs\",\n    \"ShareX.HelpersLib/Helpers/ImageHelpers.cs\",\n    \"ShareX.HelpersLib/Extensions/GraphicsExtensions.cs\"\n  ]\n}\n```",
+   "modelo_resposta": "gemini-3.5-flash",
+   "tokens_entrada": 6936,
+   "tokens_saida": 99,
+   "tokens_total": 8209,
+   "custo_usd": null,
+   "segundos": 6.5
+  }
+ ],
+ "arquivos": [
+  "ShareX.ImageEffectsLib/Drawings/DrawBorder.cs",
+  "ShareX.ImageEffectsLib/Manipulations/Canvas.cs",
+  "ShareX.ImageEffectsLib/ImageEffect.cs",
+  "ShareX.HelpersLib/Helpers/ImageHelpers.cs",
+  "ShareX.HelpersLib/Extensions/GraphicsExtensions.cs"
+ ],
+ "arquivos_lidos": [
+  "ShareX.ImageEffectsLib/Drawings/DrawBorder.cs",
+  "ShareX.ImageEffectsLib/Manipulations/Canvas.cs",
+  "ShareX.ImageEffectsLib/ImageEffect.cs",
+  "ShareX.HelpersLib/Helpers/ImageHelpers.cs",
+  "ShareX.HelpersLib/Extensions/GraphicsExtensions.cs"
+ ],
+ "reg_metodo": [
+  {
+   "texto": "```json\n{\n  \"methods\": [\n    {\n      \"file\": \"ShareX.HelpersLib/Helpers/ImageHelpers.cs\",\n      \"method\": \"DrawBorder\"\n    },\n    {\n      \"file\": \"ShareX.ImageEffectsLib/Drawings/DrawBorder.cs\",\n      \"method\": \"Apply\"\n    },\n    {\n      \"file\": \"ShareX.HelpersLib/Extensions/GraphicsExtensions.cs\",\n      \"method\": \"DrawRectangleProper\"\n    },\n    {\n      \"file\": \"ShareX.HelpersLib/Extensions/GraphicsExtensions.cs\",\n      \"method\": \"SetHighQuality\"\n    },\n    {\n      \"file\": \"ShareX.ImageEffectsLib/Manipulations/Canvas.cs\",\n      \"method\": \"Apply\"\n    }\n  ]\n}\n```",
+   "modelo_resposta": "gemini-3.5-flash",
+   "tokens_entrada": 31962,
+   "tokens_saida": 190,
+   "tokens_total": 35673,
+   "custo_usd": null,
+   "segundos": 16.9
+  }
+ ],
+ "metodos": [
+  {
+   "file": "ShareX.HelpersLib/Helpers/ImageHelpers.cs",
+   "method": "DrawBorder"
+  },
+  {
+   "file": "ShareX.ImageEffectsLib/Drawings/DrawBorder.cs",
+   "method": "Apply"
+  },
+  {
+   "file": "ShareX.HelpersLib/Extensions/GraphicsExtensions.cs",
+   "method": "DrawRectangleProper"
+  },
+  {
+   "file": "ShareX.HelpersLib/Extensions/GraphicsExtensions.cs",
+   "method": "SetHighQuality"
+  },
+  {
+   "file": "ShareX.ImageEffectsLib/Manipulations/Canvas.cs",
+   "method": "Apply"
+  }
+ ],
+ "reg_memorizacao": [
+  {
+   "texto": "```json\n{\"file\": \"ShareX.ImageEffectsLib/Drawings/Border.cs\"}\n```",
+   "modelo_resposta": "gemini-3.5-flash",
+   "tokens_entrada": 511,
+   "tokens_saida": 23,
+   "tokens_total": 2631,
+   "custo_usd": null,
+   "segundos": 12.8
+  }
+ ],
+ "memorizacao": "ShareX.ImageEffectsLib/Drawings/Border.cs"
+}

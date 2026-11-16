@@ -1,0 +1,33 @@
+Below is a bug report from the C# repository nopCommerce (github.com/nopSolutions/nopCommerce). You will not receive any list of files or code. Give the exact path of the .cs file that was changed to fix this bug. Do not search the web. Answer ONLY with JSON in the format {"file": "path"}.
+
+### Bug report
+Title: ChatGPT Shopping feed exports 'customer enters price' (donation) products with price '0.00 USD'
+
+DESCRIPTION
+    Products with 'Customer enters price' enabled have Price=0 in the database. The feed writes
+      price '0.00 USD' for them (sample products 'If You Wait (donation)' and 'Science & Faith'), so
+      ChatGPT Shopping would show them as free. The plugin source has no handling for
+      CustomerEntersPrice or CallForPrice.
+
+STEPS TO REPRODUCE
+    1. Install the ChatGPT Shopping plugin
+    2. Open its Configure page and click 'Generate feed'
+    3. Decompress files/exportimport/1-chatgptshopping_products.jsonl.gz
+    4. Find item_id IF_YOU_WT and SCI_FAITH
+
+EXPECTED RESULT
+    These products are exported with their minimum customer-entered price
+      (0.50).
+
+ACTUAL RESULT
+    Both exported with "price": "0.00 USD".
+
+EVIDENCE
+    --- text evidence: evidence\BUG-chatgpt-feed-customer-price-zero.txt ---
+    | DB (Product table): IF_YOU_WT  'If You Wait (donation)'  Price=0  CustomerEntersPrice=1 MinimumCustomerEnteredPrice=0.5
+    | DB (Product table): SCI_FAITH  'Science & Faith'        Price=0  CustomerEntersPrice=1 MinimumCustomerEnteredPrice=0.5
+    | 
+    | Feed lines (1-chatgptshopping_products.jsonl.gz):
+    | {"item_id": "IF_YOU_WT", "title": "If You Wait (donation)", "price": "0.00 USD", "availability": "in_stock", "is_eligible_checkout": false}
+    | {"item_id": "SCI_FAITH", "title": "Science & Faith", "price": "0.00 USD", "availability": "in_stock", "is_eligible_checkout": false}
+    --- end of text evidence ---

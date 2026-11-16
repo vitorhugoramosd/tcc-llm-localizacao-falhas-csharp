@@ -1,0 +1,77 @@
+{
+ "id": "sharex-8568",
+ "rotulo": "claude",
+ "modelo_pedido": "claude-sonnet-5-5",
+ "meio": "API",
+ "data": "2026-11-07T14:56:58",
+ "reg_arquivo": [
+  {
+   "texto": "The bug concerns the new Avalonia-based image editor (ShareX.ImageEditor). Random yellow or white lines appear at the right or bottom edge of the image, which points to canvas rendering or pixel-snapping and sizing issues. The likeliest culprits are the canvas control, the coordinate helper, the bitmap conversion helpers, the zoom controller, and the editor core or view code.\n\nI picked these from the file names and did not open any source, so the ranking is a best guess.\n\n- `SKCanvasControl.cs` is first because it draws the image, and fractional sizes there could leave edge artifacts.\n- `BitmapConversionHelpers.cs` is second because it converts bitmaps, and a conversion error could leave stray edge pixels.\n- `EditorZoomController.cs` is third because zoom-dependent sizing could expose the lines.\n- `EditorView.axaml.cs` is fourth as the main view hosting the canvas.\n- `EditorCore.cs` is fifth as the core that holds the image and annotation state.\n\n{\"files\": [\"ShareX.ImageEditor/Presentation/Controls/SKCanvasControl.cs\", \"ShareX.ImageEditor/Presentation/Rendering/BitmapConversionHelpers.cs\", \"ShareX.ImageEditor/Presentation/Controllers/EditorZoomController.cs\", \"ShareX.ImageEditor/Presentation/Views/EditorView.axaml.cs\", \"ShareX.ImageEditor/Core/Editor/EditorCore.cs\"]}",
+   "modelo_resposta": "claude-sonnet-5-5",
+   "tokens_entrada": 19155,
+   "tokens_saida": 519,
+   "tokens_total": 19674,
+   "custo_usd": null,
+   "segundos": 4.7
+  }
+ ],
+ "arquivos": [
+  "ShareX.ImageEditor/Presentation/Controls/SKCanvasControl.cs",
+  "ShareX.ImageEditor/Presentation/Rendering/BitmapConversionHelpers.cs",
+  "ShareX.ImageEditor/Presentation/Controllers/EditorZoomController.cs",
+  "ShareX.ImageEditor/Presentation/Views/EditorView.axaml.cs",
+  "ShareX.ImageEditor/Core/Editor/EditorCore.cs"
+ ],
+ "arquivos_lidos": [
+  "ShareX.ImageEditor/Presentation/Controls/SKCanvasControl.cs",
+  "ShareX.ImageEditor/Presentation/Rendering/BitmapConversionHelpers.cs",
+  "ShareX.ImageEditor/Presentation/Controllers/EditorZoomController.cs",
+  "ShareX.ImageEditor/Presentation/Views/EditorView.axaml.cs",
+  "ShareX.ImageEditor/Core/Editor/EditorCore.cs"
+ ],
+ "reg_metodo": [
+  {
+   "texto": "{\"methods\":[{\"file\":\"ShareX.ImageEditor/Presentation/Controls/SKCanvasControl.cs\",\"method\":\"Render\"},{\"file\":\"ShareX.ImageEditor/Presentation/Controls/SKCanvasControl.cs\",\"method\":\"Initialize\"},{\"file\":\"ShareX.ImageEditor/Presentation/Rendering/BitmapConversionHelpers.cs\",\"method\":\"ToSKBitmap\"},{\"file\":\"ShareX.ImageEditor/Presentation/Views/EditorView.axaml.cs\",\"method\":\"UpdateOverlayCanvasLayout\"},{\"file\":\"ShareX.ImageEditor/Presentation/Controls/SKCanvasControl.cs\",\"method\":\"Draw\"}]}",
+   "modelo_resposta": "claude-sonnet-5-5",
+   "tokens_entrada": 65894,
+   "tokens_saida": 730,
+   "tokens_total": 66624,
+   "custo_usd": null,
+   "segundos": 5.9
+  }
+ ],
+ "metodos": [
+  {
+   "file": "ShareX.ImageEditor/Presentation/Controls/SKCanvasControl.cs",
+   "method": "Render"
+  },
+  {
+   "file": "ShareX.ImageEditor/Presentation/Controls/SKCanvasControl.cs",
+   "method": "Initialize"
+  },
+  {
+   "file": "ShareX.ImageEditor/Presentation/Rendering/BitmapConversionHelpers.cs",
+   "method": "ToSKBitmap"
+  },
+  {
+   "file": "ShareX.ImageEditor/Presentation/Views/EditorView.axaml.cs",
+   "method": "UpdateOverlayCanvasLayout"
+  },
+  {
+   "file": "ShareX.ImageEditor/Presentation/Controls/SKCanvasControl.cs",
+   "method": "Draw"
+  }
+ ],
+ "reg_memorizacao": [
+  {
+   "texto": "I can't pin the file down with confidence. ShareX's image editor is in ShareX.ImageEffectsLib and ShareX.HelpersLib, but the lines look like an edge or rendering artifact from the newer editor, probably in the Surface/shape drawing code of ShareX.ScreenCaptureLib.\n\nShareX 20 changed the editor in RegionCaptureForm and its Surface, and the lines on the right or bottom side suggest an off-by-one in the canvas or in the final image export. Rendering the final image happens in `ShapeManager`, which has `CreateOutputImage` or similar, but the more likely culprit is `RegionCaptureForm.GetResultImage` or `SurfaceForm`. In v20 a related change was that the image is drawn with a scaled size or with `InterpolationMode` and `PixelOffsetMode` settings. Edge artifacts like this typically come from the interpolation mode, where `PixelOffsetMode.Half` or `InterpolationMode.HighQualityBicubic` samples beyond the edge, and the usual fix is `WrapMode.TileFlipXY` or `ImageAttributes`.\n\nThat points to the code that draws the background image in the editor. In ShareX that is in `ShapeManager.cs`, and `Draw` there is the likely place. I'm choosing `ShapeManager.cs` over `RegionCaptureForm.cs` because the final image is generated through the shape manager.\n\n{\"file\": \"ShareX.ScreenCaptureLib/ShapeManager.cs\"}",
+   "modelo_resposta": "claude-sonnet-5-5",
+   "tokens_entrada": 256,
+   "tokens_saida": 515,
+   "tokens_total": 771,
+   "custo_usd": null,
+   "segundos": 5.5
+  }
+ ],
+ "memorizacao": "ShareX.ScreenCaptureLib/ShapeManager.cs"
+}

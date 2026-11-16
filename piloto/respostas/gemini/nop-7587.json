@@ -1,0 +1,77 @@
+{
+ "id": "nop-7587",
+ "rotulo": "gemini",
+ "modelo_pedido": "gemini-3.5-flash",
+ "meio": "API",
+ "data": "2026-11-07T15:54:06",
+ "reg_arquivo": [
+  {
+   "texto": "```json\n{\n  \"files\": [\n    \"src/Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs\",\n    \"src/Plugins/Nop.Plugin.Shipping.UPS/UPSComputationMethod.cs\",\n    \"src/Plugins/Nop.Plugin.Shipping.UPS/API/Rates/NopRateClient.cs\",\n    \"src/Plugins/Nop.Plugin.Shipping.UPS/API/Rates/RateClient.cs\",\n    \"src/Plugins/Nop.Plugin.Shipping.UPS/UPSSettings.cs\"\n  ]\n}\n```",
+   "modelo_resposta": "gemini-3.5-flash",
+   "tokens_entrada": 31211,
+   "tokens_saida": 137,
+   "tokens_total": 32693,
+   "custo_usd": null,
+   "segundos": 8.5
+  }
+ ],
+ "arquivos": [
+  "src/Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs",
+  "src/Plugins/Nop.Plugin.Shipping.UPS/UPSComputationMethod.cs",
+  "src/Plugins/Nop.Plugin.Shipping.UPS/API/Rates/NopRateClient.cs",
+  "src/Plugins/Nop.Plugin.Shipping.UPS/API/Rates/RateClient.cs",
+  "src/Plugins/Nop.Plugin.Shipping.UPS/UPSSettings.cs"
+ ],
+ "arquivos_lidos": [
+  "src/Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs",
+  "src/Plugins/Nop.Plugin.Shipping.UPS/UPSComputationMethod.cs",
+  "src/Plugins/Nop.Plugin.Shipping.UPS/API/Rates/NopRateClient.cs",
+  "src/Plugins/Nop.Plugin.Shipping.UPS/API/Rates/RateClient.cs",
+  "src/Plugins/Nop.Plugin.Shipping.UPS/UPSSettings.cs"
+ ],
+ "reg_metodo": [
+  {
+   "texto": "```json\n{\n  \"methods\": [\n    {\n      \"file\": \"src/Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs\",\n      \"method\": \"CreateRateRequestAsync\"\n    },\n    {\n      \"file\": \"src/Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs\",\n      \"method\": \"CreatePackageAsync\"\n    },\n    {\n      \"file\": \"src/Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs\",\n      \"method\": \"GetPackagesByDimensionsAsync\"\n    },\n    {\n      \"file\": \"src/Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs\",\n      \"method\": \"GetPackagesByCubicRootAsync\"\n    },\n    {\n      \"file\": \"src/Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs\",\n      \"method\": \"GetPackagesForOneItemPerPackageAsync\"\n    }\n  ]\n}\n```",
+   "modelo_resposta": "gemini-3.5-flash",
+   "tokens_entrada": 96028,
+   "tokens_saida": 244,
+   "tokens_total": 101521,
+   "custo_usd": null,
+   "segundos": 30.2
+  }
+ ],
+ "metodos": [
+  {
+   "file": "src/Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs",
+   "method": "CreateRateRequestAsync"
+  },
+  {
+   "file": "src/Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs",
+   "method": "CreatePackageAsync"
+  },
+  {
+   "file": "src/Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs",
+   "method": "GetPackagesByDimensionsAsync"
+  },
+  {
+   "file": "src/Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs",
+   "method": "GetPackagesByCubicRootAsync"
+  },
+  {
+   "file": "src/Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs",
+   "method": "GetPackagesForOneItemPerPackageAsync"
+  }
+ ],
+ "reg_memorizacao": [
+  {
+   "texto": "```json\n{\n  \"file\": \"src/Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs\"\n}\n```",
+   "modelo_resposta": "gemini-3.5-flash",
+   "tokens_entrada": 188,
+   "tokens_saida": 35,
+   "tokens_total": 1598,
+   "custo_usd": null,
+   "segundos": 9.3
+  }
+ ],
+ "memorizacao": "src/Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs"
+}

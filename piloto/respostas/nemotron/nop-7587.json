@@ -1,0 +1,77 @@
+{
+ "id": "nop-7587",
+ "rotulo": "nemotron",
+ "modelo_pedido": "nvidia/nemotron-3-ultra-550b-a55b:free",
+ "meio": "API",
+ "data": "2026-11-07T16:35:32",
+ "reg_arquivo": [
+  {
+   "texto": "{\"files\": [\"src/Plugins/Nop.Plugin.Shipping.UPS/UPSComputationMethod.cs\", \"src/Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs\", \"src/Plugins/Nop.Plugin.Shipping.UPS/API/Rates/NopRateClient.cs\", \"src/Plugins/Nop.Plugin.Shipping.UPS/API/Rates/RateClient.cs\", \"src/Plugins/Nop.Plugin.Shipping.UPS/UPSSettings.cs\"]}",
+   "modelo_resposta": "nvidia/nemotron-3-ultra-550b-a55b:free",
+   "tokens_entrada": 27812,
+   "tokens_saida": 714,
+   "tokens_total": 28526,
+   "custo_usd": 0,
+   "segundos": 13.3
+  }
+ ],
+ "arquivos": [
+  "src/Plugins/Nop.Plugin.Shipping.UPS/UPSComputationMethod.cs",
+  "src/Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs",
+  "src/Plugins/Nop.Plugin.Shipping.UPS/API/Rates/NopRateClient.cs",
+  "src/Plugins/Nop.Plugin.Shipping.UPS/API/Rates/RateClient.cs",
+  "src/Plugins/Nop.Plugin.Shipping.UPS/UPSSettings.cs"
+ ],
+ "arquivos_lidos": [
+  "src/Plugins/Nop.Plugin.Shipping.UPS/UPSComputationMethod.cs",
+  "src/Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs",
+  "src/Plugins/Nop.Plugin.Shipping.UPS/API/Rates/NopRateClient.cs",
+  "src/Plugins/Nop.Plugin.Shipping.UPS/API/Rates/RateClient.cs",
+  "src/Plugins/Nop.Plugin.Shipping.UPS/UPSSettings.cs"
+ ],
+ "reg_metodo": [
+  {
+   "texto": "{\"methods\": [{\"file\": \"src/Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs\", \"method\": \"CreateRateRequestAsync\"}, {\"file\": \"src/Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs\", \"method\": \"PrepareShippingOptionsAsync\"}, {\"file\": \"src/Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs\", \"method\": \"GetShippingOptionsAsync\"}, {\"file\": \"src/Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs\", \"method\": \"GetRatesAsync\"}, {\"file\": \"src/Plugins/Nop.Plugin.Shipping.UPS/API/Rates/NopRateClient.cs\", \"method\": \"ProcessRateAsync\"}]}",
+   "modelo_resposta": "nvidia/nemotron-3-ultra-550b-a55b:free",
+   "tokens_entrada": 90116,
+   "tokens_saida": 3039,
+   "tokens_total": 93155,
+   "custo_usd": 0,
+   "segundos": 50.3
+  }
+ ],
+ "metodos": [
+  {
+   "file": "src/Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs",
+   "method": "CreateRateRequestAsync"
+  },
+  {
+   "file": "src/Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs",
+   "method": "PrepareShippingOptionsAsync"
+  },
+  {
+   "file": "src/Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs",
+   "method": "GetShippingOptionsAsync"
+  },
+  {
+   "file": "src/Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs",
+   "method": "GetRatesAsync"
+  },
+  {
+   "file": "src/Plugins/Nop.Plugin.Shipping.UPS/API/Rates/NopRateClient.cs",
+   "method": "ProcessRateAsync"
+  }
+ ],
+ "reg_memorizacao": [
+  {
+   "texto": "{\"file\": \"src/Presentation/Nop.Web/Plugins/Shipping.UPS/UPSComputationMethod.cs\"}",
+   "modelo_resposta": "nvidia/nemotron-3-ultra-550b-a55b:free",
+   "tokens_entrada": 204,
+   "tokens_saida": 1488,
+   "tokens_total": 1692,
+   "custo_usd": 0,
+   "segundos": 33.4
+  }
+ ],
+ "memorizacao": "src/Presentation/Nop.Web/Plugins/Shipping.UPS/UPSComputationMethod.cs"
+}

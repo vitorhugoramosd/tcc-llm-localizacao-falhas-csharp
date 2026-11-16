@@ -1,0 +1,6 @@
+nop-8299 já feito, pulando
+nop-8409 já feito, pulando
+nop-7587 já feito, pulando
+sharex-8568 já feito, pulando
+sharex-8699 -> consulta de arquivo
+sharex-8699 -> consulta de método

@@ -1,0 +1,14 @@
+# Chaves de API: nunca vão para o repositório
+chave_*.txt
+*.key
+.env
+
+# Clones dos repositórios analisados (são baixados pelo usuário)
+clones/
+preparacao/cand_*.tsv
+
+# Arquivos temporários
+__pycache__/
+*.pyc
+*.parcial
+*.parcial.ok

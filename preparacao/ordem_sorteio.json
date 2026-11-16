@@ -1,0 +1,2309 @@
+{
+ "nop": [
+  {
+   "issue": 8299,
+   "commit": "fe8cb508ae215f6c9d21ed9b2d42f3cf9f149dc4",
+   "data": "2026-09-18",
+   "msg": "#8299 Missing name field in review.author JSON-LD schema when CustomerName is empty",
+   "n_cs": 1
+  },
+  {
+   "issue": 8409,
+   "commit": "9e47cd6e78dc433b0f79c6a0704ad2a1831e48dd",
+   "data": "2026-10-26",
+   "msg": "#8409 ChatGPT Shopping feed exports 'customer enters price' (donation) products with price '0.00 USD'",
+   "n_cs": 1
+  },
+  {
+   "issue": 5345,
+   "commit": "53a8feabd4f2b843ad98b1b51c1cd262f3e49084",
+   "data": "2025-01-29",
+   "msg": "#5345 Added missing using",
+   "n_cs": 1
+  },
+  {
+   "issue": 7841,
+   "commit": "125c5ff49dceaf7eb7d681270f7773fad3676c84",
+   "data": "2025-11-24",
+   "msg": "#7841 Next changes on  \"Quotes. PDF export\"",
+   "n_cs": 1
+  },
+  {
+   "issue": 8369,
+   "commit": "32f317901f2cf5467755abf604e8289483ba51da",
+   "data": "2026-10-16",
+   "msg": "#8369 Fix price list adjustment overridden price (#8370)",
+   "n_cs": 3
+  },
+  {
+   "issue": 8257,
+   "commit": "9a16ad296d5a388a60861a464cf1cef6c18bb9ee",
+   "data": "2026-07-24",
+   "msg": "#8257 [FromHeader] and [FromBody] string action parameters always bind to null",
+   "n_cs": 1
+  },
+  {
+   "issue": 8436,
+   "commit": "c911ed73adbb1d1827084282633fcd14f963f7ea",
+   "data": "2026-11-05",
+   "msg": "#8436 PunchOut: outgoing cart XML contains an empty UnitOfMeasure",
+   "n_cs": 6
+  },
+  {
+   "issue": 7907,
+   "commit": "793e3b2c07b4c50da499e1db42c47569d547283d",
+   "data": "2026-01-19",
+   "msg": "#7907 Allow to rename custom wishlist names",
+   "n_cs": 6
+  },
+  {
+   "issue": 7577,
+   "commit": "8f2e527ddc49e0d21de414cf2ff4b4998b8c924b",
+   "data": "2025-02-14",
+   "msg": "#7577 Optimize Product Tag Mappings Deletion in ProductTagService (#7554)",
+   "n_cs": 1
+  },
+  {
+   "issue": 7587,
+   "commit": "1ab4d6b75c7c2b8b81d79de05baf48f131210927",
+   "data": "2025-02-18",
+   "msg": "#7587 UPS. Problem with getting negotiated rates",
+   "n_cs": 1
+  },
+  {
+   "issue": 7618,
+   "commit": "5f11de2a4e83454e1380198e3edc880fd5a45db3",
+   "data": "2025-03-17",
+   "msg": "#7618 Display custom address attributes for the billing address in the order details page",
+   "n_cs": 1
+  },
+  {
+   "issue": 7249,
+   "commit": "5babf8929c2b54e7dc7b182da044e21b113d38a1",
+   "data": "2024-06-28",
+   "msg": "#7249 Disable HTML minification by default",
+   "n_cs": 1
+  },
+  {
+   "issue": 7447,
+   "commit": "b3f098d63aa0bcc79b3ed02898585e341f70e037",
+   "data": "2024-12-11",
+   "msg": "#7447 Delete ViewLocationExpander in Omnisend plugin",
+   "n_cs": 3
+  },
+  {
+   "issue": 7705,
+   "commit": "cdd96404440246bae19194ee00359ab8645f020f",
+   "data": "2025-06-16",
+   "msg": "#7705 SearchProductsAsync does not respect SearchProvider ordering",
+   "n_cs": 1
+  },
+  {
+   "issue": 7719,
+   "commit": "57f4780dc1cf53ea91bf87eb02b725d9804451c9",
+   "data": "2026-09-28",
+   "msg": "#7719 Update documentation links for admin area",
+   "n_cs": 1
+  },
+  {
+   "issue": 7437,
+   "commit": "1577aec5245fcfa310615c746edf41f86d0bfa2e",
+   "data": "2024-12-02",
+   "msg": "#7437 Add missing locales to header on search provider configuration page",
+   "n_cs": 1
+  },
+  {
+   "issue": 7551,
+   "commit": "3f79595f9cd041185c45e3abd3eb4ded2c586373",
+   "data": "2025-02-05",
+   "msg": "#7551 PayPal Commerce plugin. Ignore WebP images",
+   "n_cs": 1
+  },
+  {
+   "issue": 7796,
+   "commit": "42072e1cd1786d2adfb6f8514ac4af001cdf9192",
+   "data": "2025-08-01",
+   "msg": "#7796 Fixed \"MySQL Container Fails: Identifier name too long\"",
+   "n_cs": 1
+  },
+  {
+   "issue": 8314,
+   "commit": "48c3eb8c20a9a52cad36b88d6d7f37066f57344c",
+   "data": "2026-09-22",
+   "msg": "#8314 Insufficient anti-automation on phone/OTP login allows brute-force authentication bypass",
+   "n_cs": 7
+  },
+  {
+   "issue": 7754,
+   "commit": "ebd709d56298e62abcb3f735745146d0f02322f3",
+   "data": "2025-06-20",
+   "msg": "#7754 Access control list page doesn't properly encode values",
+   "n_cs": 1
+  },
+  {
+   "issue": 7296,
+   "commit": "d792595f6ee27d1042031f9ee064adeaf4c88deb",
+   "data": "2024-11-05",
+   "msg": "#7296 Added index on `[Topic].[SystemName]` column",
+   "n_cs": 4
+  },
+  {
+   "issue": 5898,
+   "commit": "bc96f5296b48c49f72246c1554e5aada7d0892ad",
+   "data": "2024-10-30",
+   "msg": "#5898 Added notifications to vendor when the stock quantity is low",
+   "n_cs": 8
+  },
+  {
+   "issue": 5261,
+   "commit": "2057d336f14a05277f115653921fba1b83f38591",
+   "data": "2025-08-13",
+   "msg": "#5261 Minor change. Use ISettingsModel for model",
+   "n_cs": 1
+  },
+  {
+   "issue": 7375,
+   "commit": "eaada19202dbb485adecc5b3efe5d5624c2b9e12",
+   "data": "2024-10-30",
+   "msg": "#7375 Added validation rules for Password max/min length",
+   "n_cs": 2
+  },
+  {
+   "issue": 8120,
+   "commit": "ed25924e47bf06c5fba476c215fd2ff19e51ab56",
+   "data": "2026-05-08",
+   "msg": "#8120 Fixed tests",
+   "n_cs": 1
+  },
+  {
+   "issue": 7563,
+   "commit": "f821158ce48fa5b077ef7ea1521cff753b4588aa",
+   "data": "2025-02-11",
+   "msg": "#7563 Migration process runs before permissions are inserted, causing missing permission mappings during upgrade from 4.7 to 4.8",
+   "n_cs": 1
+  },
+  {
+   "issue": 8342,
+   "commit": "b82cabdcd1f57ea1d97592b639150ecafbecb46f",
+   "data": "2026-10-12",
+   "msg": "#8342 Skip bulk insert when the entity list is empty",
+   "n_cs": 1
+  },
+  {
+   "issue": 7463,
+   "commit": "df298b61cdfa43449ef138b709a353babf9e7688",
+   "data": "2024-12-17",
+   "msg": "#7463 Language localizations strings on menu doesn't change on admin panel",
+   "n_cs": 1
+  },
+  {
+   "issue": 8176,
+   "commit": "8fe0d084bf29a1cd91c494a273ae671f5c711946",
+   "data": "2026-05-26",
+   "msg": "#8176 Race Condition in WebAppTypeFinder leads to TypeInitializationException in System.Linq.Dynamic.Core",
+   "n_cs": 1
+  },
+  {
+   "issue": 3456,
+   "commit": "35e26d04a34d01d16ffa60f4841db594b031ba22",
+   "data": "2026-07-23",
+   "msg": "#3456 Option to submit return requests only when order status is completed",
+   "n_cs": 9
+  },
+  {
+   "issue": 7900,
+   "commit": "ca7d73c368232d5f099d1cebf53ab1ef33637763",
+   "data": "2025-10-23",
+   "msg": "#7900 Product with attributes added to wrong wishlist (and infinite loading issue)",
+   "n_cs": 1
+  },
+  {
+   "issue": 7906,
+   "commit": "4bc40319ac67ea55455124f9e7bcb686df0fd664",
+   "data": "2026-01-15",
+   "msg": "#7906 Do not allow creation of duplicated wishlist names",
+   "n_cs": 2
+  },
+  {
+   "issue": 7960,
+   "commit": "3dcdc1872b45481c00c8b00d2f85e94996cc2e61",
+   "data": "2025-11-20",
+   "msg": "#7960 When a product with attributes is added to the Custom Wishlist, if the user edits the product to modify its attributes, the previously selected attributes are not retained",
+   "n_cs": 1
+  },
+  {
+   "issue": 8392,
+   "commit": "578d9bef94a20c8a06454be854dcb0d95ae1e059",
+   "data": "2026-10-19",
+   "msg": "#8392 Google Authenticator delete action has no permission check",
+   "n_cs": 1
+  },
+  {
+   "issue": 8263,
+   "commit": "ebfea4368641e1d4ef12052ddd649ff72b50a6ed",
+   "data": "2026-07-24",
+   "msg": "#8263 Fix XML documentation for some methods",
+   "n_cs": 2
+  },
+  {
+   "issue": 7298,
+   "commit": "48f60e1aacf8195390121d16b6c35fb6f5b5111c",
+   "data": "2024-08-13",
+   "msg": "#7298 Added permission check to visit the Move Topic page on the forums",
+   "n_cs": 1
+  },
+  {
+   "issue": 8441,
+   "commit": "225475b72f03394f279835a42510bcda64c4360c",
+   "data": "2026-11-05",
+   "msg": "#8441 Vendors should not have access to product attributes, product tags and filter values",
+   "n_cs": 1
+  },
+  {
+   "issue": 7443,
+   "commit": "78f01a1f127f64006e679934700e60c841bf0527",
+   "data": "2024-12-09",
+   "msg": "#7443 MessageTokenProvider.WriteTotalsAsync - Extra whitespace between valule and \"em\" breaks td padding",
+   "n_cs": 1
+  },
+  {
+   "issue": 8239,
+   "commit": "4cd15f70c64ff3b01ef1dea2bf4067ff1181ff0b",
+   "data": "2026-06-29",
+   "msg": "#8239 Inconsistency in currency parsing",
+   "n_cs": 7
+  },
+  {
+   "issue": 7538,
+   "commit": "509e27529b67ff57e11da95017b84b2e8484a6c6",
+   "data": "2025-02-04",
+   "msg": "#7538 Apply store mapping constraints at the database query level for message template retrieval",
+   "n_cs": 1
+  },
+  {
+   "issue": 7208,
+   "commit": "351ad75dfaea78a0a57ef8c6120527900cd1a37f",
+   "data": "2024-06-20",
+   "msg": "#7208 Added filtering of customers by \"active\" status",
+   "n_cs": 6
+  },
+  {
+   "issue": 8153,
+   "commit": "9f29325a909b4e6f1eee759979ff5f3fb8e2a34f",
+   "data": "2026-04-03",
+   "msg": "#8153 Quotes - Error after saving plugin changes",
+   "n_cs": 1
+  },
+  {
+   "issue": 8178,
+   "commit": "ecfa3b8866163d4f51333e0b8cbbe8927c4b88d0",
+   "data": "2026-05-06",
+   "msg": "#8178 Admin area. Fill some more customer fields regardless of excludeProperties param",
+   "n_cs": 1
+  },
+  {
+   "issue": 7493,
+   "commit": "6a79d5edddf71cce2b6fbb40721d83d7459793de",
+   "data": "2025-01-15",
+   "msg": "#7493 Brevo plugin. Do not handle events if the plugin is not configured",
+   "n_cs": 2
+  },
+  {
+   "issue": 7958,
+   "commit": "dbafb2c6f49e297f078430d5f5af95a3c43d9a02",
+   "data": "2025-11-17",
+   "msg": "#7958 The topic menu item URL isn’t generated when the SystemName isn't defined",
+   "n_cs": 1
+  },
+  {
+   "issue": 8345,
+   "commit": "0b949d3be0e1adcf08e102f1b3c71cb8c5866afe",
+   "data": "2026-10-05",
+   "msg": "#8345 Misc.Brevo plugin. Change type of unsubscription webhook",
+   "n_cs": 2
+  },
+  {
+   "issue": 7963,
+   "commit": "954f66bb6b36b96ad65859d97fcccb3175faf679",
+   "data": "2025-11-20",
+   "msg": "#7963 Summernote editor. Add a setting indicating whether <script> tags and CSS styles are allowed in HTML",
+   "n_cs": 3
+  },
+  {
+   "issue": 7793,
+   "commit": "b219b2aff3dd8641a3a49e69a62c1bdf92e03183",
+   "data": "2025-07-25",
+   "msg": "#7793 Bulk edit products. Editing products without SKU",
+   "n_cs": 1
+  },
+  {
+   "issue": 7346,
+   "commit": "c804a147e666fc9c0ba09ffa948567ec1472169b",
+   "data": "2024-10-04",
+   "msg": "#7346 Added possibility to set the command timeout for the migrations runner config",
+   "n_cs": 2
+  },
+  {
+   "issue": 7659,
+   "commit": "e0ee3f7fedf30520eccec277864f069f83006cfa",
+   "data": "2025-08-01",
+   "msg": "#7659 Fix popup notification setting usage",
+   "n_cs": 2
+  },
+  {
+   "issue": 7797,
+   "commit": "0dad2c145c4f68676116d48b89764bc35fed2313",
+   "data": "2025-08-04",
+   "msg": "#7797 Fix homepage URL with \"SEO friendly URLs with multiple languages\" setting enabled",
+   "n_cs": 2
+  },
+  {
+   "issue": 8358,
+   "commit": "b5947abf9f3fa6fb311fd5fb3de037194a3a599b",
+   "data": "2026-10-13",
+   "msg": "#8358 Fix removed search term reappearing in search history",
+   "n_cs": 1
+  },
+  {
+   "issue": 7515,
+   "commit": "303203d9aad9cd4cb52cc7acb69d239d3a599546",
+   "data": "2025-04-02",
+   "msg": "#7515 Next minor changes",
+   "n_cs": 5
+  },
+  {
+   "issue": 7221,
+   "commit": "13f3d2f6cc4ccf8ea6e09d49198abfcdfbb7e435",
+   "data": "2024-06-10",
+   "msg": "#7221 #6568 Added some data encoding into JSON-LD",
+   "n_cs": 1
+  },
+  {
+   "issue": 8281,
+   "commit": "9e7da4aa010214bddd08ebff81aa9743ecff007b",
+   "data": "2026-08-20",
+   "msg": "#8281 Refactoring of PropertyByName class",
+   "n_cs": 1
+  },
+  {
+   "issue": 7584,
+   "commit": "6282ffd174b5ba664955c40f98641d5649be1d83",
+   "data": "2025-04-28",
+   "msg": "#7584 Avalara tax plugin. Don't try to create a transaction if address is incomplete",
+   "n_cs": 3
+  },
+  {
+   "issue": 8230,
+   "commit": "b6798f523319d38163e71fc3a69ef88955200864",
+   "data": "2026-06-16",
+   "msg": "#8230 Vendor can modify other vendors' products via Bulk Edit (missing tenant check)",
+   "n_cs": 1
+  },
+  {
+   "issue": 7222,
+   "commit": "f620ea4b46b5478a641dae5a02e5c1d670a7fcdd",
+   "data": "2024-11-01",
+   "msg": "#7222 Brevo. Pass the partner information",
+   "n_cs": 4
+  },
+  {
+   "issue": 7423,
+   "commit": "2e7103c878d814dc69cd5a6d222088a833b43f7f",
+   "data": "2024-11-21",
+   "msg": "#7423 Added new synchronous Delete method into IRepository",
+   "n_cs": 2
+  },
+  {
+   "issue": 7419,
+   "commit": "6bf39a0fbf757d0825c769aa363ed4a5aa69a27a",
+   "data": "2024-11-20",
+   "msg": "#7419 Fixed deleting newsletter subscription when the SuffixDeletedCustomers setting is enabled",
+   "n_cs": 1
+  },
+  {
+   "issue": 7274,
+   "commit": "9a226a2d6b6b3d9045d0a9ff6922e9c9bdec5496",
+   "data": "2024-08-13",
+   "msg": "#7274 Export/Import. Fixed problem with the excel cell type on export",
+   "n_cs": 1
+  },
+  {
+   "issue": 7786,
+   "commit": "6d43b92c9b9da086d9c4f1de8a8de1665e070033",
+   "data": "2025-07-25",
+   "msg": "#7786 Property EntityTokensAddedEvent.Tokens does not require a typed parameter U",
+   "n_cs": 4
+  },
+  {
+   "issue": 8055,
+   "commit": "3ce8e47279a486a43f2a72c570a71db5420e8ed9",
+   "data": "2026-01-12",
+   "msg": "#8055 Missing permission check for Brevo plugin configuration page",
+   "n_cs": 1
+  },
+  {
+   "issue": 7759,
+   "commit": "0478ee35ed65b3d1852eb80a0c6dfada3256d834",
+   "data": "2025-07-02",
+   "msg": "#7759 Delete unused NopRazorPage class",
+   "n_cs": 1
+  },
+  {
+   "issue": 7122,
+   "commit": "eb5f3deb40a6c0ede6a4e6203c13dc66f5160be5",
+   "data": "2024-12-03",
+   "msg": "#7122 Split the InstallationService into several parts",
+   "n_cs": 3
+  },
+  {
+   "issue": 7739,
+   "commit": "af0c9fc193bedbfb61902f2a3a487fcfe76949b6",
+   "data": "2025-09-19",
+   "msg": "#7739 #5986 Fixed on \"Allow to delete image thumbs\"",
+   "n_cs": 1
+  },
+  {
+   "issue": 7264,
+   "commit": "d31649b4ecb4ce4ba5ca18d1ba338db4de4b2508",
+   "data": "2024-10-24",
+   "msg": "#7264 PayPal Commerce plugin. Move menu item",
+   "n_cs": 1
+  },
+  {
+   "issue": 7533,
+   "commit": "9cfc42a526e4cb53dc3d4bd9c2780165d9c0479e",
+   "data": "2025-01-30",
+   "msg": "#7533 Optimize Reward Points Queries with Asynchronous Execution (#7509)",
+   "n_cs": 1
+  },
+  {
+   "issue": 7217,
+   "commit": "8997bbcf1db5e02c8528607014a712bf034b2f82",
+   "data": "2024-06-06",
+   "msg": "#7217 Fixed sending test email of the message template",
+   "n_cs": 1
+  },
+  {
+   "issue": 8428,
+   "commit": "cf5e6293f5ae1a69b3d8a1985917a8c409f0dfc9",
+   "data": "2026-10-29",
+   "msg": "#8428 5.00 upgrade fails in SearchTermMigration: TruncateAsync not awaited",
+   "n_cs": 1
+  },
+  {
+   "issue": 7592,
+   "commit": "8983fd7dfa4eaac0a167aaf74426f4a5c9376658",
+   "data": "2025-02-19",
+   "msg": "#7592 AccessDenied page may raise \"System.ArgumentNullException: Value cannot be null\" exception",
+   "n_cs": 1
+  },
+  {
+   "issue": 7772,
+   "commit": "3fe4578634c5e976ef06e4b812c561690f304dbc",
+   "data": "2025-07-23",
+   "msg": "#7772 Small refactoring on \"Discussion forum structured data\"",
+   "n_cs": 2
+  },
+  {
+   "issue": 7843,
+   "commit": "8ad118b6e16b8eab496c32d8b29aee473152851c",
+   "data": "2025-09-16",
+   "msg": "#7843 Improved the process of switching MFA providers when forcing activation for all users",
+   "n_cs": 1
+  },
+  {
+   "issue": 7913,
+   "commit": "cfca8f03920053bbdb3e11e0461829614d8f7b71",
+   "data": "2025-10-27",
+   "msg": "#7913 YMM filter levels should require all fields to be entered",
+   "n_cs": 1
+  },
+  {
+   "issue": 7782,
+   "commit": "5f406c25243ccf0163aecd77f8b211143abdb047",
+   "data": "2025-07-25",
+   "msg": "#7782 The MessageTokenProvider.GetListOfAllowedTokensAsync should not accept IEnumerable",
+   "n_cs": 3
+  },
+  {
+   "issue": 7648,
+   "commit": "1f8ea6a4a4a6ac346a58089ae223163572fe876c",
+   "data": "2025-03-25",
+   "msg": "#7648 CustomerSearchModel.AvatarEnabled has internal property access",
+   "n_cs": 1
+  },
+  {
+   "issue": 8050,
+   "commit": "a80073633025f235bcb7ef16b196bc74d458452f",
+   "data": "2026-01-12",
+   "msg": "#8050 Improve DeleteCategoryAsync performance by bulk updating subcategorie…",
+   "n_cs": 1
+  },
+  {
+   "issue": 8415,
+   "commit": "51c2821201d4c5007b6ce450ceb971228d4a8563",
+   "data": "2026-10-26",
+   "msg": "#8415 Vendors should not have access to price lists",
+   "n_cs": 1
+  },
+  {
+   "issue": 7314,
+   "commit": "536e1d08e1373f874a542ce11aadf66aa871e772",
+   "data": "2024-08-23",
+   "msg": "#7314 Fixed possible eroor with \"Headers are read-only\" on RePostPayment method",
+   "n_cs": 1
+  },
+  {
+   "issue": 7332,
+   "commit": "1ef8c163e3c598a2897249d58ca666a6cf6e7851",
+   "data": "2024-09-11",
+   "msg": "#7332 Deleted \"ProductReviews\" method in \"ProductController\"",
+   "n_cs": 1
+  },
+  {
+   "issue": 8065,
+   "commit": "7ea9b5ba11f11df5778923651ac98e665224336c",
+   "data": "2026-01-12",
+   "msg": "#8065 Shipping.UPS sends InvoiceLineTotal with culture-specific decimal separator (comma)",
+   "n_cs": 1
+  },
+  {
+   "issue": 7237,
+   "commit": "50841584dbef8decaf2a18e6c66e398d74bf4397",
+   "data": "2024-06-17",
+   "msg": "#7237 Order address validation in admin area",
+   "n_cs": 1
+  },
+  {
+   "issue": 8432,
+   "commit": "d50397174087c0a0b727c7f20cf84d399d39f129",
+   "data": "2026-11-02",
+   "msg": "#8432 Remove the \"Host\" directive in robots.txt",
+   "n_cs": 1
+  },
+  {
+   "issue": 7729,
+   "commit": "3ece84bcf9d3f15f1eec2927a5b1bc8ffdbea59c",
+   "data": "2025-08-07",
+   "msg": "#7729 Rename AllowSVGUploads to AllowSvgUploads",
+   "n_cs": 9
+  },
+  {
+   "issue": 7379,
+   "commit": "d0d6299e49c6f747edd01904385b952df61d079a",
+   "data": "2025-04-28",
+   "msg": "#7379 Added a way to use a new order GUID when setting payment request",
+   "n_cs": 3
+  },
+  {
+   "issue": 7467,
+   "commit": "3c0d6e89a278a834960e9be5c8bce65e0ef23dc0",
+   "data": "2025-03-11",
+   "msg": "#7467 Null customer email when you have Guest checkout enabled",
+   "n_cs": 1
+  },
+  {
+   "issue": 7542,
+   "commit": "a57629f013edc8f31a3247a176432ebd4f8cfa48",
+   "data": "2025-01-30",
+   "msg": "#7542 Refactored the ImportResourcesFromXmlAsync method to use ToDictionaryAsync (#7527)",
+   "n_cs": 1
+  },
+  {
+   "issue": 5279,
+   "commit": "20fbdcf5cdfab6453be68a162c1987df72a7b65b",
+   "data": "2025-02-13",
+   "msg": "#5279 Search by product tags",
+   "n_cs": 3
+  },
+  {
+   "issue": 8041,
+   "commit": "e424e1f31ae614e9b2c93945f9fbb238f2bd4b1c",
+   "data": "2025-12-19",
+   "msg": "#8041 Next changes on \"Refactoring of migration for Alter, Delete, and Schema operations using NameCompatibilityManager\"",
+   "n_cs": 5
+  },
+  {
+   "issue": 7902,
+   "commit": "3c3d61395d955ea710bd51a004e19b013ebefa27",
+   "data": "2025-10-22",
+   "msg": "#7902 Quotes. NullReferenceException when try to use link for deleted \"Related quote\"",
+   "n_cs": 6
+  },
+  {
+   "issue": 7541,
+   "commit": "c2b069c59ae0c0059f421e68e113fe2767b55ade",
+   "data": "2025-01-30",
+   "msg": "#7541 Refactor IsEntityAclMappingExistAsync for Async Query Execution (#7512)",
+   "n_cs": 1
+  },
+  {
+   "issue": 8435,
+   "commit": "7dfe9f4f6dd5791691e78a29363eac48267b2a64",
+   "data": "2026-11-05",
+   "msg": "#8435 PunchOut: submitted cart items remain in the customer’s next session",
+   "n_cs": 1
+  },
+  {
+   "issue": 7253,
+   "commit": "83426a5c7d8eab968d4ea4e8ed2f4efaa7bcef9b",
+   "data": "2024-07-12",
+   "msg": "#7253 Marked all methods as \"virtual\" in the AttributeService",
+   "n_cs": 1
+  },
+  {
+   "issue": 8380,
+   "commit": "f4d225cc116c3bd789ac5ff97eceaa667be26b1a",
+   "data": "2026-10-16",
+   "msg": "#8380 Newsletter label changes to “IsActive” after an invalid registration attempt",
+   "n_cs": 1
+  },
+  {
+   "issue": 7487,
+   "commit": "091dd72e1e04f8b69ba41fcef4cf69932cd6b07b",
+   "data": "2025-01-14",
+   "msg": "#7487 PayPal Commerce plugin. Disable buttons rendering on grouped product pages",
+   "n_cs": 4
+  },
+  {
+   "issue": 7289,
+   "commit": "ec5f5a778920c8930f71cb0f5c6cf7415e5ae601",
+   "data": "2024-09-04",
+   "msg": "#7289 Unified preparing pictures for Categories, Vendors and Manufacturers",
+   "n_cs": 1
+  },
+  {
+   "issue": 7406,
+   "commit": "bd0d94a5b99bdc131854a8e2d9bc8edb06d59abb",
+   "data": "2024-11-18",
+   "msg": "#7406 #7241 Fixed saving discount without linking to vendor",
+   "n_cs": 3
+  },
+  {
+   "issue": 8317,
+   "commit": "60da289f2b3ab5b0ae41b9d82ef6987588910b95",
+   "data": "2026-09-23",
+   "msg": "#8317 Make BBCode as default editor for forums",
+   "n_cs": 1
+  },
+  {
+   "issue": 7356,
+   "commit": "e50e7e2d3f4bef6b88138372fea2659f75879e66",
+   "data": "2024-10-07",
+   "msg": "#7356 UPS Plugin. Added tracing the rates and track responses",
+   "n_cs": 2
+  },
+  {
+   "issue": 8141,
+   "commit": "9fd1ff4dcc2911d12405652e72fd49c35b2aad9a",
+   "data": "2026-04-06",
+   "msg": "#8141 Simplify the DataSettingsManager class",
+   "n_cs": 3
+  },
+  {
+   "issue": 7694,
+   "commit": "9f84ea1022a16c0caf30b65f6021fe5b427c9838",
+   "data": "2025-06-02",
+   "msg": "#7694 Corrected spelling of \"email\" locales",
+   "n_cs": 5
+  },
+  {
+   "issue": 7565,
+   "commit": "b394221505178b606d506f80135f26ca0d89bf76",
+   "data": "2025-02-11",
+   "msg": "#7565 Rename AdminMenu.GetItemBySystem to AdminMenu.GetItemBySystemName (#7566)",
+   "n_cs": 2
+  },
+  {
+   "issue": 7671,
+   "commit": "34f976c654b9964fa299eb6e909d57f2619c23b2",
+   "data": "2025-04-11",
+   "msg": "#7671 Fix incorrect installation when country is not default one and subscription is enabled",
+   "n_cs": 2
+  },
+  {
+   "issue": 8339,
+   "commit": "ac839e9ac82ad83d775fe81be68ba392ceaf561b",
+   "data": "2026-10-05",
+   "msg": "#8339 Fix typo",
+   "n_cs": 2
+  },
+  {
+   "issue": 7950,
+   "commit": "ad6687fe5b1a9caa23680032b24e6b43df02d2b5",
+   "data": "2025-11-24",
+   "msg": "#7950 AddressItem should be a class (not a record)",
+   "n_cs": 1
+  },
+  {
+   "issue": 7223,
+   "commit": "c36330388f8a29e3a34bcb9143e369b02e4f96af",
+   "data": "2024-06-21",
+   "msg": "#7223 Added index to Customer.Deleted column",
+   "n_cs": 2
+  },
+  {
+   "issue": 7749,
+   "commit": "8708d4e2fe28157b218df38d32e9191d8fcdcece",
+   "data": "2025-07-16",
+   "msg": "#7749 Default language name should be \"English\" (not \"EN\") after installation",
+   "n_cs": 1
+  },
+  {
+   "issue": 7432,
+   "commit": "d226f25a2af42a5d9d01dc896480d3ebec751478",
+   "data": "2024-11-29",
+   "msg": "#7432 Swiper plugin required field validation is missing",
+   "n_cs": 4
+  },
+  {
+   "issue": 7964,
+   "commit": "9e7047eecafb20d1275e9438159be24f742bea9c",
+   "data": "2025-12-12",
+   "msg": "#7964 Automated SEO optimization with AI tools for any entity",
+   "n_cs": 4
+  },
+  {
+   "issue": 8244,
+   "commit": "6c39809cfc1dc716aa46a08117ca204c532d3696",
+   "data": "2026-07-02",
+   "msg": "#8244 \"Request a Quote\" button is still displayed on the frontend when the plugin is disabled",
+   "n_cs": 1
+  },
+  {
+   "issue": 7576,
+   "commit": "d6c9871efc96a0c81294f0da2d0ec6341c162d89",
+   "data": "2025-02-13",
+   "msg": "#7576 Refactor ClearDiscountProductMappingAsync to remove unnecessary join and optimize query (#7560)",
+   "n_cs": 1
+  },
+  {
+   "issue": 7667,
+   "commit": "a1cc7f75af9f1dd80659dae15f0cd04d069872a3",
+   "data": "2025-04-15",
+   "msg": "#7667 ResizeImage method of RoxyFilemanFileProvider use obsolete SKBitmap.ScalePixels method",
+   "n_cs": 1
+  },
+  {
+   "issue": 7773,
+   "commit": "59732036b57351014d9ff8698ae92b50c3b95528",
+   "data": "2025-08-01",
+   "msg": "#7773 Fixed \"No files found matching exist in an asset /lib_npm/jquery/jquery.min.js\"",
+   "n_cs": 1
+  },
+  {
+   "issue": 7784,
+   "commit": "d46c25fb5421a783a1688c899da63ea028db42c8",
+   "data": "2025-07-25",
+   "msg": "#7784 The MessageTokenProvider.GetListOfAllowedTokensAsync can lead to a null reference exception",
+   "n_cs": 1
+  },
+  {
+   "issue": 7530,
+   "commit": "81027fb3ab5a4877e85a3c54099477d101d5767e",
+   "data": "2025-01-30",
+   "msg": "#7530 Use async KeyDeleteAsync in RemoveByPrefixAsync (#7525)",
+   "n_cs": 1
+  },
+  {
+   "issue": 8442,
+   "commit": "47caa340ef4e0e22a2e3a1bdcc9b2bff186a0e05",
+   "data": "2026-11-06",
+   "msg": "#8442 Restrict vendor access when adding product",
+   "n_cs": 6
+  },
+  {
+   "issue": 7826,
+   "commit": "5c49eb78762c8f302d621b11d3addcfe5c92cfa1",
+   "data": "2025-08-15",
+   "msg": "#7826 When vendor go to his order details page in admin, data table error throwing",
+   "n_cs": 2
+  },
+  {
+   "issue": 8025,
+   "commit": "70a0f972e669d90457c068182c4c1ea7d02ce284",
+   "data": "2025-12-12",
+   "msg": "#8025 Added event to route generic URL",
+   "n_cs": 2
+  },
+  {
+   "issue": 7687,
+   "commit": "963f9800cd164605f25587d1efb7e25f58a4cb08",
+   "data": "2025-04-28",
+   "msg": "#7687 Add an event invoked when the application starts",
+   "n_cs": 2
+  },
+  {
+   "issue": 7393,
+   "commit": "5c5b904c92f56144940fd4a542b02ce4ae975e6a",
+   "data": "2024-11-08",
+   "msg": "#7393 Fixed BulkCopy operation for PostgreSQL",
+   "n_cs": 3
+  },
+  {
+   "issue": 1779,
+   "commit": "7dd6baf558ab7077225e97368e9e08ba727db341",
+   "data": "2025-04-01",
+   "msg": "#1779 Fixed typo",
+   "n_cs": 1
+  },
+  {
+   "issue": 8391,
+   "commit": "3e5dfa8d7a905117d95474c21b53b50de5ac8006",
+   "data": "2026-10-20",
+   "msg": "#8391 OTP failed-attempt limit is never enforced",
+   "n_cs": 1
+  },
+  {
+   "issue": 7711,
+   "commit": "09232e573beb3230c132da47afd93a28db4158f1",
+   "data": "2025-06-17",
+   "msg": "#7711 PayPal Commerce plugin. Add notes to order when payment is declined",
+   "n_cs": 1
+  },
+  {
+   "issue": 8059,
+   "commit": "feab2a5b6f73a75d366a697b424d0d4b39bc0e5c",
+   "data": "2026-01-20",
+   "msg": "#8059 Missing permission check for Request for quote plugin configuration page",
+   "n_cs": 1
+  },
+  {
+   "issue": 7508,
+   "commit": "debaf49f8b9e48264e909e3b45bca763b08d6684",
+   "data": "2025-01-22",
+   "msg": "#7508 BaseAdminMenuCreatedEventConsumer should check if the plugin is not null",
+   "n_cs": 1
+  },
+  {
+   "issue": 7597,
+   "commit": "af40ca366b2599b841e536d6c6df4bbdbdcf9381",
+   "data": "2025-02-20",
+   "msg": "#7597 Optimize code on ProductAttributeService class (#7583)",
+   "n_cs": 1
+  },
+  {
+   "issue": 7301,
+   "commit": "5f903c629d9711d4cf1df09474889b753c9bf31b",
+   "data": "2024-09-17",
+   "msg": "#7301 Added new product examples and updated slider images",
+   "n_cs": 1
+  },
+  {
+   "issue": 7721,
+   "commit": "107a835a1bf3903031943f4a88eab83ea9bc7a32",
+   "data": "2025-05-29",
+   "msg": "#7721 Optimize entity deletions in multiple methods by batching operations into single transactions",
+   "n_cs": 8
+  },
+  {
+   "issue": 1426,
+   "commit": "a3d11753318dff20b835d12193d7971e2e29083d",
+   "data": "2025-05-26",
+   "msg": "#1426 Added recommendation to update a store to the latest version",
+   "n_cs": 3
+  },
+  {
+   "issue": 7471,
+   "commit": "0916066d19c2c08e498316a1c7e6adfa6170e364",
+   "data": "2025-01-10",
+   "msg": "#7471 Installation (sample data). Some category pictures are missing",
+   "n_cs": 1
+  },
+  {
+   "issue": 7257,
+   "commit": "7fb77828d739422fae58cc99c09824bfcf1e3ab1",
+   "data": "2024-07-16",
+   "msg": "#7257 Added store limitation to getting language from the request",
+   "n_cs": 1
+  },
+  {
+   "issue": 7477,
+   "commit": "db523b94283cbc14133660c01a3ccad9705f2d35",
+   "data": "2025-03-05",
+   "msg": "#7477 Fixed a minor issue with RTL layout",
+   "n_cs": 1
+  },
+  {
+   "issue": 8014,
+   "commit": "86ea8cfd181b42b2c166c1b21e25a3e19ff19e79",
+   "data": "2025-12-05",
+   "msg": "#8014 Rental products cannot be added to the cart in RTL (Arabic) mode",
+   "n_cs": 2
+  },
+  {
+   "issue": 8377,
+   "commit": "bb282e906595782570f74879647e253c487132de",
+   "data": "2026-10-15",
+   "msg": "#8377 Forums plugin- incorrect redirects, incomplete GDPR cleanup, wrong post counts, page index calculation improvement",
+   "n_cs": 3
+  },
+  {
+   "issue": 8446,
+   "commit": "a86dc994bef54f4257be23f0b4ef37e8a05dd647",
+   "data": "2026-11-06",
+   "msg": "#8446 PayPal Commerce plugin. Use invariant casing string conversion",
+   "n_cs": 3
+  },
+  {
+   "issue": 7215,
+   "commit": "82835678a6d53c5cc488f63a506bcdbe6a2e81d6",
+   "data": "2024-06-05",
+   "msg": "#7215 Refactoring of Multiple pictures associated to product attribute value and product attribute combination",
+   "n_cs": 6
+  },
+  {
+   "issue": 8395,
+   "commit": "14abc2f725ba5f3d4432a4c459bec541f04640b2",
+   "data": "2026-10-20",
+   "msg": "#8395 Tax.Avalara plugin. Add permission check to category update",
+   "n_cs": 1
+  },
+  {
+   "issue": 8057,
+   "commit": "de850cd855aa575e0e743208325fb3bca61d3cf4",
+   "data": "2026-01-12",
+   "msg": "#8057 Missing permission check for Omnisend plugin configuration page",
+   "n_cs": 1
+  },
+  {
+   "issue": 7622,
+   "commit": "91ae44cb9e5a5e41587ee9e8444c14db10346be2",
+   "data": "2025-03-11",
+   "msg": "#7622 MemoryCacheManager produces an issue if the eviction callback happens after the item is re-added to the cache",
+   "n_cs": 1
+  },
+  {
+   "issue": 7839,
+   "commit": "89c0a7cfa8d2c08da57ee2ade3021a499b9b553b",
+   "data": "2025-09-10",
+   "msg": "#7839 Review type caching issue when review type is deleted",
+   "n_cs": 5
+  },
+  {
+   "issue": 7971,
+   "commit": "e81b9489344257118d4dafecaec0aa4302798c07",
+   "data": "2026-03-03",
+   "msg": "#7971 Swiper plugin. Set \"title\" and \"alternate text\" during plugin installation (sample data)",
+   "n_cs": 1
+  },
+  {
+   "issue": 7427,
+   "commit": "86d62cfa075c382396518f5f3f60cca9ef5bf62b",
+   "data": "2024-11-28",
+   "msg": "#7427 Inherit VendorProductReviewModel from BaseNopModel",
+   "n_cs": 1
+  },
+  {
+   "issue": 7502,
+   "commit": "fefba756324423fa125aad4549cdd5917e4eedc4",
+   "data": "2025-01-21",
+   "msg": "#7502 Zettle plugin. Error trying to delete non-existing setting",
+   "n_cs": 1
+  },
+  {
+   "issue": 7470,
+   "commit": "3cc59e69266521eac590a55ec17b6d1dbee4909e",
+   "data": "2024-12-27",
+   "msg": "#7470 PayPal Commerce. Fix negative discount value",
+   "n_cs": 3
+  },
+  {
+   "issue": 7876,
+   "commit": "2a2d182e479817d3272b328d2180b66b4a4b8631",
+   "data": "2025-10-13",
+   "msg": "#7876 MFA: Users cannot log in when \"Public store. Allow navigation\" for Guests is disabled",
+   "n_cs": 2
+  },
+  {
+   "issue": 8042,
+   "commit": "de1e423da2e436d2d71cf2420b4d2d029acbc864",
+   "data": "2025-12-17",
+   "msg": "#8042 Localization files contain a duplicate cannot be imported",
+   "n_cs": 1
+  },
+  {
+   "issue": 309,
+   "commit": "96a41b4fba67eeebd7437867ec3401a5bbf308b8",
+   "data": "2026-06-18",
+   "msg": "#309 Recurring Payments. Move filling RecurringPayment.NextRecurringPaymentDelay token into the AddRecurringPaymentTokensAsync method",
+   "n_cs": 1
+  },
+  {
+   "issue": 8136,
+   "commit": "1cfdb348186f2846acace2e9c00566896ddeec91",
+   "data": "2026-03-30",
+   "msg": "#8136 Add new social media links - TikTok, Snapchat, Pinterest, and Tumblr",
+   "n_cs": 9
+  },
+  {
+   "issue": 7407,
+   "commit": "ffcd25c4c5a0c49af9f771595f9e248b15a2da11",
+   "data": "2024-11-18",
+   "msg": "#7407 #7308 Fixed problem with filtering on catalog pages",
+   "n_cs": 2
+  },
+  {
+   "issue": 7425,
+   "commit": "8c84ee5161afc93cb55d6054e67328ad52a48479",
+   "data": "2024-11-25",
+   "msg": "#7425 ServicePointManager is obsolete and Settings on ServicePointManager no longer affect SslStream or HttpClient",
+   "n_cs": 1
+  },
+  {
+   "issue": 8075,
+   "commit": "031088ee5ee80216d5409e012eb6366341a4ae3a",
+   "data": "2026-02-13",
+   "msg": "#8075 Next changes on \"Maintenance page. Shrink database (display database size)\"",
+   "n_cs": 1
+  },
+  {
+   "issue": 7598,
+   "commit": "0272ea812775166eff6595904c09b6c125f0c141",
+   "data": "2025-02-26",
+   "msg": "#7598 Refactoring of TransformAsync method from SlugRouteTransformer class (#7605)",
+   "n_cs": 1
+  },
+  {
+   "issue": 7641,
+   "commit": "8222310c6aff0e2c767e7f082337c51e7656f3c8",
+   "data": "2025-03-20",
+   "msg": "#7641 Fixed product URL in BackInStock tokens",
+   "n_cs": 1
+  },
+  {
+   "issue": 7308,
+   "commit": "3724f1f8aaf597d007c7f22f65b97290570b92de",
+   "data": "2024-11-01",
+   "msg": "#7308 AJAX catalog requests converted from GET to POST",
+   "n_cs": 2
+  },
+  {
+   "issue": 8360,
+   "commit": "683f948979a6fae1feb14dffae15af9897ef84d4",
+   "data": "2026-10-13",
+   "msg": "#8360 GDPR delete now removes custom wishlist items and custom wishlists",
+   "n_cs": 1
+  },
+  {
+   "issue": 7373,
+   "commit": "dce9d69b3842b75703f15d1393affa020e932280",
+   "data": "2025-07-03",
+   "msg": "#7373 Comment edited",
+   "n_cs": 1
+  },
+  {
+   "issue": 7421,
+   "commit": "fa9cbe343c00daa1793da4d65771ad002e0ce763",
+   "data": "2024-11-21",
+   "msg": "#7421 Moved \"-DELETED\" suffix to the NopCustomerServicesDefaults",
+   "n_cs": 2
+  },
+  {
+   "issue": 873,
+   "commit": "670c1ffaf582a39fb3d8f279e6815b805c91ca2e",
+   "data": "2025-02-13",
+   "msg": "#873 Add SEO settings for product tags",
+   "n_cs": 9
+  },
+  {
+   "issue": 8445,
+   "commit": "7262286b7d676094a6db4879978b2fd4c7e22db1",
+   "data": "2026-11-06",
+   "msg": "#8445 Move EnsureOnlyAllowedHtml method into Nop.Core Library",
+   "n_cs": 4
+  },
+  {
+   "issue": 8362,
+   "commit": "702ce7b3bf16638ec4077f78988dc58fe5749581",
+   "data": "2026-10-14",
+   "msg": "#8362 Fix category product sorting to use product display order instead of category display order",
+   "n_cs": 1
+  },
+  {
+   "issue": 7548,
+   "commit": "3743464a5c3e2a834f27a2da4d15415380d10cc6",
+   "data": "2025-02-03",
+   "msg": "#7548 PayPal Commerce plugin. Remove taxes from order items",
+   "n_cs": 1
+  },
+  {
+   "issue": 7457,
+   "commit": "cf44b83f29a0b65ed6ab6a4c1c37d0c14707bdd0",
+   "data": "2024-12-16",
+   "msg": "#7457 CSS file paths incorrectly generated when Nop is a Sub Application in IIS",
+   "n_cs": 1
+  },
+  {
+   "issue": 2192,
+   "commit": "8032143fb2fad9a05baf91a6a0bb717971b0b160",
+   "data": "2025-06-23",
+   "msg": "#2192 Requeue multiple emails from the QueuedEmail List page",
+   "n_cs": 4
+  },
+  {
+   "issue": 7653,
+   "commit": "2529c2c3e98fc3cc02485894125ac16151dbb825",
+   "data": "2025-04-07",
+   "msg": "#7653 removed the unused language parameter (#7655)",
+   "n_cs": 1
+  },
+  {
+   "issue": 7787,
+   "commit": "bffb7b4d17e06a5d0d5136c74826fd666b32f4e7",
+   "data": "2025-07-25",
+   "msg": "#7787 Property MessageTokensAddedEvent.Tokens does not require a typed parameter U",
+   "n_cs": 4
+  },
+  {
+   "issue": 7540,
+   "commit": "793ccf241bfb76fcef2a71fce16e0ff355392a67",
+   "data": "2025-01-30",
+   "msg": "#7540 Optimize Async Query Handling in IsEntityMappingExistsAsync (#7511)",
+   "n_cs": 1
+  },
+  {
+   "issue": 7478,
+   "commit": "36d1d81a4ab655f214f5eed94a548d993946985a",
+   "data": "2025-01-09",
+   "msg": "#7478 We should not throw JS errors when a merchant does not have appropriate ACL permissions",
+   "n_cs": 6
+  },
+  {
+   "issue": 7532,
+   "commit": "5526353390e296a24fe3ea47b7bff2310105480b",
+   "data": "2025-01-30",
+   "msg": "#7532 Refactor ProductCategory and ProductManufacturer Search with LINQ for Improved Code Readability",
+   "n_cs": 2
+  },
+  {
+   "issue": 7426,
+   "commit": "ad57b4739577a972a0ef1df5c9d4fa6d5d0293d2",
+   "data": "2024-11-28",
+   "msg": "#7426 Add activity log for \"Delete selected\" methods",
+   "n_cs": 3
+  },
+  {
+   "issue": 1020,
+   "commit": "26ce59d299e26e4e1d2fe26efe4320fb04a9f4db",
+   "data": "2025-02-20",
+   "msg": "#1020 Implement IStopProcessingEvent interface for GenericRoutingEvent instead of using Handled property",
+   "n_cs": 2
+  },
+  {
+   "issue": 7247,
+   "commit": "934b13ab0209b08f97b5d1f677925ce308f0f3a6",
+   "data": "2024-06-21",
+   "msg": "#7247 Fixed discounts caching issue",
+   "n_cs": 2
+  },
+  {
+   "issue": 7403,
+   "commit": "8adea3b1e916029d97ab59a772929b0dc8dd44df",
+   "data": "2024-11-11",
+   "msg": "#7403 Removed the problematic pathBase code until we find a solution with local links",
+   "n_cs": 4
+  },
+  {
+   "issue": 7676,
+   "commit": "e74b8c5ad7cf05d073620af76308415cb8077457",
+   "data": "2025-07-27",
+   "msg": "#7676 add  IX_Product_Search only to MS SQL to avoid MyXQL.Error on MySql server",
+   "n_cs": 2
+  },
+  {
+   "issue": 8053,
+   "commit": "aef7643e525f8003da0e387e1520fec683a9a440",
+   "data": "2026-04-03",
+   "msg": "#8053 Consistent date input and output (Gregorian calendar)",
+   "n_cs": 4
+  },
+  {
+   "issue": 8381,
+   "commit": "7a57bf06883e979a41e07185df7e4a0b989a0b48",
+   "data": "2026-10-16",
+   "msg": "#8381 Newsletter label disappears after submitting an invalid phone number on the user My account - Customer info page",
+   "n_cs": 1
+  },
+  {
+   "issue": 8083,
+   "commit": "958f5b9809d246b14b3388546b9b949ea0e34cf3",
+   "data": "2026-01-28",
+   "msg": "#8083 \"Continue Shopping\" button redirects to incorrect page",
+   "n_cs": 2
+  },
+  {
+   "issue": 7391,
+   "commit": "5523f30389f1e91798cd5769efbeaa77d6d1d251",
+   "data": "2024-11-11",
+   "msg": "#7391 Omnisend. Added update functionality to the sync products",
+   "n_cs": 6
+  },
+  {
+   "issue": 7613,
+   "commit": "e355606446eabc80be4b8da8c1f4ac481fa7caa1",
+   "data": "2025-03-03",
+   "msg": "#7613 Fix error with non-ASCII character on local redirect",
+   "n_cs": 2
+  },
+  {
+   "issue": 7862,
+   "commit": "97b06138cc014ba6a887c9cf23aa435e7f7dafcc",
+   "data": "2025-09-18",
+   "msg": "#7862 Admin area. There is no way to make the base menu item invisible",
+   "n_cs": 1
+  },
+  {
+   "issue": 7651,
+   "commit": "09e75ca3ec7ccd85797fe6daa5aa59ba60fc1560",
+   "data": "2025-04-15",
+   "msg": "#7651 ImageResize method of PictureService use obsolete SKBitmap.Resize method",
+   "n_cs": 1
+  },
+  {
+   "issue": 7229,
+   "commit": "e4997c758442d0c7052bf593a33b0b440d6b40d4",
+   "data": "2024-06-21",
+   "msg": "#7229 Fixed problem with saving order item price in admin area",
+   "n_cs": 1
+  },
+  {
+   "issue": 7753,
+   "commit": "58912a57ceff7bcbf56c57d47f95377a8ee23e44",
+   "data": "2025-06-20",
+   "msg": "#7753 Sending a private message from admin area. They should be sent from the current user",
+   "n_cs": 1
+  },
+  {
+   "issue": 8105,
+   "commit": "0ae3478d51efe37467bb1288e29b8c9184116596",
+   "data": "2026-02-11",
+   "msg": "#8105 Schedule Task runs are skipped",
+   "n_cs": 1
+  },
+  {
+   "issue": 7590,
+   "commit": "462c926ce53a573ce67c676a7a257739c5c1fc60",
+   "data": "2025-02-19",
+   "msg": "#7590 AuthenticationMiddleware raise System.InvalidOperationException",
+   "n_cs": 3
+  },
+  {
+   "issue": 8231,
+   "commit": "95a8d983b9b9e672d6a2219b23cf4b667a9d2502",
+   "data": "2026-06-16",
+   "msg": "#8231 Vendor can modify other vendors' products via ProductAttributeCombinationGeneratePopup",
+   "n_cs": 1
+  },
+  {
+   "issue": 7649,
+   "commit": "a54739996aaa99d883cee483eca2e72ade1f2f6b",
+   "data": "2025-03-31",
+   "msg": "#7649 Brevo plugin. BrevoManager.SetPartnerAsync Method should use ILogger.ErrorAsync call",
+   "n_cs": 1
+  },
+  {
+   "issue": 8393,
+   "commit": "2c2b9368db96c43bd1deab0ad9ad5d4d76adc3c0",
+   "data": "2026-10-20",
+   "msg": "#8393 Set order customer id on return request submit",
+   "n_cs": 1
+  },
+  {
+   "issue": 8125,
+   "commit": "607cc1d73e68d17c4812aa2d5a31b4bfd83ea17d",
+   "data": "2026-03-03",
+   "msg": "#8125 Rename locales",
+   "n_cs": 1
+  },
+  {
+   "issue": 7275,
+   "commit": "9651207d7884b701ccb8897f3c4801be3d5cfcd6",
+   "data": "2024-08-13",
+   "msg": "#7275 Removed unused ILocalizedEnum interface (#7279)",
+   "n_cs": 1
+  },
+  {
+   "issue": 7276,
+   "commit": "e1301ed9e22733d20fd5ed5fedd171747795bfd0",
+   "data": "2024-10-10",
+   "msg": "#7276 Made some of Configure methods synchronous",
+   "n_cs": 5
+  },
+  {
+   "issue": 8092,
+   "commit": "faa90b1441373e8e1244e49697d9da9758d31ab6",
+   "data": "2026-02-06",
+   "msg": "#8092 Remove unused singleton classes",
+   "n_cs": 2
+  },
+  {
+   "issue": 7871,
+   "commit": "210f22310f0e2a298a4b51f1b4609d74c6637de4",
+   "data": "2025-09-23",
+   "msg": "#7871 The AsyncIQueryableExtensions.ToPagedListAsync method should not execute a query if there is no data for it",
+   "n_cs": 1
+  },
+  {
+   "issue": 7300,
+   "commit": "06f06d0d4266d56d050e059a3a79fca02f4f5357",
+   "data": "2024-08-15",
+   "msg": "#7300 Fixed problem with the exporting product which has a mapping to deleted store",
+   "n_cs": 1
+  },
+  {
+   "issue": 8238,
+   "commit": "1d9f0f342b44ae3d6c591cfe9d9cec0b5860f413",
+   "data": "2026-06-24",
+   "msg": "#8238 Use a variable outside of a foreach loop",
+   "n_cs": 1
+  },
+  {
+   "issue": 7640,
+   "commit": "57911983cba586ba705009674a5b778f0f0915f5",
+   "data": "2025-03-20",
+   "msg": "#7640 PayPal Commerce plugin. Fixed error when product has no images",
+   "n_cs": 1
+  },
+  {
+   "issue": 5771,
+   "commit": "c54cfadc8b340ad472472b96f436d4aadc2ab576",
+   "data": "2025-02-17",
+   "msg": "#5771 Product tags. Allow a store owner to see products associated with a product tag (admin area)",
+   "n_cs": 8
+  },
+  {
+   "issue": 8212,
+   "commit": "3a1db40a68d06afa177bf2649dec4841fa79d56b",
+   "data": "2026-06-03",
+   "msg": "#8212 SQL deadlocks in EntityRepository bulk methods — default Serializable isolation in TransactionScope",
+   "n_cs": 4
+  },
+  {
+   "issue": 8279,
+   "commit": "c4d283390b7af2ea97c8b49fa15a36442679cc9d",
+   "data": "2026-08-17",
+   "msg": "#8279 XLSX import multiplies decimal values on comma-decimal locales",
+   "n_cs": 1
+  },
+  {
+   "issue": 7884,
+   "commit": "845f62c1a6c4ce810fe170942c3992e98fcdac6e",
+   "data": "2025-10-07",
+   "msg": "#7884 Automated translation. Wrong warning message where all fields are translated",
+   "n_cs": 1
+  },
+  {
+   "issue": 7183,
+   "commit": "3e107909f532deda3b4ebd8d02156512bebd428b",
+   "data": "2024-06-21",
+   "msg": "#7183 Enabled transit time on UPS plugin",
+   "n_cs": 2
+  },
+  {
+   "issue": 8321,
+   "commit": "399d6704a924f72f9f763af655c2e8d62e8395ea",
+   "data": "2026-09-25",
+   "msg": "#8321 Every storefront <label asp-for> renders as a nested, invalid label (#8322)",
+   "n_cs": 1
+  },
+  {
+   "issue": 7410,
+   "commit": "d5e95d53127de5b99530dd630b6e097b3daa63d4",
+   "data": "2024-11-15",
+   "msg": "#7410 Fixed issue with hard-deleted ISoftDeletedEntity items",
+   "n_cs": 1
+  },
+  {
+   "issue": 7732,
+   "commit": "2c8483575c9d813e2b25fc25895f8c876b93d918",
+   "data": "2025-09-19",
+   "msg": "#7732 Automated SEO optimization with AI tools",
+   "n_cs": 1
+  },
+  {
+   "issue": 7896,
+   "commit": "3361a0e91212bdc8cb3eadb6c325c45391953876",
+   "data": "2025-10-27",
+   "msg": "#7896 Rename a comment",
+   "n_cs": 1
+  },
+  {
+   "issue": 7730,
+   "commit": "520d6e55e6b9094eaeaeb1535e0f337a6a732d4d",
+   "data": "2025-08-13",
+   "msg": "#7730 Removed Standard language from the \"generate product description with AI\" page",
+   "n_cs": 2
+  },
+  {
+   "issue": 8254,
+   "commit": "08720d3f05c16e3636d0bac5b526a18d77b971fb",
+   "data": "2026-07-10",
+   "msg": "#8254 Move GetDefaultCulture method from views to NopHtmlHelper (continuation of 88b4219c10754126eeff8d15fe7249cba8564a27)",
+   "n_cs": 1
+  },
+  {
+   "issue": 8364,
+   "commit": "4039867e44d54cf8e7accaa669e0faced8fe306b",
+   "data": "2026-10-13",
+   "msg": "#8364 Fix category product count double-counting products mapped to several subcategories",
+   "n_cs": 1
+  },
+  {
+   "issue": 3425,
+   "commit": "f559c48a17595939e3a6d59e8ece64ef2f54ee14",
+   "data": "2025-01-13",
+   "msg": "#3425 Add OrderCompleted.StoreOwnerNotification message template",
+   "n_cs": 8
+  },
+  {
+   "issue": 8145,
+   "commit": "582a33e15ac33794be1e722ab2668b016860b478",
+   "data": "2026-04-17",
+   "msg": "#8145 Configure FluentMigrator to use MySQL 8-specific services",
+   "n_cs": 7
+  },
+  {
+   "issue": 7850,
+   "commit": "cc888a654505b9bfb3cc9a45736e2e827066bba9",
+   "data": "2025-09-17",
+   "msg": "#7850 The NullView class is in the wrong namespace",
+   "n_cs": 1
+  },
+  {
+   "issue": 8234,
+   "commit": "dc42deb960f87474904ce155174bef92c08691dc",
+   "data": "2026-06-18",
+   "msg": "#8234 Admin order list shipping status filter no longer renders as multi-select",
+   "n_cs": 1
+  },
+  {
+   "issue": 8229,
+   "commit": "e0732790a4f1eaaa05d3563b7f8ffd0f57d63a7f",
+   "data": "2026-07-23",
+   "msg": "#8229 Downloadable (digital) products that can't be returned (configurable)",
+   "n_cs": 10
+  },
+  {
+   "issue": 7925,
+   "commit": "cebd1264b334f3033f00e06ca248e93a0185dd60",
+   "data": "2025-11-01",
+   "msg": "#7925 AI-generated Product Description — Language Selection not working",
+   "n_cs": 1
+  },
+  {
+   "issue": 7897,
+   "commit": "d5cd8de2846936fd20cb652e414e38a55ab4f2e6",
+   "data": "2025-10-21",
+   "msg": "#7897 Filter levels (YMM) cannot be renamed",
+   "n_cs": 1
+  },
+  {
+   "issue": 8247,
+   "commit": "1c15e8dee9d2be979d8af3f4beb92ee5b03cbead",
+   "data": "2026-07-27",
+   "msg": "#8247 #8248 Price lists. Allow to view (edit) price lists on a product/customer details page",
+   "n_cs": 10
+  },
+  {
+   "issue": 7608,
+   "commit": "dc90bb2354f2777d00ac4bbfaf0e0ecd11aa6daa",
+   "data": "2025-02-27",
+   "msg": "#7608 Optimize the configuration of the migration runner",
+   "n_cs": 2
+  },
+  {
+   "issue": 7317,
+   "commit": "8f9b599076202db17b10d78a73f53d6783b80cc5",
+   "data": "2024-08-22",
+   "msg": "#7317 Fixed address string formatting",
+   "n_cs": 1
+  },
+  {
+   "issue": 8184,
+   "commit": "15b9272a973db71e18132ce7c81d517548ab6f91",
+   "data": "2026-05-18",
+   "msg": "#8184 Brevo plugin throws 400 error on some customers when tracking events",
+   "n_cs": 1
+  },
+  {
+   "issue": 7987,
+   "commit": "e17d8d8a83a162e50c912b5396ed2d4f0ac1e0e3",
+   "data": "2025-12-03",
+   "msg": "#7987 Campaign's \"Send Mass E-Mail\" doesn't consider chosen email address from dropdown",
+   "n_cs": 1
+  },
+  {
+   "issue": 7451,
+   "commit": "8fc6d70cdae3f7a3a9a7f73a7f38b6cf96d79c8d",
+   "data": "2024-12-14",
+   "msg": "#7451 #7452 PayPal Commerce plugin. Fix typo, remove unused service",
+   "n_cs": 2
+  },
+  {
+   "issue": 7414,
+   "commit": "5ab0f802471792e5463b843ad706f3a105d0c626",
+   "data": "2024-11-15",
+   "msg": "#7414 Omnisend. Prevented possible problems with null references on the price model",
+   "n_cs": 1
+  },
+  {
+   "issue": 7779,
+   "commit": "346aed4cfd6f00700e2d7c9362961dc28ccaca32",
+   "data": "2025-07-17",
+   "msg": "#7779 robots.txt should disallow \"returnurl\" parameter ignoring case",
+   "n_cs": 2
+  },
+  {
+   "issue": 7313,
+   "commit": "993f2d1e034a9223afa6be6a8f0afd21ac9a430b",
+   "data": "2024-08-23",
+   "msg": "#7313 Fixed parsing of prices and rental dates when adding a product to an order",
+   "n_cs": 1
+  },
+  {
+   "issue": 7496,
+   "commit": "c731a9e89beef3300af952345e4392087eb4b594",
+   "data": "2025-02-03",
+   "msg": "#7496 Don't replace the value of the type attribute in NopScriptTagHelper",
+   "n_cs": 1
+  },
+  {
+   "issue": 7349,
+   "commit": "fe666ae1d4ca21a8f3ffe948d3443a80d47ba4af",
+   "data": "2024-10-04",
+   "msg": "#7349 Display prices with currency in admin area in product list page and tier prices block on the product details page",
+   "n_cs": 4
+  },
+  {
+   "issue": 8209,
+   "commit": "17b538315161745ba61005260762ffaba03b1d90",
+   "data": "2026-07-29",
+   "msg": "#8209 Restore Browse Links button in Summernote Editor",
+   "n_cs": 1
+  },
+  {
+   "issue": 7450,
+   "commit": "d5397b120ed0052b93b49d51d05813f89532db84",
+   "data": "2024-12-12",
+   "msg": "#7450 PayPalCommerce plugin. Duplicate of migration version",
+   "n_cs": 1
+  },
+  {
+   "issue": 7212,
+   "commit": "faec2ed1ae6d405eeea0fad6d0875ca356d05170",
+   "data": "2024-06-05",
+   "msg": "#7212 Refactoring of import orders. Set the region depending on the country",
+   "n_cs": 1
+  },
+  {
+   "issue": 7582,
+   "commit": "38b802fed0e094d1c69dc5a726f39244ca66cd32",
+   "data": "2025-04-01",
+   "msg": "#7582 GetProductCount and SearchProducts results don't match for same product tag when showHidden",
+   "n_cs": 1
+  },
+  {
+   "issue": 7397,
+   "commit": "d149e8440afd84c8a1845086f8a6e7e576bba194",
+   "data": "2025-06-10",
+   "msg": "#7397 Replace TinyMCE with Summernote (rich editor)",
+   "n_cs": 10
+  },
+  {
+   "issue": 8433,
+   "commit": "375fc58bbb97fe755a9117679758ae19720b40e6",
+   "data": "2026-11-06",
+   "msg": "#8433 PunchOut: inconsistent shared-secret hashing causes authentication failure and allows plaintext storage",
+   "n_cs": 3
+  },
+  {
+   "issue": 7188,
+   "commit": "fa7a80fb28eedbac1e978cd862b9ece0dff86659",
+   "data": "2024-06-11",
+   "msg": "#7188 Drop \"HasDiscountsApplied\" column",
+   "n_cs": 10
+  },
+  {
+   "issue": 8418,
+   "commit": "26cb34b983d8606231e8ef485f3f13f7d9eb5f9e",
+   "data": "2026-10-29",
+   "msg": "#8418 Re-importing a price list's own unmodified Excel export turns empty manual prices into $0.00, so the products become free",
+   "n_cs": 1
+  },
+  {
+   "issue": 7783,
+   "commit": "5159aca18ea1d86d8d9df4ea259be91389948d15",
+   "data": "2025-07-25",
+   "msg": "#7783 Method EventPublisherExtensions.EntityTokensAddedAsync does not require a typed parameter U",
+   "n_cs": 1
+  },
+  {
+   "issue": 7209,
+   "commit": "4cc31faaf02ee626c532cad58d6a4078ee74533d",
+   "data": "2024-06-05",
+   "msg": "#7209 Fixed saving customer roles when importing",
+   "n_cs": 1
+  },
+  {
+   "issue": 8000,
+   "commit": "ecccfd88db433af80a146ade4ac47b5a4f4c4c97",
+   "data": "2026-03-13",
+   "msg": "#8000 More user-friendly display of quantity validation message when submitting return request",
+   "n_cs": 1
+  },
+  {
+   "issue": 7402,
+   "commit": "bd4d0acac1161b4d7f0cba2788a644198d96b83e",
+   "data": "2024-11-22",
+   "msg": "#7402 Correctly display price range in catalog",
+   "n_cs": 1
+  },
+  {
+   "issue": 7420,
+   "commit": "d2cd8c68c245aca78b5be73022cd23bd270c6420",
+   "data": "2024-11-25",
+   "msg": "#7420 Fixed admin tour on the Email account details & the Manual tax provider pages",
+   "n_cs": 1
+  },
+  {
+   "issue": 7472,
+   "commit": "3b9fcaf4855c293ed8b73f1efea0df937d669022",
+   "data": "2025-01-10",
+   "msg": "#7472 Omnisend. We should not process events when the plugin is not configured",
+   "n_cs": 2
+  },
+  {
+   "issue": 7852,
+   "commit": "f4efe8ff0f5469f2c2998fb993f5f444780013db",
+   "data": "2025-09-16",
+   "msg": "#7852 GetCustomerRoleBySystemNameAsync in PermissoinService and CustomerService",
+   "n_cs": 1
+  },
+  {
+   "issue": 8073,
+   "commit": "c744e7e7551f1778ce1dfd962e9020712f744015",
+   "data": "2026-05-05",
+   "msg": "#8073 Minor fix",
+   "n_cs": 1
+  },
+  {
+   "issue": 7299,
+   "commit": "de2a59b34e44baf883fc69f08d0747190e9e2b05",
+   "data": "2024-10-31",
+   "msg": "#7299 Added a description to the video embedding option on the product page",
+   "n_cs": 2
+  },
+  {
+   "issue": 5199,
+   "commit": "cccbe40abeb72086e512d1b6b8dd94b0548d7db3",
+   "data": "2025-06-20",
+   "msg": "#5199 Use Markdown instead of BBCode on forums",
+   "n_cs": 6
+  },
+  {
+   "issue": 8233,
+   "commit": "43848d2ca24040d0d2614664152193c1f24a766a",
+   "data": "2026-06-15",
+   "msg": "#8233 Zip-slip in multi-item plugin/theme",
+   "n_cs": 3
+  },
+  {
+   "issue": 7629,
+   "commit": "ae2d1144a80bf8eec1549b9a2aecffa8c27a1230",
+   "data": "2025-04-22",
+   "msg": "#7629 Add \"layout\" property to DataTablesModel",
+   "n_cs": 3
+  },
+  {
+   "issue": 7559,
+   "commit": "82912f0b3cd567d018da4b9da9509ff338fcb241",
+   "data": "2025-02-11",
+   "msg": "#7559 Delete \"cacheable copy\" comment from LanguageService class  (#7567)",
+   "n_cs": 1
+  },
+  {
+   "issue": 7956,
+   "commit": "8770365e59f63afb80728f54d76669529688ea23",
+   "data": "2025-11-20",
+   "msg": "#7956 PDF invoice generation fails on Ubuntu",
+   "n_cs": 1
+  },
+  {
+   "issue": 7785,
+   "commit": "9cd43cd4d432e738dff21036e9370a681da5d7e5",
+   "data": "2025-07-25",
+   "msg": "#7785 Method EventPublisherExtensions.MessageTokensAddedAsync does not require a typed parameter U",
+   "n_cs": 1
+  }
+ ],
+ "sharex": [
+  {
+   "issue": 8568,
+   "commit": "ccc87f9e04caf1416221c26da53ede62fffb4732",
+   "data": "2026-05-06",
+   "msg": "fixed #8568: Refactor bitmap handling to use pixel size for dimensions in image processing",
+   "n_cs": 4
+  },
+  {
+   "issue": 8351,
+   "commit": "9fce10ab5815f9a821370f95e7a77cd9f5139059",
+   "data": "2026-01-29",
+   "msg": "fixed #8351: Clear SQLite connection pool",
+   "n_cs": 1
+  },
+  {
+   "issue": 8699,
+   "commit": "e09b249e8478d88fe401994d580b9cf87964a98e",
+   "data": "2026-06-10",
+   "msg": "fixed #8699: Enhance Avalonia integration and task helpers with UI thread management and event handling improvements",
+   "n_cs": 2
+  },
+  {
+   "issue": 8091,
+   "commit": "0e0b41f9af0dafc9d9cc6144cdcd7fc81d756896",
+   "data": "2025-08-23",
+   "msg": "fixed #8091: Fixed border issue",
+   "n_cs": 1
+  },
+  {
+   "issue": 8611,
+   "commit": "c02d87fb32035ce07fbf16623d99b2b90920db76",
+   "data": "2026-05-29",
+   "msg": "fixed #8611: Add focus to Yes button on ConfirmationDialog load",
+   "n_cs": 1
+  },
+  {
+   "issue": 578,
+   "commit": "f9fc7a9009dee797d246f75a5e6c29e9a59db078",
+   "data": "2026-09-14",
+   "msg": "fixed #578: Warn before running installers with invalid signatures",
+   "n_cs": 3
+  },
+  {
+   "issue": 8875,
+   "commit": "819b49825af66c449fe5c0a6ba573612d6d8f590",
+   "data": "2026-10-01",
+   "msg": "fixed #8875: Register dynamic Avalonia tray icons with the application",
+   "n_cs": 4
+  },
+  {
+   "issue": 8674,
+   "commit": "125dc20dfd2944d95492ce7164f58b5f38ac4b1e",
+   "data": "2026-10-24",
+   "msg": "fixed #8674: Add clone tool to image editor",
+   "n_cs": 8
+  },
+  {
+   "issue": 8784,
+   "commit": "f92e82a510b45ef2d86fb30b6732f737ac9b8a49",
+   "data": "2026-08-04",
+   "msg": "fixed #8784: Restrict FFmpeg execution to executable files",
+   "n_cs": 2
+  },
+  {
+   "issue": 8639,
+   "commit": "d96ee5513c578b4f5a4cf0e1dd3e6540e44571ea",
+   "data": "2026-05-18",
+   "msg": "fixed #8639: Add Print functionality with UI integration and command binding",
+   "n_cs": 5
+  },
+  {
+   "issue": 7355,
+   "commit": "8060b2bbe0430fbde79d0a3e5bbbde580b7b64ea",
+   "data": "2025-02-09",
+   "msg": "fixed #7355: Added -PinToScreen \"image file path\" & -PinToScreenFromFile \"image file path\" command line arguments",
+   "n_cs": 1
+  },
+  {
+   "issue": 8901,
+   "commit": "d22fa09f861aa6f69601edab82b04905c000e682",
+   "data": "2026-10-21",
+   "msg": "fixed #8901: Await notification window closure before capture",
+   "n_cs": 3
+  },
+  {
+   "issue": 7735,
+   "commit": "c26b6941dab5170539c6ae57fd18d68dd3b50d29",
+   "data": "2025-01-06",
+   "msg": "fixed #7735: Fixed enabled state of import button",
+   "n_cs": 2
+  },
+  {
+   "issue": 7422,
+   "commit": "f04cf8ae6af968248e84d72a2930f6b6824568ae",
+   "data": "2024-06-03",
+   "msg": "fixed #7422: Fixed image editor toolbar position",
+   "n_cs": 1
+  },
+  {
+   "issue": 7929,
+   "commit": "c13351363ffba67044bb1e4fe18885f310c69c7d",
+   "data": "2025-06-18",
+   "msg": "fixed #7929: Added \"Delete file locally\" toast click action",
+   "n_cs": 3
+  },
+  {
+   "issue": 8972,
+   "commit": "b51591ce9d2307f3c089b25e7b1c7363c0acd9ac",
+   "data": "2026-11-06",
+   "msg": "fixed #8972: Focus and select the file name when the after capture window opens",
+   "n_cs": 1
+  },
+  {
+   "issue": 8080,
+   "commit": "5208895f1b3b29327a69d362e111581638c5d737",
+   "data": "2025-08-22",
+   "msg": "fixed #8080: Add \"Languages\" folder back",
+   "n_cs": 2
+  },
+  {
+   "issue": 8536,
+   "commit": "889273c4a5df45d749fac1ff7d289d5a28a243fe",
+   "data": "2026-05-05",
+   "msg": "fixed #8536: Refactor copy functionality in EditorView to use CopyAnnotationCommand and update key bindings for improved usability",
+   "n_cs": 2
+  },
+  {
+   "issue": 8015,
+   "commit": "5652e126c4072b6a17c86fb14b466cff9d9d2b96",
+   "data": "2025-07-10",
+   "msg": "fixed #8015: Fixed history export/import",
+   "n_cs": 1
+  },
+  {
+   "issue": 7719,
+   "commit": "2b9ffa6583b6e4a94987378af6b7c91a499565a7",
+   "data": "2024-12-25",
+   "msg": "fixed #7719: Removed adf.ly URL shortener",
+   "n_cs": 6
+  },
+  {
+   "issue": 8562,
+   "commit": "9ee46144bf4d964b1654046f0e6ba98d8d96d99a",
+   "data": "2026-08-14",
+   "msg": "fixed #8562: Prevent notification fade during file drag",
+   "n_cs": 1
+  },
+  {
+   "issue": 8526,
+   "commit": "612c49a78865fd41771b98c1fff307d059040f35",
+   "data": "2026-05-04",
+   "msg": "fixed #8526: Refactor CanSave method to remove unnecessary check for ImageFilePath",
+   "n_cs": 1
+  },
+  {
+   "issue": 8613,
+   "commit": "bb42f0ab06dc1cdec54d957beeab9645e82c0393",
+   "data": "2026-05-17",
+   "msg": "fixed #8613: Add Step Start Number functionality with UI integration and binding",
+   "n_cs": 6
+  },
+  {
+   "issue": 8685,
+   "commit": "08201b14fd56ffba5dbe1bbe20684f63daf58488",
+   "data": "2026-06-02",
+   "msg": "fixed #8685: Update key handling logic to use ShowTaskButtons instead of UseContinueWorkflow",
+   "n_cs": 1
+  },
+  {
+   "issue": 8247,
+   "commit": "ce9395e2b975df27f65e320dfbc69d1ece9f0bef",
+   "data": "2025-11-18",
+   "msg": "fixed #8247: Fixed Blur/Pixelate issue related to transparency",
+   "n_cs": 1
+  },
+  {
+   "issue": 8797,
+   "commit": "9b8b0701928c1a822b13a29210ad4dd95c8921ee",
+   "data": "2026-08-04",
+   "msg": "fixed #8797: Defer context menu commands until after popup closes",
+   "n_cs": 1
+  },
+  {
+   "issue": 8973,
+   "commit": "a5e8b983abbdae6e37c85e4ac0ded48286289c1a",
+   "data": "2026-11-06",
+   "msg": "fixed #8973: Fix video player crash when toggling fullscreen",
+   "n_cs": 1
+  },
+  {
+   "issue": 8842,
+   "commit": "8e466b7747b538709e68de1dc8a20a7efd9ceff2",
+   "data": "2026-09-11",
+   "msg": "fixed #8842: Dispose editor resources after closing the window",
+   "n_cs": 1
+  },
+  {
+   "issue": 8793,
+   "commit": "d7cd3cba1febb13da3d4cb80800812d4a332304c",
+   "data": "2026-08-03",
+   "msg": "fixed #8793: Fix localization ResourceManager base name",
+   "n_cs": 1
+  },
+  {
+   "issue": 7959,
+   "commit": "9e8a56e3c207de2497314b122fec78993d453aac",
+   "data": "2025-06-04",
+   "msg": "fixed #7959: Removed admin check",
+   "n_cs": 2
+  },
+  {
+   "issue": 8895,
+   "commit": "c96ce3bfa6576a635e03ea1f067e82d46763cf16",
+   "data": "2026-10-14",
+   "msg": "fixed #8895: Preserve white-level-adjusted SDR reference pixels",
+   "n_cs": 1
+  },
+  {
+   "issue": 8549,
+   "commit": "d9c1f36ce18cd4fc21000f552d536fdf7a7b3874",
+   "data": "2026-05-31",
+   "msg": "fixed #8549: Enhance selection handling in EditorSelectionController to ignore selections with Control key and streamline active tool checks",
+   "n_cs": 1
+  },
+  {
+   "issue": 2637,
+   "commit": "fadd0bf1836394a0467c65b67855be646e16fe2b",
+   "data": "2026-06-29",
+   "msg": "fixed #2637: Ignore NVIDIA GeForce Overlay DT window",
+   "n_cs": 2
+  },
+  {
+   "issue": 6015,
+   "commit": "c87c3f66bc6cc646b343256c5690878f9922c779",
+   "data": "2024-06-25",
+   "msg": "fixed #6015: Allow restoring borderless window",
+   "n_cs": 4
+  },
+  {
+   "issue": 8825,
+   "commit": "81a75a2721b9ce92707d0fd8d2c5e0218d5d1ab3",
+   "data": "2026-09-03",
+   "msg": "fixed #8825: Support remote deletion of Amazon S3 uploads",
+   "n_cs": 3
+  },
+  {
+   "issue": 6247,
+   "commit": "ab060c1f060a38e177a8da0257a1dd52109a8cfa",
+   "data": "2026-10-01",
+   "msg": "fixed #6247: Add cursor-centered zoom to image preview",
+   "n_cs": 1
+  },
+  {
+   "issue": 8704,
+   "commit": "314f1df83ccf6e17c4eb5dd5b976daaac92c91f7",
+   "data": "2026-06-10",
+   "msg": "fixed #8704: Refactor ShowEditorDialog methods to streamline image loading and improve event handling",
+   "n_cs": 1
+  },
+  {
+   "issue": 7680,
+   "commit": "434b94cbef5f636fbd2fb3d39fe816f5451c68aa",
+   "data": "2024-11-22",
+   "msg": "fixed #7680: Round coordinates",
+   "n_cs": 1
+  },
+  {
+   "issue": 8830,
+   "commit": "9ffd85c9f71aab736b9b4b0ad6ad58dc643c5c94",
+   "data": "2026-09-07",
+   "msg": "fixed #8830: Migrate uPaste uploader to API v2",
+   "n_cs": 1
+  },
+  {
+   "issue": 7709,
+   "commit": "4269e9f701fb95f0774cb401aca48cc2e53303b2",
+   "data": "2024-12-14",
+   "msg": "fixed #7709: Fixed NullReferenceException",
+   "n_cs": 1
+  },
+  {
+   "issue": 8828,
+   "commit": "85a8d7af727471e100a0b397ff48f63a8573352d",
+   "data": "2026-08-31",
+   "msg": "fixed #8828: Remove Vault.ooo uploader",
+   "n_cs": 3
+  },
+  {
+   "issue": 8071,
+   "commit": "ba132f2731d3e2877aaa8c03d3c9717510bbe101",
+   "data": "2025-08-20",
+   "msg": "fixed #8071: Fixed combine images",
+   "n_cs": 2
+  },
+  {
+   "issue": 7686,
+   "commit": "bd93e8b4b0963f644e139946d478ceff93ca9f8c",
+   "data": "2024-11-22",
+   "msg": "fixed #7686: Use SetValue",
+   "n_cs": 10
+  },
+  {
+   "issue": 6688,
+   "commit": "152da098050329a81f744d8c70d81fd509458a1c",
+   "data": "2026-07-26",
+   "msg": "fixed #6688: Add HDR screenshot color correction",
+   "n_cs": 6
+  },
+  {
+   "issue": 5665,
+   "commit": "0dd1782482448eee9e5f9ab6f5832b9afdbb7a07",
+   "data": "2025-05-30",
+   "msg": "fixed #5665: Support showing thumbnails for video files",
+   "n_cs": 5
+  },
+  {
+   "issue": 8697,
+   "commit": "7495917ec42177b74b7dbce3acc4bfaf2f6b5e4b",
+   "data": "2026-06-09",
+   "msg": "fixed #8697: Fix annotation selection logic to exclude SpotlightAnnotation from stroke property syncing",
+   "n_cs": 1
+  },
+  {
+   "issue": 8940,
+   "commit": "8ed375c7b4046fe5263bddc7ae893e58cb044d83",
+   "data": "2026-11-02",
+   "msg": "fixed #8940: Use the window under the cursor as the selected window in region capture",
+   "n_cs": 1
+  },
+  {
+   "issue": 8944,
+   "commit": "fd93247b867f67bf154b9ffa63cdf34ba775d007",
+   "data": "2026-11-07",
+   "msg": "fixed #8944: Copy the capture to the clipboard before the image editor opens",
+   "n_cs": 1
+  },
+  {
+   "issue": 7990,
+   "commit": "2ec3426a8e6c69dfb1a0d61eb3a6367eff16b246",
+   "data": "2025-06-22",
+   "msg": "fixed #7990: Removed Languages folder",
+   "n_cs": 1
+  },
+  {
+   "issue": 8600,
+   "commit": "9ca8f54fdba17e81b707465ac32fc5d2d7f28e11",
+   "data": "2026-05-07",
+   "msg": "fixed #8600: Add SkiaSharp.Views.WindowsForms package and enhance image loading functionality",
+   "n_cs": 3
+  },
+  {
+   "issue": 8914,
+   "commit": "cc4fe6213d0379362561448f86505fa1f1e9eb7c",
+   "data": "2026-10-23",
+   "msg": "fixed #8914: Keep the quick task menu open until an action is selected",
+   "n_cs": 1
+  },
+  {
+   "issue": 8428,
+   "commit": "8a5c271834478304fb01e695e128b17be8ea8a5f",
+   "data": "2026-04-24",
+   "msg": "fixed #8428: Fixed Spotlight tool issue",
+   "n_cs": 1
+  },
+  {
+   "issue": 8582,
+   "commit": "4472dbea1474899a698ccdb0381c1e0ce79f1b67",
+   "data": "2026-05-06",
+   "msg": "fixed #8582: Add Quick Crop feature to Image Editor and update related settings",
+   "n_cs": 6
+  },
+  {
+   "issue": 8373,
+   "commit": "4c05c73934d3df51ec1545b6278ca8995e43eeb3",
+   "data": "2026-08-25",
+   "msg": "fixed #8373: Add Immich as an upload destination",
+   "n_cs": 5
+  },
+  {
+   "issue": 8077,
+   "commit": "01ecbcf4d609c242944225031b7e6c98534dfbdc",
+   "data": "2025-08-20",
+   "msg": "fixed #8077: Fixed beautifier issue",
+   "n_cs": 1
+  },
+  {
+   "issue": 8667,
+   "commit": "d67cdddc3bee82fc8e7ea3776c09782b31dd4811",
+   "data": "2026-05-30",
+   "msg": "fixed #8667: Refactor image conversion by adding GdiBitmapToSkBitmap method to optimize SKBitmap creation",
+   "n_cs": 2
+  },
+  {
+   "issue": 8894,
+   "commit": "325f03b01460b00b5c6d1c00f6c5cdc31120be5b",
+   "data": "2026-10-14",
+   "msg": "fixed #8894: Correct window positions after configuring capture geometry",
+   "n_cs": 4
+  },
+  {
+   "issue": 8624,
+   "commit": "2524605cbe364c16f67a9a8ab9b774bd4f601df3",
+   "data": "2026-05-14",
+   "msg": "fixed #8624: Implement panning functionality and restore interaction capture in canvas pointer events",
+   "n_cs": 2
+  },
+  {
+   "issue": 8893,
+   "commit": "2e6fa6f3aa0c384bb10440bc73cf261fd5b59925",
+   "data": "2026-10-14",
+   "msg": "fixed #8893: Reuse shared key handlers for annotation text editors",
+   "n_cs": 3
+  },
+  {
+   "issue": 8253,
+   "commit": "1cf42fcc96f907d87e2ccaf3f98cbd9c302547b1",
+   "data": "2026-02-26",
+   "msg": "fixed #8253: Fix StickerPackForm showing behind StickerForm",
+   "n_cs": 1
+  },
+  {
+   "issue": 8521,
+   "commit": "b9286ebabe5ac373e71704dead7c0b56d2393dd7",
+   "data": "2026-05-09",
+   "msg": "fixed #8521: Add Double arrow style and enhance arrow geometry handling",
+   "n_cs": 4
+  },
+  {
+   "issue": 8826,
+   "commit": "918be783f644efd384c49e175257f59909a88dbf",
+   "data": "2026-08-31",
+   "msg": "fixed #8826: Validate file action results before continuing",
+   "n_cs": 1
+  },
+  {
+   "issue": 8886,
+   "commit": "cb360c1bab5cca1775dc4225dcd14829a0642b8b",
+   "data": "2026-10-14",
+   "msg": "fixed #8886: Validate font families before applying or selecting them",
+   "n_cs": 4
+  },
+  {
+   "issue": 6964,
+   "commit": "ebcc9fba5287ffbeb6623760ac5212a179efcde8",
+   "data": "2025-07-09",
+   "msg": "fixed #6964: Support delete file in history form",
+   "n_cs": 4
+  },
+  {
+   "issue": 8833,
+   "commit": "d91d17268eb143ead033156a9f005910a878e28c",
+   "data": "2026-09-01",
+   "msg": "fixed #8833: Register history pointer handlers with bubbling",
+   "n_cs": 1
+  },
+  {
+   "issue": 8932,
+   "commit": "33ec30f56df46326997d3f00cb746570375aacf0",
+   "data": "2026-10-31",
+   "msg": "fixed #8932: Fix jagged tray icon by using the ICO frame closest to tray size",
+   "n_cs": 2
+  },
+  {
+   "issue": 8925,
+   "commit": "997bd75bab11467558b5a2d4667470343a43c12a",
+   "data": "2026-10-28",
+   "msg": "fixed #8925: Unify crop tool interactions",
+   "n_cs": 3
+  },
+  {
+   "issue": 8655,
+   "commit": "f707dd35c2b8bd5898d7f405b9c70174b0ff10ef",
+   "data": "2026-08-18",
+   "msg": "fixed #8655: Remove timer resolution manager around application startup",
+   "n_cs": 1
+  },
+  {
+   "issue": 6205,
+   "commit": "d8d01d78265f9fd3ea73e92ddca36ffaba642e2c",
+   "data": "2026-06-13",
+   "msg": "fixed #6205: Enhance rotation handling for effect annotations and update related methods for improved visual consistency",
+   "n_cs": 8
+  },
+  {
+   "issue": 8684,
+   "commit": "dce86c1a7e66c5f92e2e5ee8e7e00a4886743870",
+   "data": "2026-06-18",
+   "msg": "fixed #8684: Remove redundant caret brush assignments",
+   "n_cs": 1
+  },
+  {
+   "issue": 8075,
+   "commit": "3bbc57fdf5dd4a2c401434fc6dd201c54058d6e3",
+   "data": "2025-08-20",
+   "msg": "fixed #8075: Hide more upload related buttons",
+   "n_cs": 1
+  },
+  {
+   "issue": 8942,
+   "commit": "d4c77eea60c672115a5a4a52753d7df79d02427e",
+   "data": "2026-11-03",
+   "msg": "fixed #8942: Rename dim option to describe that it dims hovered windows",
+   "n_cs": 2
+  },
+  {
+   "issue": 8939,
+   "commit": "627ceb47786dbdb487429d0ee24d9b02121adca8",
+   "data": "2026-11-02",
+   "msg": "fixed #8939: Keep region capture magnifier and selection info inside the current monitor",
+   "n_cs": 1
+  },
+  {
+   "issue": 7988,
+   "commit": "5436eedd5b9e821dc24a87e63e098fd8ce15b692",
+   "data": "2025-06-22",
+   "msg": "fixed #7988: Fixed BrowseFolder",
+   "n_cs": 6
+  },
+  {
+   "issue": 8954,
+   "commit": "513fc66b515562e4e9a123f3997692f56337666f",
+   "data": "2026-11-06",
+   "msg": "fixed #8954: Keep links readable when the accent color blends into the background",
+   "n_cs": 1
+  },
+  {
+   "issue": 7616,
+   "commit": "082a25fbe4a49592fbdc04d18e7144afc6f7d067",
+   "data": "2024-10-08",
+   "msg": "#7616: Added Arabic language",
+   "n_cs": 4
+  },
+  {
+   "issue": 7255,
+   "commit": "af249e9386587ca5c77745add76472b4636b1fda",
+   "data": "2026-08-16",
+   "msg": "fixed #7255: Add restart control to screen recording",
+   "n_cs": 3
+  },
+  {
+   "issue": 8551,
+   "commit": "c1308f5e78ecc8fd875f78f50b40da5eacbb37d5",
+   "data": "2026-05-05",
+   "msg": "fixed #8551: Add InsertImageDialog and refactor image insertion logic for improved user experience",
+   "n_cs": 6
+  },
+  {
+   "issue": 8907,
+   "commit": "98738459f307a4dca3ee41b07d13164bfba56e00",
+   "data": "2026-10-21",
+   "msg": "fixed #8907: Add icons to quick task menu and close main window with Escape",
+   "n_cs": 3
+  },
+  {
+   "issue": 8943,
+   "commit": "49e8648c94077e8a2f56b041b5076781c8e1b07d",
+   "data": "2026-11-04",
+   "msg": "fixed #8943: Fix Photo Editor crash when closing the window",
+   "n_cs": 4
+  },
+  {
+   "issue": 7669,
+   "commit": "a777a07cb7cfa3f11d99ae354e83a1e876e51463",
+   "data": "2024-12-28",
+   "msg": "fixed #7669 #7727: Fixed NullReferenceException",
+   "n_cs": 1
+  }
+ ]
+}

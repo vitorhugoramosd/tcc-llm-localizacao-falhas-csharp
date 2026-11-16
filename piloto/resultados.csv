@@ -1,0 +1,29 @@
+rotulo;meio;defeito;perfil;pos_arquivo;pos_metodo;memorizacao_acertou;consultas;tokens_entrada;tokens_saida;tokens_total;custo_usd;segundos
+claude;API;nop-8299;com testes;;;False;3;106608;588;107196;0;8.3
+claude;API;nop-8409;com testes;1;1;False;3;82404;987;83391;0;8.2
+claude;API;nop-7587;com testes;1;3;False;3;220738;636;221374;0;9.3
+claude;API;sharex-8568;legado (sem testes);2;3;False;3;85305;1764;87069;0;16.1
+claude;API;sharex-8699;legado (sem testes);1;1;False;3;84892;1551;86443;0;17.7
+claude;API;sharex-8091;legado (sem testes);1;1;False;3;63200;925;64125;0;9.7
+claude;API;nop-8369;com testes;1;1;True;3;165713;659;166372;0;8.5
+cohere;API;nop-8299;com testes;;;False;6;71196;109779;180975;0;389.4
+cohere;API;nop-8409;com testes;1;1;False;4;39468;70650;110118;0;273.9
+cohere;API;nop-7587;com testes;2;;False;3;39613;15750;55363;0;63.3
+cohere;API;sharex-8568;legado (sem testes);4;;False;6;82856;109237;192093;0;850.3
+cohere;API;sharex-8699;legado (sem testes);;;False;4;55176;31336;86512;0;135.9
+cohere;API;sharex-8091;legado (sem testes);3;;False;5;60497;78770;139267;0;364.3
+cohere;API;nop-8369;com testes;1;1;False;4;43752;35459;79211;0;142.0
+gemini;API;nop-8299;com testes;;;False;3;38572;407;44637;0;36.7
+gemini;API;nop-8409;com testes;1;1;False;3;52940;441;61808;0;46.2
+gemini;API;nop-7587;com testes;1;2;True;3;127427;416;135812;0;48.0
+gemini;API;sharex-8568;legado (sem testes);4;;False;4;102901;770;122718;0;101.3
+gemini;API;sharex-8699;legado (sem testes);1;1;True;3;57468;295;70917;0;62.8
+gemini;API;sharex-8091;legado (sem testes);4;1;False;3;39409;312;46513;0;36.2
+gemini;API;nop-8369;com testes;1;1;True;3;76672;371;82432;0;29.3
+nemotron;API;nop-8299;com testes;;;False;3;59365;5071;64436;0;114.0
+nemotron;API;nop-8409;com testes;1;1;False;3;42945;2402;45347;0;39.6
+nemotron;API;nop-7587;com testes;2;;False;3;118132;5241;123373;0;97.0
+nemotron;API;sharex-8568;legado (sem testes);2;4;False;3;31831;4980;36811;0;89.9
+nemotron;API;sharex-8699;legado (sem testes);5;1;False;3;43720;8191;51911;0;113.0
+nemotron;API;sharex-8091;legado (sem testes);;;False;3;10273;3262;13535;0;37.6
+nemotron;API;nop-8369;com testes;1;1;False;3;75632;9604;85236;0;135.3

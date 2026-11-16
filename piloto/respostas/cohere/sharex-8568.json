@@ -1,0 +1,97 @@
+{
+ "id": "sharex-8568",
+ "rotulo": "cohere",
+ "modelo_pedido": "cohere/north-mini-code:free",
+ "meio": "API",
+ "data": "2026-11-08T16:16:25",
+ "reg_arquivo": [
+  {
+   "texto": "",
+   "modelo_resposta": "cohere/north-mini-code:free",
+   "tokens_entrada": 8420,
+   "tokens_saida": 4698,
+   "tokens_total": 13118,
+   "custo_usd": 0,
+   "segundos": 24.1
+  },
+  {
+   "texto": "{\"files\": [\"ShareX.ImageEditor/Presentation/Controls/SKCanvasControl.cs\", \"ShareX.ImageEditor/Core/Editor/EditorCore.cs\", \"ShareX.ImageEditor/Presentation/Views/EditorView.axaml.cs\", \"ShareX.ImageEditor/Presentation/Views/EditorView.CoreBridge.cs\"]}",
+   "modelo_resposta": "cohere/north-mini-code:free",
+   "tokens_entrada": 8551,
+   "tokens_saida": 29986,
+   "tokens_total": 38537,
+   "custo_usd": 0,
+   "segundos": 238.9
+  }
+ ],
+ "arquivos": [
+  "ShareX.ImageEditor/Presentation/Controls/SKCanvasControl.cs",
+  "ShareX.ImageEditor/Core/Editor/EditorCore.cs",
+  "ShareX.ImageEditor/Presentation/Views/EditorView.axaml.cs",
+  "ShareX.ImageEditor/Presentation/Views/EditorView.CoreBridge.cs"
+ ],
+ "arquivos_lidos": [
+  "ShareX.ImageEditor/Presentation/Controls/SKCanvasControl.cs",
+  "ShareX.ImageEditor/Core/Editor/EditorCore.cs",
+  "ShareX.ImageEditor/Presentation/Views/EditorView.axaml.cs",
+  "ShareX.ImageEditor/Presentation/Views/EditorView.CoreBridge.cs"
+ ],
+ "reg_metodo": [
+  {
+   "texto": "",
+   "modelo_resposta": "cohere/north-mini-code:free",
+   "tokens_entrada": 32853,
+   "tokens_saida": 32000,
+   "tokens_total": 64853,
+   "custo_usd": 0,
+   "segundos": 209.6
+  },
+  {
+   "texto": "{\"methods\": [{\"file\": \"ShareX.ImageEditor/Presentation/Controls/SKCanvasControl.cs\", \"method\": \"Render\"}, {\"file\": \"ShareX.ImageEditor/Presentation/Controls/SKCanvasControl.cs\", \"method\": \"Draw\"}, {\"file\": \"ShareX.ImageEditor/Core/Editor/EditorCore.cs\", \"method\": \"Render\"}, {\"file\": \"ShareX.ImageEditor/Core/Editor/EditorCore.cs\", \"method\": \"ApplyImageOperation\"}, {\"file\": \"ShareX.ImageEditor/Core/Editor/EditorCore.cs\", \"method\": \"ResizeImage\"}]}",
+   "modelo_resposta": "cohere/north-mini-code:free",
+   "tokens_entrada": 32853,
+   "tokens_saida": 10554,
+   "tokens_total": 43407,
+   "custo_usd": 0,
+   "segundos": 54.0
+  }
+ ],
+ "metodos": [
+  {
+   "file": "ShareX.ImageEditor/Presentation/Controls/SKCanvasControl.cs",
+   "method": "Render"
+  },
+  {
+   "file": "ShareX.ImageEditor/Presentation/Controls/SKCanvasControl.cs",
+   "method": "Draw"
+  },
+  {
+   "file": "ShareX.ImageEditor/Core/Editor/EditorCore.cs",
+   "method": "Render"
+  },
+  {
+   "file": "ShareX.ImageEditor/Core/Editor/EditorCore.cs",
+   "method": "ApplyImageOperation"
+  },
+  {
+   "file": "ShareX.ImageEditor/Core/Editor/EditorCore.cs",
+   "method": "ResizeImage"
+  }
+ ],
+ "reg_memorizacao": [
+  {
+   "texto": "",
+   "modelo_resposta": "cohere/north-mini-code:free",
+   "tokens_entrada": 179,
+   "tokens_saida": 31999,
+   "tokens_total": 32178,
+   "custo_usd": 0,
+   "segundos": 142.3
+  },
+  {
+   "erro": "HTTP 429: {\"error\":{\"message\":\"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day\",\"code\":429,\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"50\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1794182400000\"},\"limit_source\":\"openrouter_free_tier_daily\",\"remedy_hi",
+   "segundos": 181.4
+  }
+ ],
+ "memorizacao": null
+}

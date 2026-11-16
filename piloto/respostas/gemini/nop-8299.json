@@ -1,0 +1,77 @@
+{
+ "id": "nop-8299",
+ "rotulo": "gemini",
+ "modelo_pedido": "gemini-3.5-flash",
+ "meio": "API",
+ "data": "2026-11-07T15:45:44",
+ "reg_arquivo": [
+  {
+   "texto": "```json\n{\n  \"files\": [\n    \"src/Presentation/Nop.Web/Factories/JsonLdModelFactory.cs\",\n    \"src/Presentation/Nop.Web/Factories/IJsonLdModelFactory.cs\",\n    \"src/Presentation/Nop.Web/Models/JsonLD/JsonLdPersonModel.cs\",\n    \"src/Presentation/Nop.Web/Models/JsonLD/JsonLdReviewModel.cs\",\n    \"src/Libraries/Nop.Core/Domain/Customers/CustomerExtensions.cs\"\n  ]\n}\n```",
+   "modelo_resposta": "gemini-3.5-flash",
+   "tokens_entrada": 33713,
+   "tokens_saida": 133,
+   "tokens_total": 35353,
+   "custo_usd": null,
+   "segundos": 11.7
+  }
+ ],
+ "arquivos": [
+  "src/Presentation/Nop.Web/Factories/JsonLdModelFactory.cs",
+  "src/Presentation/Nop.Web/Factories/IJsonLdModelFactory.cs",
+  "src/Presentation/Nop.Web/Models/JsonLD/JsonLdPersonModel.cs",
+  "src/Presentation/Nop.Web/Models/JsonLD/JsonLdReviewModel.cs",
+  "src/Libraries/Nop.Core/Domain/Customers/CustomerExtensions.cs"
+ ],
+ "arquivos_lidos": [
+  "src/Presentation/Nop.Web/Factories/JsonLdModelFactory.cs",
+  "src/Presentation/Nop.Web/Factories/IJsonLdModelFactory.cs",
+  "src/Presentation/Nop.Web/Models/JsonLD/JsonLdPersonModel.cs",
+  "src/Presentation/Nop.Web/Models/JsonLD/JsonLdReviewModel.cs",
+  "src/Libraries/Nop.Core/Domain/Customers/CustomerExtensions.cs"
+ ],
+ "reg_metodo": [
+  {
+   "texto": "```json\n{\n  \"methods\": [\n    {\n      \"file\": \"src/Presentation/Nop.Web/Factories/JsonLdModelFactory.cs\",\n      \"method\": \"PrepareJsonLdProductAsync\"\n    },\n    {\n      \"file\": \"src/Presentation/Nop.Web/Factories/JsonLdModelFactory.cs\",\n      \"method\": \"PrepareJsonLdForumTopicAsync\"\n    },\n    {\n      \"file\": \"src/Presentation/Nop.Web/Factories/IJsonLdModelFactory.cs\",\n      \"method\": \"PrepareJsonLdProductAsync\"\n    },\n    {\n      \"file\": \"src/Presentation/Nop.Web/Factories/JsonLdModelFactory.cs\",\n      \"method\": \"PrepareJsonLdBreadcrumbListAsync\"\n    },\n    {\n      \"file\": \"src/Presentation/Nop.Web/Factories/JsonLdModelFactory.cs\",\n      \"method\": \"PrepareJsonLdProductBreadcrumbAsync\"\n    }\n  ]\n}\n```",
+   "modelo_resposta": "gemini-3.5-flash",
+   "tokens_entrada": 4592,
+   "tokens_saida": 243,
+   "tokens_total": 7025,
+   "custo_usd": null,
+   "segundos": 13.6
+  }
+ ],
+ "metodos": [
+  {
+   "file": "src/Presentation/Nop.Web/Factories/JsonLdModelFactory.cs",
+   "method": "PrepareJsonLdProductAsync"
+  },
+  {
+   "file": "src/Presentation/Nop.Web/Factories/JsonLdModelFactory.cs",
+   "method": "PrepareJsonLdForumTopicAsync"
+  },
+  {
+   "file": "src/Presentation/Nop.Web/Factories/IJsonLdModelFactory.cs",
+   "method": "PrepareJsonLdProductAsync"
+  },
+  {
+   "file": "src/Presentation/Nop.Web/Factories/JsonLdModelFactory.cs",
+   "method": "PrepareJsonLdBreadcrumbListAsync"
+  },
+  {
+   "file": "src/Presentation/Nop.Web/Factories/JsonLdModelFactory.cs",
+   "method": "PrepareJsonLdProductBreadcrumbAsync"
+  }
+ ],
+ "reg_memorizacao": [
+  {
+   "texto": "```json\n{\n  \"file\": \"src/Presentation/Nop.Web/Factories/ProductModelFactory.cs\"\n}\n```",
+   "modelo_resposta": "gemini-3.5-flash",
+   "tokens_entrada": 267,
+   "tokens_saida": 31,
+   "tokens_total": 2259,
+   "custo_usd": null,
+   "segundos": 11.4
+  }
+ ],
+ "memorizacao": "src/Presentation/Nop.Web/Factories/ProductModelFactory.cs"
+}

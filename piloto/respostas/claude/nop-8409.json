@@ -1,0 +1,77 @@
+{
+ "id": "nop-8409",
+ "rotulo": "claude",
+ "modelo_pedido": "claude-sonnet-5-5",
+ "meio": "API",
+ "data": "2026-11-07T14:56:38",
+ "reg_arquivo": [
+  {
+   "texto": "{\"files\": [\"src/Plugins/Nop.Plugin.Feed.ChatGptShopping/Services/ChatGptShoppingService.cs\", \"src/Plugins/Nop.Plugin.Feed.ChatGptShopping/Domain/ChatGptShoppingProductDto.cs\", \"src/Plugins/Nop.Plugin.Feed.ChatGptShopping/ChatGptShoppingDefaults.cs\", \"src/Plugins/Nop.Plugin.Feed.ChatGptShopping/Services/ChatGptShoppingSyncTask.cs\", \"src/Plugins/Nop.Plugin.Feed.ChatGptShopping/ChatGptShoppingSettings.cs\"]}",
+   "modelo_resposta": "claude-sonnet-5-5",
+   "tokens_entrada": 70373,
+   "tokens_saida": 251,
+   "tokens_total": 70624,
+   "custo_usd": null,
+   "segundos": 2.1
+  }
+ ],
+ "arquivos": [
+  "src/Plugins/Nop.Plugin.Feed.ChatGptShopping/Services/ChatGptShoppingService.cs",
+  "src/Plugins/Nop.Plugin.Feed.ChatGptShopping/Domain/ChatGptShoppingProductDto.cs",
+  "src/Plugins/Nop.Plugin.Feed.ChatGptShopping/ChatGptShoppingDefaults.cs",
+  "src/Plugins/Nop.Plugin.Feed.ChatGptShopping/Services/ChatGptShoppingSyncTask.cs",
+  "src/Plugins/Nop.Plugin.Feed.ChatGptShopping/ChatGptShoppingSettings.cs"
+ ],
+ "arquivos_lidos": [
+  "src/Plugins/Nop.Plugin.Feed.ChatGptShopping/Services/ChatGptShoppingService.cs",
+  "src/Plugins/Nop.Plugin.Feed.ChatGptShopping/Domain/ChatGptShoppingProductDto.cs",
+  "src/Plugins/Nop.Plugin.Feed.ChatGptShopping/ChatGptShoppingDefaults.cs",
+  "src/Plugins/Nop.Plugin.Feed.ChatGptShopping/Services/ChatGptShoppingSyncTask.cs",
+  "src/Plugins/Nop.Plugin.Feed.ChatGptShopping/ChatGptShoppingSettings.cs"
+ ],
+ "reg_metodo": [
+  {
+   "texto": "{\"methods\": [{\"file\": \"src/Plugins/Nop.Plugin.Feed.ChatGptShopping/Services/ChatGptShoppingService.cs\", \"method\": \"BuildProductAsync\"}, {\"file\": \"src/Plugins/Nop.Plugin.Feed.ChatGptShopping/Services/ChatGptShoppingService.cs\", \"method\": \"GenerateFeedAsync\"}, {\"file\": \"src/Plugins/Nop.Plugin.Feed.ChatGptShopping/Domain/ChatGptShoppingProductDto.cs\", \"method\": \"Price\"}, {\"file\": \"src/Plugins/Nop.Plugin.Feed.ChatGptShopping/Services/ChatGptShoppingService.cs\", \"method\": \"SearchProductsAsync\"}, {\"file\": \"src/Plugins/Nop.Plugin.Feed.ChatGptShopping/ChatGptShoppingDefaults.cs\", \"method\": \"ProductAvailabilityInStock\"}]}",
+   "modelo_resposta": "claude-sonnet-5-5",
+   "tokens_entrada": 11205,
+   "tokens_saida": 344,
+   "tokens_total": 11549,
+   "custo_usd": null,
+   "segundos": 2.8
+  }
+ ],
+ "metodos": [
+  {
+   "file": "src/Plugins/Nop.Plugin.Feed.ChatGptShopping/Services/ChatGptShoppingService.cs",
+   "method": "BuildProductAsync"
+  },
+  {
+   "file": "src/Plugins/Nop.Plugin.Feed.ChatGptShopping/Services/ChatGptShoppingService.cs",
+   "method": "GenerateFeedAsync"
+  },
+  {
+   "file": "src/Plugins/Nop.Plugin.Feed.ChatGptShopping/Domain/ChatGptShoppingProductDto.cs",
+   "method": "Price"
+  },
+  {
+   "file": "src/Plugins/Nop.Plugin.Feed.ChatGptShopping/Services/ChatGptShoppingService.cs",
+   "method": "SearchProductsAsync"
+  },
+  {
+   "file": "src/Plugins/Nop.Plugin.Feed.ChatGptShopping/ChatGptShoppingDefaults.cs",
+   "method": "ProductAvailabilityInStock"
+  }
+ ],
+ "reg_memorizacao": [
+  {
+   "texto": "{\"file\": \"src/Plugins/Nop.Plugin.Misc.ChatGptShopping/Services/ChatGptShoppingService.cs\"}",
+   "modelo_resposta": "claude-sonnet-5-5",
+   "tokens_entrada": 826,
+   "tokens_saida": 392,
+   "tokens_total": 1218,
+   "custo_usd": null,
+   "segundos": 3.3
+  }
+ ],
+ "memorizacao": "src/Plugins/Nop.Plugin.Misc.ChatGptShopping/Services/ChatGptShoppingService.cs"
+}

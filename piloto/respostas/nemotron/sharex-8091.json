@@ -1,0 +1,76 @@
+{
+ "id": "sharex-8091",
+ "rotulo": "nemotron",
+ "modelo_pedido": "nvidia/nemotron-3-ultra-550b-a55b:free",
+ "meio": "API",
+ "data": "2026-11-07T16:51:36",
+ "reg_arquivo": [
+  {
+   "texto": "{\"files\": [\"ShareX.ImageEffectsLib/Drawings/DrawBorder.cs\", \"ShareX.ImageEffectsLib/ImageEffect.cs\", \"ShareX.ImageEffectsLib/Enums.cs\", \"ShareX.HelpersLib/ImageHelpers.cs\", \"ShareX.HelpersLib/UnsafeBitmap.cs\"]}",
+   "modelo_resposta": "nvidia/nemotron-3-ultra-550b-a55b:free",
+   "tokens_entrada": 6278,
+   "tokens_saida": 452,
+   "tokens_total": 6730,
+   "custo_usd": 0,
+   "segundos": 4.5
+  }
+ ],
+ "arquivos": [
+  "ShareX.ImageEffectsLib/Drawings/DrawBorder.cs",
+  "ShareX.ImageEffectsLib/ImageEffect.cs",
+  "ShareX.ImageEffectsLib/Enums.cs",
+  "ShareX.HelpersLib/ImageHelpers.cs",
+  "ShareX.HelpersLib/UnsafeBitmap.cs"
+ ],
+ "arquivos_lidos": [
+  "ShareX.ImageEffectsLib/Drawings/DrawBorder.cs",
+  "ShareX.ImageEffectsLib/ImageEffect.cs",
+  "ShareX.ImageEffectsLib/Enums.cs",
+  "ShareX.HelpersLib/UnsafeBitmap.cs"
+ ],
+ "reg_metodo": [
+  {
+   "texto": "{\n  \"methods\": [\n    {\n      \"file\": \"ShareX.ImageEffectsLib/Drawings/DrawBorder.cs\",\n      \"method\": \"Apply\"\n    },\n    {\n      \"file\": \"ShareX.ImageEffectsLib/ImageEffect.cs\",\n      \"method\": \"Apply\"\n    },\n    {\n      \"file\": \"ShareX.HelpersLib/UnsafeBitmap.cs\",\n      \"method\": \"Lock\"\n    },\n    {\n      \"file\": \"ShareX.HelpersLib/UnsafeBitmap.cs\",\n      \"method\": \"SetPixel\"\n    },\n    {\n      \"file\": \"ShareX.HelpersLib/UnsafeBitmap.cs\",\n      \"method\": \"Unlock\"\n    }\n  ]\n}",
+   "modelo_resposta": "nvidia/nemotron-3-ultra-550b-a55b:free",
+   "tokens_entrada": 3493,
+   "tokens_saida": 2520,
+   "tokens_total": 6013,
+   "custo_usd": 0,
+   "segundos": 26.3
+  }
+ ],
+ "metodos": [
+  {
+   "file": "ShareX.ImageEffectsLib/Drawings/DrawBorder.cs",
+   "method": "Apply"
+  },
+  {
+   "file": "ShareX.ImageEffectsLib/ImageEffect.cs",
+   "method": "Apply"
+  },
+  {
+   "file": "ShareX.HelpersLib/UnsafeBitmap.cs",
+   "method": "Lock"
+  },
+  {
+   "file": "ShareX.HelpersLib/UnsafeBitmap.cs",
+   "method": "SetPixel"
+  },
+  {
+   "file": "ShareX.HelpersLib/UnsafeBitmap.cs",
+   "method": "Unlock"
+  }
+ ],
+ "reg_memorizacao": [
+  {
+   "texto": "{\"file\": \"ShareX/ImageEffects/Border.cs\"}",
+   "modelo_resposta": "nvidia/nemotron-3-ultra-550b-a55b:free",
+   "tokens_entrada": 502,
+   "tokens_saida": 290,
+   "tokens_total": 792,
+   "custo_usd": 0,
+   "segundos": 6.8
+  }
+ ],
+ "memorizacao": "ShareX/ImageEffects/Border.cs"
+}

@@ -1,0 +1,77 @@
+{
+ "id": "nop-8369",
+ "rotulo": "gemini",
+ "modelo_pedido": "gemini-3.5-flash",
+ "meio": "API",
+ "data": "2026-11-08T06:02:24",
+ "reg_arquivo": [
+  {
+   "texto": "```json\n{\n  \"files\": [\n    \"src/Libraries/Nop.Services/Catalog/PriceCalculationService.cs\",\n    \"src/Libraries/Nop.Services/PriceLists/PriceListService.cs\",\n    \"src/Libraries/Nop.Services/Catalog/IPriceCalculationService.cs\",\n    \"src/Libraries/Nop.Services/PriceLists/IPriceListService.cs\",\n    \"src/Presentation/Nop.Web/Factories/ProductModelFactory.cs\"\n  ]\n}\n```",
+   "modelo_resposta": "gemini-3.5-flash",
+   "tokens_entrada": 36764,
+   "tokens_saida": 121,
+   "tokens_total": 39058,
+   "custo_usd": null,
+   "segundos": 10.8
+  }
+ ],
+ "arquivos": [
+  "src/Libraries/Nop.Services/Catalog/PriceCalculationService.cs",
+  "src/Libraries/Nop.Services/PriceLists/PriceListService.cs",
+  "src/Libraries/Nop.Services/Catalog/IPriceCalculationService.cs",
+  "src/Libraries/Nop.Services/PriceLists/IPriceListService.cs",
+  "src/Presentation/Nop.Web/Factories/ProductModelFactory.cs"
+ ],
+ "arquivos_lidos": [
+  "src/Libraries/Nop.Services/Catalog/PriceCalculationService.cs",
+  "src/Libraries/Nop.Services/PriceLists/PriceListService.cs",
+  "src/Libraries/Nop.Services/Catalog/IPriceCalculationService.cs",
+  "src/Libraries/Nop.Services/PriceLists/IPriceListService.cs",
+  "src/Presentation/Nop.Web/Factories/ProductModelFactory.cs"
+ ],
+ "reg_metodo": [
+  {
+   "texto": "```json\n{\n  \"methods\": [\n    {\n      \"file\": \"src/Libraries/Nop.Services/PriceLists/PriceListService.cs\",\n      \"method\": \"ApplyAdjustmentPrice\"\n    },\n    {\n      \"file\": \"src/Libraries/Nop.Services/Catalog/PriceCalculationService.cs\",\n      \"method\": \"GetPriceListPriceAsync\"\n    },\n    {\n      \"file\": \"src/Libraries/Nop.Services/PriceLists/IPriceListService.cs\",\n      \"method\": \"ApplyAdjustmentPrice\"\n    },\n    {\n      \"file\": \"src/Libraries/Nop.Services/Catalog/PriceCalculationService.cs\",\n      \"method\": \"GetFinalPriceAsync\"\n    },\n    {\n      \"file\": \"src/Presentation/Nop.Web/Factories/ProductModelFactory.cs\",\n      \"method\": \"GetFromPriceAsync\"\n    }\n  ]\n}\n```",
+   "modelo_resposta": "gemini-3.5-flash",
+   "tokens_entrada": 39536,
+   "tokens_saida": 219,
+   "tokens_total": 42342,
+   "custo_usd": null,
+   "segundos": 12.6
+  }
+ ],
+ "metodos": [
+  {
+   "file": "src/Libraries/Nop.Services/PriceLists/PriceListService.cs",
+   "method": "ApplyAdjustmentPrice"
+  },
+  {
+   "file": "src/Libraries/Nop.Services/Catalog/PriceCalculationService.cs",
+   "method": "GetPriceListPriceAsync"
+  },
+  {
+   "file": "src/Libraries/Nop.Services/PriceLists/IPriceListService.cs",
+   "method": "ApplyAdjustmentPrice"
+  },
+  {
+   "file": "src/Libraries/Nop.Services/Catalog/PriceCalculationService.cs",
+   "method": "GetFinalPriceAsync"
+  },
+  {
+   "file": "src/Presentation/Nop.Web/Factories/ProductModelFactory.cs",
+   "method": "GetFromPriceAsync"
+  }
+ ],
+ "reg_memorizacao": [
+  {
+   "texto": "```json\n{\n  \"file\": \"src/Libraries/Nop.Services/Catalog/PriceCalculationService.cs\"\n}\n```",
+   "modelo_resposta": "gemini-3.5-flash",
+   "tokens_entrada": 372,
+   "tokens_saida": 31,
+   "tokens_total": 1032,
+   "custo_usd": null,
+   "segundos": 5.9
+  }
+ ],
+ "memorizacao": "src/Libraries/Nop.Services/Catalog/PriceCalculationService.cs"
+}

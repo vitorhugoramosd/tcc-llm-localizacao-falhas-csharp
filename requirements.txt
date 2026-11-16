@@ -1,0 +1,4 @@
+# Necessário só para refazer a seleção dos defeitos e a referência de acerto (preparacao/05_montar_consultas.py).
+# O script de consultas (piloto/piloto.py) e os testes usam só a biblioteca padrão do Python.
+tree-sitter==0.26.1
+tree-sitter-c-sharp==0.23.5

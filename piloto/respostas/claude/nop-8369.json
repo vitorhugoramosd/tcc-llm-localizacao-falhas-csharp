@@ -1,0 +1,77 @@
+{
+ "id": "nop-8369",
+ "rotulo": "claude",
+ "modelo_pedido": "claude-sonnet-5-5",
+ "meio": "API",
+ "data": "2026-11-07T14:57:46",
+ "reg_arquivo": [
+  {
+   "texto": "{\"files\": [\"src/Libraries/Nop.Services/Catalog/PriceCalculationService.cs\", \"src/Libraries/Nop.Services/PriceLists/PriceListService.cs\", \"src/Libraries/Nop.Services/PriceLists/IPriceListService.cs\", \"src/Presentation/Nop.Web/Factories/ProductModelFactory.cs\", \"src/Libraries/Nop.Services/Orders/ShoppingCartService.cs\"]}",
+   "modelo_resposta": "claude-sonnet-5-5",
+   "tokens_entrada": 70048,
+   "tokens_saida": 164,
+   "tokens_total": 70212,
+   "custo_usd": null,
+   "segundos": 1.7
+  }
+ ],
+ "arquivos": [
+  "src/Libraries/Nop.Services/Catalog/PriceCalculationService.cs",
+  "src/Libraries/Nop.Services/PriceLists/PriceListService.cs",
+  "src/Libraries/Nop.Services/PriceLists/IPriceListService.cs",
+  "src/Presentation/Nop.Web/Factories/ProductModelFactory.cs",
+  "src/Libraries/Nop.Services/Orders/ShoppingCartService.cs"
+ ],
+ "arquivos_lidos": [
+  "src/Libraries/Nop.Services/Catalog/PriceCalculationService.cs",
+  "src/Libraries/Nop.Services/PriceLists/PriceListService.cs",
+  "src/Libraries/Nop.Services/PriceLists/IPriceListService.cs",
+  "src/Presentation/Nop.Web/Factories/ProductModelFactory.cs",
+  "src/Libraries/Nop.Services/Orders/ShoppingCartService.cs"
+ ],
+ "reg_metodo": [
+  {
+   "texto": "{\"methods\":[{\"file\":\"src/Libraries/Nop.Services/PriceLists/PriceListService.cs\",\"method\":\"ApplyAdjustmentPrice\"},{\"file\":\"src/Libraries/Nop.Services/Catalog/PriceCalculationService.cs\",\"method\":\"GetPriceListPriceAsync\"},{\"file\":\"src/Libraries/Nop.Services/PriceLists/IPriceListService.cs\",\"method\":\"ApplyAdjustmentPrice\"},{\"file\":\"src/Libraries/Nop.Services/Catalog/PriceCalculationService.cs\",\"method\":\"GetFinalPriceAsync\"},{\"file\":\"src/Libraries/Nop.Services/Orders/ShoppingCartService.cs\",\"method\":\"GetUnitPriceAsync\"}]}",
+   "modelo_resposta": "claude-sonnet-5-5",
+   "tokens_entrada": 95146,
+   "tokens_saida": 271,
+   "tokens_total": 95417,
+   "custo_usd": null,
+   "segundos": 3.9
+  }
+ ],
+ "metodos": [
+  {
+   "file": "src/Libraries/Nop.Services/PriceLists/PriceListService.cs",
+   "method": "ApplyAdjustmentPrice"
+  },
+  {
+   "file": "src/Libraries/Nop.Services/Catalog/PriceCalculationService.cs",
+   "method": "GetPriceListPriceAsync"
+  },
+  {
+   "file": "src/Libraries/Nop.Services/PriceLists/IPriceListService.cs",
+   "method": "ApplyAdjustmentPrice"
+  },
+  {
+   "file": "src/Libraries/Nop.Services/Catalog/PriceCalculationService.cs",
+   "method": "GetFinalPriceAsync"
+  },
+  {
+   "file": "src/Libraries/Nop.Services/Orders/ShoppingCartService.cs",
+   "method": "GetUnitPriceAsync"
+  }
+ ],
+ "reg_memorizacao": [
+  {
+   "texto": "{\"file\": \"src/Libraries/Nop.Services/Catalog/PriceCalculationService.cs\"}",
+   "modelo_resposta": "claude-sonnet-5-5",
+   "tokens_entrada": 519,
+   "tokens_saida": 224,
+   "tokens_total": 743,
+   "custo_usd": null,
+   "segundos": 2.9
+  }
+ ],
+ "memorizacao": "src/Libraries/Nop.Services/Catalog/PriceCalculationService.cs"
+}

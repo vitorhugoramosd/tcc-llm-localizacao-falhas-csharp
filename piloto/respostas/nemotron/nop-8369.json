@@ -1,0 +1,77 @@
+{
+ "id": "nop-8369",
+ "rotulo": "nemotron",
+ "modelo_pedido": "nvidia/nemotron-3-ultra-550b-a55b:free",
+ "meio": "API",
+ "data": "2026-11-07T16:52:26",
+ "reg_arquivo": [
+  {
+   "texto": "{\"files\": [\"src/Libraries/Nop.Services/Catalog/PriceCalculationService.cs\", \"src/Libraries/Nop.Services/PriceLists/PriceListService.cs\", \"src/Libraries/Nop.Services/Catalog/ProductAttributeService.cs\", \"src/Libraries/Nop.Services/Catalog/ProductService.cs\", \"src/Libraries/Nop.Core/Domain/Catalog/ProductAttributeCombination.cs\"]}",
+   "modelo_resposta": "nvidia/nemotron-3-ultra-550b-a55b:free",
+   "tokens_entrada": 32754,
+   "tokens_saida": 1303,
+   "tokens_total": 34057,
+   "custo_usd": 0,
+   "segundos": 19.1
+  }
+ ],
+ "arquivos": [
+  "src/Libraries/Nop.Services/Catalog/PriceCalculationService.cs",
+  "src/Libraries/Nop.Services/PriceLists/PriceListService.cs",
+  "src/Libraries/Nop.Services/Catalog/ProductAttributeService.cs",
+  "src/Libraries/Nop.Services/Catalog/ProductService.cs",
+  "src/Libraries/Nop.Core/Domain/Catalog/ProductAttributeCombination.cs"
+ ],
+ "arquivos_lidos": [
+  "src/Libraries/Nop.Services/Catalog/PriceCalculationService.cs",
+  "src/Libraries/Nop.Services/PriceLists/PriceListService.cs",
+  "src/Libraries/Nop.Services/Catalog/ProductAttributeService.cs",
+  "src/Libraries/Nop.Services/Catalog/ProductService.cs",
+  "src/Libraries/Nop.Core/Domain/Catalog/ProductAttributeCombination.cs"
+ ],
+ "reg_metodo": [
+  {
+   "texto": "{\n  \"methods\": [\n    {\"file\": \"src/Libraries/Nop.Services/PriceLists/PriceListService.cs\", \"method\": \"ApplyAdjustmentPrice\"},\n    {\"file\": \"src/Libraries/Nop.Services/Catalog/PriceCalculationService.cs\", \"method\": \"GetPriceListPriceAsync\"},\n    {\"file\": \"src/Libraries/Nop.Services/Catalog/PriceCalculationService.cs\", \"method\": \"GetFinalPriceAsync\"},\n    {\"file\": \"src/Libraries/Nop.Services/Catalog/PriceCalculationService.cs\", \"method\": \"GetProductAttributeValuePriceAdjustmentAsync\"},\n    {\"file\": \"src/Libraries/Nop.Services/Catalog/ProductAttributeService.cs\", \"method\": \"GetProductAttributeCombinationByIdAsync\"}\n  ]\n}",
+   "modelo_resposta": "nvidia/nemotron-3-ultra-550b-a55b:free",
+   "tokens_entrada": 42499,
+   "tokens_saida": 6331,
+   "tokens_total": 48830,
+   "custo_usd": 0,
+   "segundos": 89.1
+  }
+ ],
+ "metodos": [
+  {
+   "file": "src/Libraries/Nop.Services/PriceLists/PriceListService.cs",
+   "method": "ApplyAdjustmentPrice"
+  },
+  {
+   "file": "src/Libraries/Nop.Services/Catalog/PriceCalculationService.cs",
+   "method": "GetPriceListPriceAsync"
+  },
+  {
+   "file": "src/Libraries/Nop.Services/Catalog/PriceCalculationService.cs",
+   "method": "GetFinalPriceAsync"
+  },
+  {
+   "file": "src/Libraries/Nop.Services/Catalog/PriceCalculationService.cs",
+   "method": "GetProductAttributeValuePriceAdjustmentAsync"
+  },
+  {
+   "file": "src/Libraries/Nop.Services/Catalog/ProductAttributeService.cs",
+   "method": "GetProductAttributeCombinationByIdAsync"
+  }
+ ],
+ "reg_memorizacao": [
+  {
+   "texto": "{\"file\": \"Nop.Services/Catalog/Pricing/PriceCalculationService.cs\"}",
+   "modelo_resposta": "nvidia/nemotron-3-ultra-550b-a55b:free",
+   "tokens_entrada": 379,
+   "tokens_saida": 1970,
+   "tokens_total": 2349,
+   "custo_usd": 0,
+   "segundos": 27.1
+  }
+ ],
+ "memorizacao": "Nop.Services/Catalog/Pricing/PriceCalculationService.cs"
+}

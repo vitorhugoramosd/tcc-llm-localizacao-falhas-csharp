@@ -1,0 +1,77 @@
+{
+ "id": "nop-8299",
+ "rotulo": "nemotron",
+ "modelo_pedido": "nvidia/nemotron-3-ultra-550b-a55b:free",
+ "meio": "API",
+ "data": "2026-11-07T16:38:10",
+ "reg_arquivo": [
+  {
+   "texto": "{\"files\": [\"Presentation/Nop.Web/Factories/JsonLdModelFactory.cs\", \"Presentation/Nop.Web/Models/JsonLD/JsonLdReviewModel.cs\", \"Presentation/Nop.Web/Models/JsonLD/JsonLdPersonModel.cs\", \"Presentation/Nop.Web/Factories/ProductModelFactory.cs\", \"Libraries/Nop.Services/Catalog/ProductReviewService.cs\"]}",
+   "modelo_resposta": "nvidia/nemotron-3-ultra-550b-a55b:free",
+   "tokens_entrada": 30050,
+   "tokens_saida": 396,
+   "tokens_total": 30446,
+   "custo_usd": 0,
+   "segundos": 5.5
+  }
+ ],
+ "arquivos": [
+  "Presentation/Nop.Web/Factories/JsonLdModelFactory.cs",
+  "Presentation/Nop.Web/Models/JsonLD/JsonLdReviewModel.cs",
+  "Presentation/Nop.Web/Models/JsonLD/JsonLdPersonModel.cs",
+  "Presentation/Nop.Web/Factories/ProductModelFactory.cs",
+  "Libraries/Nop.Services/Catalog/ProductReviewService.cs"
+ ],
+ "arquivos_lidos": [
+  "src/Presentation/Nop.Web/Factories/JsonLdModelFactory.cs",
+  "src/Presentation/Nop.Web/Models/JsonLD/JsonLdReviewModel.cs",
+  "src/Presentation/Nop.Web/Models/JsonLD/JsonLdPersonModel.cs",
+  "src/Presentation/Nop.Web/Factories/ProductModelFactory.cs",
+  "src/Libraries/Nop.Services/Catalog/ProductReviewService.cs"
+ ],
+ "reg_metodo": [
+  {
+   "texto": "{\n  \"methods\": [\n    {\n      \"file\": \"src/Presentation/Nop.Web/Factories/JsonLdModelFactory.cs\",\n      \"method\": \"PrepareJsonLdProductAsync\"\n    },\n    {\n      \"file\": \"src/Presentation/Nop.Web/Factories/ProductModelFactory.cs\",\n      \"method\": \"PrepareProductReviewsModelAsync\"\n    },\n    {\n      \"file\": \"src/Presentation/Nop.Web/Factories/JsonLdModelFactory.cs\",\n      \"method\": \"PrepareJsonLdForumTopicAsync\"\n    },\n    {\n      \"file\": \"src/Presentation/Nop.Web/Factories/ProductModelFactory.cs\",\n      \"method\": \"PrepareProductDetailsModelAsync\"\n    },\n    {\n      \"file\": \"src/Libraries/Nop.Services/Catalog/ProductReviewService.cs\",\n      \"method\": \"GetAllProductReviewsAsync\"\n    }\n  ]\n}",
+   "modelo_resposta": "nvidia/nemotron-3-ultra-550b-a55b:free",
+   "tokens_entrada": 29052,
+   "tokens_saida": 2341,
+   "tokens_total": 31393,
+   "custo_usd": 0,
+   "segundos": 37.8
+  }
+ ],
+ "metodos": [
+  {
+   "file": "src/Presentation/Nop.Web/Factories/JsonLdModelFactory.cs",
+   "method": "PrepareJsonLdProductAsync"
+  },
+  {
+   "file": "src/Presentation/Nop.Web/Factories/ProductModelFactory.cs",
+   "method": "PrepareProductReviewsModelAsync"
+  },
+  {
+   "file": "src/Presentation/Nop.Web/Factories/JsonLdModelFactory.cs",
+   "method": "PrepareJsonLdForumTopicAsync"
+  },
+  {
+   "file": "src/Presentation/Nop.Web/Factories/ProductModelFactory.cs",
+   "method": "PrepareProductDetailsModelAsync"
+  },
+  {
+   "file": "src/Libraries/Nop.Services/Catalog/ProductReviewService.cs",
+   "method": "GetAllProductReviewsAsync"
+  }
+ ],
+ "reg_memorizacao": [
+  {
+   "texto": "{\"file\": \"src/Presentation/Nop.Web/Components/JsonLdViewComponent.cs\"}",
+   "modelo_resposta": "nvidia/nemotron-3-ultra-550b-a55b:free",
+   "tokens_entrada": 263,
+   "tokens_saida": 2334,
+   "tokens_total": 2597,
+   "custo_usd": 0,
+   "segundos": 70.7
+  }
+ ],
+ "memorizacao": "src/Presentation/Nop.Web/Components/JsonLdViewComponent.cs"
+}

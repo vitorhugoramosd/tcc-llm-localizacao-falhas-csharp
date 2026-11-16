@@ -1,0 +1,77 @@
+{
+ "id": "nop-7587",
+ "rotulo": "cohere",
+ "modelo_pedido": "cohere/north-mini-code:free",
+ "meio": "API",
+ "data": "2026-11-08T16:13:58",
+ "reg_arquivo": [
+  {
+   "texto": "{\"files\": [\"Plugins/Nop.Plugin.Shipping.UPS/UPSComputationMethod.cs\", \"Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs\", \"Plugins/Nop.Plugin.Shipping.UPS/UPSDefaults.cs\", \"Plugins/Nop.Plugin.Shipping.UPS/Models/UPSShippingModel.cs\", \"Plugins/Nop.Plugin.Shipping.UPS/Controllers/UPSShippingController.cs\"]}",
+   "modelo_resposta": "cohere/north-mini-code:free",
+   "tokens_entrada": 26096,
+   "tokens_saida": 3503,
+   "tokens_total": 29599,
+   "custo_usd": 0,
+   "segundos": 12.9
+  }
+ ],
+ "arquivos": [
+  "Plugins/Nop.Plugin.Shipping.UPS/UPSComputationMethod.cs",
+  "Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs",
+  "Plugins/Nop.Plugin.Shipping.UPS/UPSDefaults.cs",
+  "Plugins/Nop.Plugin.Shipping.UPS/Models/UPSShippingModel.cs",
+  "Plugins/Nop.Plugin.Shipping.UPS/Controllers/UPSShippingController.cs"
+ ],
+ "arquivos_lidos": [
+  "src/Plugins/Nop.Plugin.Shipping.UPS/UPSComputationMethod.cs",
+  "src/Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs",
+  "src/Plugins/Nop.Plugin.Shipping.UPS/UPSDefaults.cs",
+  "src/Plugins/Nop.Plugin.Shipping.UPS/Models/UPSShippingModel.cs",
+  "src/Plugins/Nop.Plugin.Shipping.UPS/Controllers/UPSShippingController.cs"
+ ],
+ "reg_metodo": [
+  {
+   "texto": "{\"methods\": [{\"file\": \"src/Plugins/Nop.Plugin.Shipping.UPS/UPSComputationMethod.cs\", \"method\": \"GetShippingOptionsAsync\"}, {\"file\": \"src/Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs\", \"method\": \"GetRatesAsync\"}, {\"file\": \"src/Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs\", \"method\": \"CreateRateRequestAsync\"}, {\"file\": \"src/Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs\", \"method\": \"PrepareShippingOptionsAsync\"}, {\"file\": \"src/Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs\", \"method\": \"GetShippingOptionsAsync\"}]}",
+   "modelo_resposta": "cohere/north-mini-code:free",
+   "tokens_entrada": 13349,
+   "tokens_saida": 9317,
+   "tokens_total": 22666,
+   "custo_usd": 0,
+   "segundos": 34.3
+  }
+ ],
+ "metodos": [
+  {
+   "file": "src/Plugins/Nop.Plugin.Shipping.UPS/UPSComputationMethod.cs",
+   "method": "GetShippingOptionsAsync"
+  },
+  {
+   "file": "src/Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs",
+   "method": "GetRatesAsync"
+  },
+  {
+   "file": "src/Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs",
+   "method": "CreateRateRequestAsync"
+  },
+  {
+   "file": "src/Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs",
+   "method": "PrepareShippingOptionsAsync"
+  },
+  {
+   "file": "src/Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs",
+   "method": "GetShippingOptionsAsync"
+  }
+ ],
+ "reg_memorizacao": [
+  {
+   "texto": "{\"file\": \"Nop.Services/Shipping/Methods/UPS/UPSRateProvider.cs\"}",
+   "modelo_resposta": "cohere/north-mini-code:free",
+   "tokens_entrada": 168,
+   "tokens_saida": 2930,
+   "tokens_total": 3098,
+   "custo_usd": 0,
+   "segundos": 16.1
+  }
+ ],
+ "memorizacao": "Nop.Services/Shipping/Methods/UPS/UPSRateProvider.cs"
+}

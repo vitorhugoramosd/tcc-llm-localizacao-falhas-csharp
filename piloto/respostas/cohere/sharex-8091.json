@@ -1,0 +1,74 @@
+{
+ "id": "sharex-8091",
+ "rotulo": "cohere",
+ "modelo_pedido": "cohere/north-mini-code:free",
+ "meio": "API",
+ "data": "2026-11-08T16:19:41",
+ "reg_arquivo": [
+  {
+   "texto": "{\"files\": [\"ShareX.ImageEffectsLib/Drawings/DrawBorder.cs\", \"ShareX.ImageEffectsLib/ImageEffect.cs\", \"ShareX.HelpersLib/Helpers/ImageHelpers.cs\", \"ShareX.HelpersLib/Extensions/GraphicsExtensions.cs\", \"ShareX.ScreenCaptureLib/Helpers/ImageEditorControl.cs\"]}",
+   "modelo_resposta": "cohere/north-mini-code:free",
+   "tokens_entrada": 5825,
+   "tokens_saida": 5381,
+   "tokens_total": 11206,
+   "custo_usd": 0,
+   "segundos": 24.9
+  }
+ ],
+ "arquivos": [
+  "ShareX.ImageEffectsLib/Drawings/DrawBorder.cs",
+  "ShareX.ImageEffectsLib/ImageEffect.cs",
+  "ShareX.HelpersLib/Helpers/ImageHelpers.cs",
+  "ShareX.HelpersLib/Extensions/GraphicsExtensions.cs",
+  "ShareX.ScreenCaptureLib/Helpers/ImageEditorControl.cs"
+ ],
+ "reg_memorizacao": [
+  {
+   "texto": "",
+   "modelo_resposta": "cohere/north-mini-code:free",
+   "tokens_entrada": 422,
+   "tokens_saida": 7999,
+   "tokens_total": 8421,
+   "custo_usd": 0,
+   "segundos": 28.0
+  },
+  {
+   "texto": "{\"file\": \"ShareX/Tasks/Effects/Effects/BorderEffect.cs\"}",
+   "modelo_resposta": "cohere/north-mini-code:free",
+   "tokens_entrada": 422,
+   "tokens_saida": 1391,
+   "tokens_total": 1813,
+   "custo_usd": 0,
+   "segundos": 6.6
+  }
+ ],
+ "memorizacao": "ShareX/Tasks/Effects/Effects/BorderEffect.cs",
+ "arquivos_lidos": [
+  "ShareX.ImageEffectsLib/Drawings/DrawBorder.cs",
+  "ShareX.ImageEffectsLib/ImageEffect.cs",
+  "ShareX.HelpersLib/Helpers/ImageHelpers.cs",
+  "ShareX.HelpersLib/Extensions/GraphicsExtensions.cs",
+  "ShareX.ScreenCaptureLib/Helpers/ImageEditorControl.cs"
+ ],
+ "reg_metodo": [
+  {
+   "texto": "",
+   "modelo_resposta": "cohere/north-mini-code:free",
+   "tokens_entrada": 26914,
+   "tokens_saida": 32000,
+   "tokens_total": 58914,
+   "custo_usd": 0,
+   "segundos": 128.8
+  },
+  {
+   "texto": "",
+   "modelo_resposta": "cohere/north-mini-code:free",
+   "tokens_entrada": 26914,
+   "tokens_saida": 31999,
+   "tokens_total": 58913,
+   "custo_usd": 0,
+   "segundos": 176.0
+  }
+ ],
+ "metodos": []
+}

@@ -1,0 +1,308 @@
+[
+ {
+  "id": "nop-8299",
+  "repositorio": "nopSolutions/nopCommerce",
+  "perfil": "com testes",
+  "issue": 8299,
+  "url": "https://github.com/nopSolutions/nopCommerce/issues/8299",
+  "criada_em": "2026-09-06",
+  "commit_correcao": "fe8cb508ae215f6c9d21ed9b2d42f3cf9f149dc4",
+  "commit_pai": "3a7a2fc3a96615e47d8877d89655e38991aa8693",
+  "arquivos_cs_no_repositorio": 3302,
+  "referencia": {
+   "arquivos": [
+    "src/Libraries/Nop.Services/Customers/CustomerService.cs"
+   ],
+   "metodos": [
+    {
+     "arquivo": "src/Libraries/Nop.Services/Customers/CustomerService.cs",
+     "classe": "CustomerService",
+     "metodo": "FormatUsernameAsync",
+     "linhas": [
+      819,
+      851
+     ]
+    }
+   ]
+  },
+  "relato_cita_alvo": [],
+  "tamanho_consulta_arquivo_chars": 115426,
+  "tokens_estimados_consulta_arquivo": 32063
+ },
+ {
+  "id": "nop-8409",
+  "repositorio": "nopSolutions/nopCommerce",
+  "perfil": "com testes",
+  "issue": 8409,
+  "url": "https://github.com/nopSolutions/nopCommerce/issues/8409",
+  "criada_em": "2026-10-25",
+  "commit_correcao": "9e47cd6e78dc433b0f79c6a0704ad2a1831e48dd",
+  "commit_pai": "5844a717a8787fa81e632f0dd2ff52a5a6e33f56",
+  "arquivos_cs_no_repositorio": 3504,
+  "referencia": {
+   "arquivos": [
+    "src/Plugins/Nop.Plugin.Feed.ChatGptShopping/Services/ChatGptShoppingService.cs"
+   ],
+   "metodos": [
+    {
+     "arquivo": "src/Plugins/Nop.Plugin.Feed.ChatGptShopping/Services/ChatGptShoppingService.cs",
+     "classe": "ChatGptShoppingService",
+     "metodo": "BuildProductAsync",
+     "linhas": [
+      221,
+      357
+     ]
+    }
+   ]
+  },
+  "relato_cita_alvo": [],
+  "tamanho_consulta_arquivo_chars": 125552,
+  "tokens_estimados_consulta_arquivo": 34876
+ },
+ {
+  "id": "nop-7587",
+  "repositorio": "nopSolutions/nopCommerce",
+  "perfil": "com testes",
+  "issue": 7587,
+  "url": "https://github.com/nopSolutions/nopCommerce/issues/7587",
+  "criada_em": "2025-02-17",
+  "commit_correcao": "1ab4d6b75c7c2b8b81d79de05baf48f131210927",
+  "commit_pai": "f821158ce48fa5b077ef7ea1521cff753b4588aa",
+  "arquivos_cs_no_repositorio": 3076,
+  "referencia": {
+   "arquivos": [
+    "src/Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs"
+   ],
+   "metodos": [
+    {
+     "arquivo": "src/Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs",
+     "classe": "UPSService",
+     "metodo": "CreatePackageAsync",
+     "linhas": [
+      461,
+      506
+     ]
+    }
+   ]
+  },
+  "relato_cita_alvo": [],
+  "tamanho_consulta_arquivo_chars": 106856,
+  "tokens_estimados_consulta_arquivo": 29682
+ },
+ {
+  "id": "sharex-8568",
+  "repositorio": "ShareX/ShareX",
+  "perfil": "legado (sem testes)",
+  "issue": 8568,
+  "url": "https://github.com/ShareX/ShareX/issues/8568",
+  "criada_em": "2026-05-04",
+  "commit_correcao": "ccc87f9e04caf1416221c26da53ede62fffb4732",
+  "commit_pai": "e40ff916446ac67a949412335f0e3d6633a8dd1a",
+  "arquivos_cs_no_repositorio": 1177,
+  "referencia": {
+   "arquivos": [
+    "ShareX.ImageEditor/Presentation/Rendering/BitmapConversionHelpers.cs",
+    "ShareX.ImageEditor/Presentation/ViewModels/MainViewModel.CanvasState.cs",
+    "ShareX.ImageEditor/Presentation/ViewModels/MainViewModel.cs",
+    "ShareX.ImageEditor/Presentation/Views/EditorView.CoreBridge.cs"
+   ],
+   "metodos": [
+    {
+     "arquivo": "ShareX.ImageEditor/Presentation/Rendering/BitmapConversionHelpers.cs",
+     "classe": "BitmapConversionHelpers",
+     "metodo": "ToSKBitmap",
+     "linhas": [
+      44,
+      102
+     ]
+    },
+    {
+     "arquivo": "ShareX.ImageEditor/Presentation/ViewModels/MainViewModel.CanvasState.cs",
+     "classe": "MainViewModel",
+     "metodo": "SamplePixelColor",
+     "linhas": [
+      38,
+      62
+     ]
+    },
+    {
+     "arquivo": "ShareX.ImageEditor/Presentation/ViewModels/MainViewModel.cs",
+     "classe": "MainViewModel",
+     "metodo": "OnPreviewImageChanged",
+     "linhas": [
+      453,
+      468
+     ]
+    },
+    {
+     "arquivo": "ShareX.ImageEditor/Presentation/Views/EditorView.CoreBridge.cs",
+     "classe": "EditorView",
+     "metodo": "GetSnapshot",
+     "linhas": [
+      94,
+      150
+     ]
+    }
+   ]
+  },
+  "relato_cita_alvo": [],
+  "tamanho_consulta_arquivo_chars": 32387,
+  "tokens_estimados_consulta_arquivo": 8996
+ },
+ {
+  "id": "sharex-8699",
+  "repositorio": "ShareX/ShareX",
+  "perfil": "legado (sem testes)",
+  "issue": 8699,
+  "url": "https://github.com/ShareX/ShareX/issues/8699",
+  "criada_em": "2026-06-09",
+  "commit_correcao": "e09b249e8478d88fe401994d580b9cf87964a98e",
+  "commit_pai": "7495917ec42177b74b7dbce3acc4bfaf2f6b5e4b",
+  "arquivos_cs_no_repositorio": 1201,
+  "referencia": {
+   "arquivos": [
+    "ShareX.ImageEditor/Hosting/AvaloniaIntegration.cs",
+    "ShareX/TaskHelpers.cs"
+   ],
+   "metodos": [
+    {
+     "arquivo": "ShareX.ImageEditor/Hosting/AvaloniaIntegration.cs",
+     "classe": "AvaloniaIntegration",
+     "metodo": "Initialize",
+     "linhas": [
+      75,
+      102
+     ]
+    },
+    {
+     "arquivo": "ShareX.ImageEditor/Hosting/AvaloniaIntegration.cs",
+     "classe": "AvaloniaIntegration",
+     "metodo": "ShowEditor",
+     "linhas": [
+      104,
+      115
+     ]
+    },
+    {
+     "arquivo": "ShareX.ImageEditor/Hosting/AvaloniaIntegration.cs",
+     "classe": "AvaloniaIntegration",
+     "metodo": "ShowEditor",
+     "linhas": [
+      117,
+      128
+     ]
+    },
+    {
+     "arquivo": "ShareX.ImageEditor/Hosting/AvaloniaIntegration.cs",
+     "classe": "AvaloniaIntegration",
+     "metodo": "ShowEditorDialog",
+     "linhas": [
+      136,
+      157
+     ]
+    },
+    {
+     "arquivo": "ShareX.ImageEditor/Hosting/AvaloniaIntegration.cs",
+     "classe": "AvaloniaIntegration",
+     "metodo": "ShowEditorDialogBitmap",
+     "linhas": [
+      165,
+      186
+     ]
+    },
+    {
+     "arquivo": "ShareX.ImageEditor/Hosting/AvaloniaIntegration.cs",
+     "classe": "AvaloniaIntegration",
+     "metodo": "ShowEditorDialogCore",
+     "linhas": [
+      188,
+      273
+     ]
+    },
+    {
+     "arquivo": "ShareX/TaskHelpers.cs",
+     "classe": "TaskHelpers",
+     "metodo": "AnnotateImageModern",
+     "linhas": [
+      1316,
+      1398
+     ]
+    }
+   ]
+  },
+  "relato_cita_alvo": [],
+  "tamanho_consulta_arquivo_chars": 33370,
+  "tokens_estimados_consulta_arquivo": 9269
+ },
+ {
+  "id": "sharex-8091",
+  "repositorio": "ShareX/ShareX",
+  "perfil": "legado (sem testes)",
+  "issue": 8091,
+  "url": "https://github.com/ShareX/ShareX/issues/8091",
+  "criada_em": "2025-08-22",
+  "commit_correcao": "0e0b41f9af0dafc9d9cc6144cdcd7fc81d756896",
+  "commit_pai": "b43de79292d1cdd74dbbc09ca64e227ddde90b00",
+  "arquivos_cs_no_repositorio": 792,
+  "referencia": {
+   "arquivos": [
+    "ShareX.HelpersLib/Helpers/ImageHelpers.cs"
+   ],
+   "metodos": [
+    {
+     "arquivo": "ShareX.HelpersLib/Helpers/ImageHelpers.cs",
+     "classe": "ImageHelpers",
+     "metodo": "DrawBorder",
+     "linhas": [
+      892,
+      920
+     ]
+    }
+   ]
+  },
+  "relato_cita_alvo": [],
+  "tamanho_consulta_arquivo_chars": 21469,
+  "tokens_estimados_consulta_arquivo": 5964
+ },
+ {
+  "id": "nop-8369",
+  "repositorio": "nopSolutions/nopCommerce",
+  "perfil": "com testes",
+  "issue": 8369,
+  "url": "https://github.com/nopSolutions/nopCommerce/issues/8369",
+  "criada_em": "2026-10-15",
+  "commit_correcao": "32f317901f2cf5467755abf604e8289483ba51da",
+  "commit_pai": "bb282e906595782570f74879647e253c487132de",
+  "arquivos_cs_no_repositorio": 3503,
+  "referencia": {
+   "arquivos": [
+    "src/Libraries/Nop.Services/Catalog/PriceCalculationService.cs",
+    "src/Libraries/Nop.Services/PriceLists/IPriceListService.cs",
+    "src/Libraries/Nop.Services/PriceLists/PriceListService.cs"
+   ],
+   "metodos": [
+    {
+     "arquivo": "src/Libraries/Nop.Services/Catalog/PriceCalculationService.cs",
+     "classe": "PriceCalculationService",
+     "metodo": "GetPriceListPriceAsync",
+     "linhas": [
+      77,
+      141
+     ]
+    },
+    {
+     "arquivo": "src/Libraries/Nop.Services/PriceLists/PriceListService.cs",
+     "classe": "PriceListService",
+     "metodo": "ApplyAdjustmentPrice",
+     "linhas": [
+      310,
+      325
+     ]
+    }
+   ]
+  },
+  "relato_cita_alvo": [],
+  "tamanho_consulta_arquivo_chars": 125060,
+  "tokens_estimados_consulta_arquivo": 34739
+ }
+]

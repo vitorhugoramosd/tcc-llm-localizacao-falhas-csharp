@@ -1,0 +1,8 @@
+Below is a bug report from the C# repository ShareX (github.com/ShareX/ShareX). You will not receive any list of files or code. Give the exact path of the .cs file that was changed to fix this bug. Do not search the web. Answer ONLY with JSON in the format {"file": "path"}.
+
+### Bug report
+Title: After capture tasks delayed until all editors closed
+
+I often have multiple Editors open at once from multiple screenshots. Ordinarily, when I hit Continue, the screenshot is copied to the clipboard and it's saved to my screenshot folder. But sometimes I hit Continue and nothing happens. It's not in the saved image folder and it's not in the clipboard. However, if I Continue or Cancel out of all active Editors, all of the after capture tasks will finally process.
+
+It doesn't happen every time but it has happened repeatedly since the new Editor was released. I'm currently on 20.2.

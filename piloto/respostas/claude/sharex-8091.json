@@ -1,0 +1,77 @@
+{
+ "id": "sharex-8091",
+ "rotulo": "claude",
+ "modelo_pedido": "claude-sonnet-5-5",
+ "meio": "API",
+ "data": "2026-11-07T14:57:35",
+ "reg_arquivo": [
+  {
+   "texto": "{\"files\": [\"ShareX.HelpersLib/Helpers/ImageHelpers.cs\", \"ShareX.ImageEffectsLib/Drawings/DrawBorder.cs\", \"ShareX.ImageEffectsLib/Manipulations/Canvas.cs\", \"ShareX.HelpersLib/Extensions/GraphicsExtensions.cs\", \"ShareX.HelpersLib/UnsafeBitmap.cs\"]}",
+   "modelo_resposta": "claude-sonnet-5-5",
+   "tokens_entrada": 12586,
+   "tokens_saida": 156,
+   "tokens_total": 12742,
+   "custo_usd": null,
+   "segundos": 2.0
+  }
+ ],
+ "arquivos": [
+  "ShareX.HelpersLib/Helpers/ImageHelpers.cs",
+  "ShareX.ImageEffectsLib/Drawings/DrawBorder.cs",
+  "ShareX.ImageEffectsLib/Manipulations/Canvas.cs",
+  "ShareX.HelpersLib/Extensions/GraphicsExtensions.cs",
+  "ShareX.HelpersLib/UnsafeBitmap.cs"
+ ],
+ "arquivos_lidos": [
+  "ShareX.HelpersLib/Helpers/ImageHelpers.cs",
+  "ShareX.ImageEffectsLib/Drawings/DrawBorder.cs",
+  "ShareX.ImageEffectsLib/Manipulations/Canvas.cs",
+  "ShareX.HelpersLib/Extensions/GraphicsExtensions.cs",
+  "ShareX.HelpersLib/UnsafeBitmap.cs"
+ ],
+ "reg_metodo": [
+  {
+   "texto": "The bug is most likely in the outside branch of `DrawBorder(Bitmap bmp, Pen borderPen, BorderType borderType)`. It draws the border, then calls `g.SetHighQuality()`, which sets `SmoothingMode.HighQuality` and `InterpolationMode.HighQualityBicubic`. The image is then drawn with `g.DrawImage(bmp, borderSize, borderSize, bmp.Width, bmp.Height)`.\n\nWith the default `PixelOffsetMode`, a bicubic scaled draw at an integer offset blends the edge pixels with the transparent surroundings. That produces a faint transparent line on the left and top edges inside the border. Other methods in `ImageHelpers`, such as `DrawBackgroundImage`, set `PixelOffsetMode.Half` or `HighQuality` to avoid this, which supports that explanation. The likely fix is to set `PixelOffsetMode.Half` there, or to draw the image with a source rectangle and `ImageAttributes` using `WrapMode.TileFlipXY`.\n\nThe remaining candidates are weaker:\n- The three `DrawBorder` overloads that build the pen and gradient brush, and `DrawBorder.Apply`, all pass through the same method.\n- `SetHighQuality` is the helper that does not set `PixelOffsetMode`.\n- `DrawRectangleProper` could matter, but it is only used for the border itself.\n\n```json\n{\"methods\": [\n{\"file\": \"ShareX.HelpersLib/Helpers/ImageHelpers.cs\", \"method\": \"DrawBorder\"},\n{\"file\": \"ShareX.HelpersLib/Extensions/GraphicsExtensions.cs\", \"method\": \"SetHighQuality\"},\n{\"file\": \"ShareX.HelpersLib/Extensions/GraphicsExtensions.cs\", \"method\": \"DrawRectangleProper\"},\n{\"file\": \"ShareX.ImageEffectsLib/Drawings/DrawBorder.cs\", \"method\": \"Apply\"},\n{\"file\": \"ShareX.HelpersLib/Helpers/ImageHelpers.cs\", \"method\": \"AddCanvas\"}\n]}\n```",
+   "modelo_resposta": "claude-sonnet-5-5",
+   "tokens_entrada": 50030,
+   "tokens_saida": 735,
+   "tokens_total": 50765,
+   "custo_usd": null,
+   "segundos": 6.2
+  }
+ ],
+ "metodos": [
+  {
+   "file": "ShareX.HelpersLib/Helpers/ImageHelpers.cs",
+   "method": "DrawBorder"
+  },
+  {
+   "file": "ShareX.HelpersLib/Extensions/GraphicsExtensions.cs",
+   "method": "SetHighQuality"
+  },
+  {
+   "file": "ShareX.HelpersLib/Extensions/GraphicsExtensions.cs",
+   "method": "DrawRectangleProper"
+  },
+  {
+   "file": "ShareX.ImageEffectsLib/Drawings/DrawBorder.cs",
+   "method": "Apply"
+  },
+  {
+   "file": "ShareX.HelpersLib/Helpers/ImageHelpers.cs",
+   "method": "AddCanvas"
+  }
+ ],
+ "reg_memorizacao": [
+  {
+   "texto": "{\"file\": \"ShareX.ImageEffectsLib/Drawings/Border.cs\"}",
+   "modelo_resposta": "claude-sonnet-5-5",
+   "tokens_entrada": 584,
+   "tokens_saida": 34,
+   "tokens_total": 618,
+   "custo_usd": null,
+   "segundos": 1.5
+  }
+ ],
+ "memorizacao": "ShareX.ImageEffectsLib/Drawings/Border.cs"
+}

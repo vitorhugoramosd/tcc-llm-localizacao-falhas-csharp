@@ -1,0 +1,77 @@
+{
+ "id": "nop-7587",
+ "rotulo": "claude",
+ "modelo_pedido": "claude-sonnet-5-5",
+ "meio": "API",
+ "data": "2026-11-07T14:56:48",
+ "reg_arquivo": [
+  {
+   "texto": "{\"files\": [\"src/Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs\", \"src/Plugins/Nop.Plugin.Shipping.UPS/API/Rates/NopRateClient.cs\", \"src/Plugins/Nop.Plugin.Shipping.UPS/UPSComputationMethod.cs\", \"src/Plugins/Nop.Plugin.Shipping.UPS/API/Rates/RateClient.cs\", \"src/Plugins/Nop.Plugin.Shipping.UPS/UPSSettings.cs\"]}",
+   "modelo_resposta": "claude-sonnet-5-5",
+   "tokens_entrada": 59656,
+   "tokens_saida": 203,
+   "tokens_total": 59859,
+   "custo_usd": null,
+   "segundos": 2.9
+  }
+ ],
+ "arquivos": [
+  "src/Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs",
+  "src/Plugins/Nop.Plugin.Shipping.UPS/API/Rates/NopRateClient.cs",
+  "src/Plugins/Nop.Plugin.Shipping.UPS/UPSComputationMethod.cs",
+  "src/Plugins/Nop.Plugin.Shipping.UPS/API/Rates/RateClient.cs",
+  "src/Plugins/Nop.Plugin.Shipping.UPS/UPSSettings.cs"
+ ],
+ "arquivos_lidos": [
+  "src/Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs",
+  "src/Plugins/Nop.Plugin.Shipping.UPS/API/Rates/NopRateClient.cs",
+  "src/Plugins/Nop.Plugin.Shipping.UPS/UPSComputationMethod.cs",
+  "src/Plugins/Nop.Plugin.Shipping.UPS/API/Rates/RateClient.cs",
+  "src/Plugins/Nop.Plugin.Shipping.UPS/UPSSettings.cs"
+ ],
+ "reg_metodo": [
+  {
+   "texto": "{\"methods\": [{\"file\": \"src/Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs\", \"method\": \"CreateRateRequestAsync\"}, {\"file\": \"src/Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs\", \"method\": \"PrepareShippingOptionsAsync\"}, {\"file\": \"src/Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs\", \"method\": \"CreatePackageAsync\"}, {\"file\": \"src/Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs\", \"method\": \"GetPackagesForOneItemPerPackageAsync\"}, {\"file\": \"src/Plugins/Nop.Plugin.Shipping.UPS/API/Rates/NopRateClient.cs\", \"method\": \"ProcessRateAsync\"}]}",
+   "modelo_resposta": "claude-sonnet-5-5",
+   "tokens_entrada": 160804,
+   "tokens_saida": 316,
+   "tokens_total": 161120,
+   "custo_usd": null,
+   "segundos": 4.6
+  }
+ ],
+ "metodos": [
+  {
+   "file": "src/Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs",
+   "method": "CreateRateRequestAsync"
+  },
+  {
+   "file": "src/Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs",
+   "method": "PrepareShippingOptionsAsync"
+  },
+  {
+   "file": "src/Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs",
+   "method": "CreatePackageAsync"
+  },
+  {
+   "file": "src/Plugins/Nop.Plugin.Shipping.UPS/Services/UPSService.cs",
+   "method": "GetPackagesForOneItemPerPackageAsync"
+  },
+  {
+   "file": "src/Plugins/Nop.Plugin.Shipping.UPS/API/Rates/NopRateClient.cs",
+   "method": "ProcessRateAsync"
+  }
+ ],
+ "reg_memorizacao": [
+  {
+   "texto": "The UPS plugin lives at src/Plugins/Nop.Plugin.Shipping.UPS/UPSComputationMethod.cs. I'm giving that path from memory of the repository layout, without checking it.\n\n{\"file\": \"src/Plugins/Nop.Plugin.Shipping.UPS/UPSComputationMethod.cs\"}",
+   "modelo_resposta": "claude-sonnet-5-5",
+   "tokens_entrada": 278,
+   "tokens_saida": 117,
+   "tokens_total": 395,
+   "custo_usd": null,
+   "segundos": 1.8
+  }
+ ],
+ "memorizacao": "src/Plugins/Nop.Plugin.Shipping.UPS/UPSComputationMethod.cs"
+}

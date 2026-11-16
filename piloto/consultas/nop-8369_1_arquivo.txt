@@ -1,0 +1,4135 @@
+You are helping to locate a bug in the C# repository nopCommerce. Below is the bug report and the list of all .cs source files in the repository, grouped by folder (full path = folder + file name). Return the 5 files most likely to contain the code that must be changed to fix the bug, ordered from most to least likely. Do not search the web. Answer ONLY with JSON in the format {"files": ["full/path1.cs", "full/path2.cs", "full/path3.cs", "full/path4.cs", "full/path5.cs"]}.
+
+### Bug report
+Title: Price list adjustments ignore the overridden price of attribute combinations
+
+**Description**
+A price list's percentage or amount adjustment is always calculated from `product.Price`. When the selected attribute combination has an overridden price, that price is dropped and the customer is charged the adjusted base product price instead.
+
+**Steps to reproduce** (sample data, "Build your own computer", price 1200)
+1. Admin → Catalog → Price lists: create an active price list with "Percentage decrease" of **10**, no customer or role mappings.
+2. Add "Build your own computer" to the price list. Leave its manual price empty.
+3. Admin → Catalog → Products → "Build your own computer" → Product attributes → **Attribute combinations** → Add combination:
+   - Processor: 2.2 GHz
+   - RAM: 8GB
+   - HDD: 320 GB
+   - OS: Vista Home
+   - Software: none
+   - **Overridden price: 1500**
+4. On the storefront, open "Build your own computer" and select exactly that combination.
+
+**Actual:** 1080.00, which is 1200 − 10%. The overridden price is ignored.
+**Expected:** 1350.00, which is 1500 − 10%.
+
+### Source files (3503)
+src/Build/src/ClearPluginAssemblies/
+  Program.cs
+src/Libraries/Nop.Core/
+  BaseEntity.cs
+  CommonHelper.cs
+  HashHelper.cs
+  IPagedList.cs
+  IStoreContext.cs
+  IWorkContext.cs
+  MimeTypes.cs
+  NopException.cs
+  NopVersion.cs
+  PagedList.cs
+  SecureRandomNumberGenerator.cs
+  TypeConverterRegistrationStartUpTask.cs
+  XmlHelper.cs
+src/Libraries/Nop.Core/Caching/
+  CacheKey.cs
+  CacheKeyManager.cs
+  CacheKeyService.cs
+  DistributedCacheLocker.cs
+  DistributedCacheManager.cs
+  ICacheKeyManager.cs
+  ICacheKeyService.cs
+  ILocker.cs
+  IShortTermCacheManager.cs
+  IStaticCacheManager.cs
+  ISynchronizedMemoryCache.cs
+  MemoryCacheLocker.cs
+  MemoryCacheManager.cs
+  NopEntityCacheDefaults.cs
+  PerRequestCacheManager.cs
+  SynchronizedMemoryCacheManager.cs
+src/Libraries/Nop.Core/ComponentModel/
+  GenericDictionaryTypeConverter.cs
+  GenericListTypeConverter.cs
+  ReaderWriteLockDisposable.cs
+  ReaderWriteLockType.cs
+src/Libraries/Nop.Core/Configuration/
+  AppSettings.cs
+  AppSettingsHelper.cs
+  AppSettingsSavingEvent.cs
+  CacheConfig.cs
+  CommonConfig.cs
+  DistributedCacheConfig.cs
+  DistributedCacheType.cs
+  HostingConfig.cs
+  IConfig.cs
+  ISettings.cs
+  InstallationConfig.cs
+  NopConfigurationDefaults.cs
+  PluginConfig.cs
+src/Libraries/Nop.Core/Domain/Affiliates/
+  Affiliate.cs
+src/Libraries/Nop.Core/Domain/ArtificialIntelligence/
+  ArtificialIntelligenceProviderType.cs
+  ArtificialIntelligenceSettings.cs
+  ToneOfVoiceType.cs
+src/Libraries/Nop.Core/Domain/Attributes/
+  BaseAttribute.cs
+  BaseAttributeValue.cs
+src/Libraries/Nop.Core/Domain/Blogs/
+  BlogComment.cs
+  BlogCommentApprovedEvent.cs
+  BlogPost.cs
+  BlogPostTag.cs
+  BlogSettings.cs
+src/Libraries/Nop.Core/Domain/Catalog/
+  AttributeControlType.cs
+  AttributeValueOutOfStockDisplayType.cs
+  AttributeValueType.cs
+  BackInStockSubscription.cs
+  BackorderMode.cs
+  CatalogSettings.cs
+  Category.cs
+  CategoryTemplate.cs
+  CrossSellProduct.cs
+  DownloadActivationType.cs
+  GiftCardType.cs
+  GpsrSettings.cs
+  LowStockActivity.cs
+  LowStockProductReportLine.cs
+  ManageInventoryMethod.cs
+  Manufacturer.cs
+  ManufacturerTemplate.cs
+  PostCopyProductEvent.cs
+  PredefinedProductAttributeValue.cs
+  Product.cs
+  Product3dObject.cs
+  ProductAttribute.cs
+  ProductAttributeCombination.cs
+  ProductAttributeCombinationPicture.cs
+  ProductAttributeMapping.cs
+  ProductAttributeValue.cs
+  ProductAttributeValuePicture.cs
+  ProductCategory.cs
+  ProductEditorSettings.cs
+  ProductManufacturer.cs
+  ProductPicture.cs
+  ProductProductTagMapping.cs
+  ProductReview.cs
+  ProductReviewApprovedEvent.cs
+  ProductReviewHelpfulness.cs
+  ProductReviewReviewTypeMapping.cs
+  ProductSortingEnum.cs
+  ProductSpecificationAttribute.cs
+  ProductTag.cs
+  ProductTemplate.cs
+  ProductType.cs
+  ProductUrlStructureType.cs
+  ProductVideo.cs
+  ProductWarehouseInventory.cs
+  RecurringProductCyclePeriod.cs
+  RelatedProduct.cs
+  RentalPricePeriod.cs
+  ReviewType.cs
+  SpecificationAttribute.cs
+  SpecificationAttributeGroup.cs
+  SpecificationAttributeOption.cs
+  SpecificationAttributeType.cs
+  StockQuantityHistory.cs
+  TierPrice.cs
+src/Libraries/Nop.Core/Domain/Cms/
+  WidgetSettings.cs
+src/Libraries/Nop.Core/Domain/Common/
+  Address.cs
+  AddressAttribute.cs
+  AddressAttributeValue.cs
+  AddressSettings.cs
+  AdminAreaSettings.cs
+  AdressField.cs
+  CommonSettings.cs
+  ContactFormAttribute.cs
+  ContactFormAttributeValue.cs
+  GenericAttribute.cs
+  IMetaTagsSupported.cs
+  ISoftDeletedEntity.cs
+  LicenseTerms.cs
+  PdfSettings.cs
+  SearchTerm.cs
+  SearchTermReportLine.cs
+  SitemapSettings.cs
+  SitemapXmlSettings.cs
+src/Libraries/Nop.Core/Domain/Configuration/
+  Setting.cs
+src/Libraries/Nop.Core/Domain/Customers/
+  BestCustomerReportLine.cs
+  Customer.cs
+  CustomerActivatedEvent.cs
+  CustomerAddressMapping.cs
+  CustomerAttribute.cs
+  CustomerAttributeValue.cs
+  CustomerChangeMultiFactorAuthenticationProviderEvent.cs
+  CustomerChangeWorkingLanguageEvent.cs
+  CustomerCustomerRoleMapping.cs
+  CustomerExtensions.cs
+  CustomerLoggedOutEvent.cs
+  CustomerLoggedinEvent.cs
+  CustomerLoginResults.cs
+  CustomerNameFormat.cs
+  CustomerPassword.cs
+  CustomerPasswordChangedEvent.cs
+  CustomerRegisteredEvent.cs
+  CustomerRole.cs
+  CustomerRoleComparerByName.cs
+  CustomerSettings.cs
+  ExternalAuthenticationRecord.cs
+  ExternalAuthenticationSettings.cs
+  MultiFactorAuthenticationSettings.cs
+  NopCustomerDefaults.cs
+  OtpSettings.cs
+  PasswordFormat.cs
+  PrivateMessage.cs
+  PrivateMessageSettings.cs
+  RegisteredCustomersReportLine.cs
+  RewardPointsActivatingDelayPeriod.cs
+  RewardPointsActivatingDelayPeriodExtensions.cs
+  RewardPointsHistory.cs
+  RewardPointsSettings.cs
+  UserRegistrationType.cs
+src/Libraries/Nop.Core/Domain/Directory/
+  Country.cs
+  Currency.cs
+  CurrencySettings.cs
+  ExchangeRate.cs
+  MeasureDimension.cs
+  MeasureSettings.cs
+  MeasureWeight.cs
+  RoundingType.cs
+  StateProvince.cs
+src/Libraries/Nop.Core/Domain/Discounts/
+  Discount.cs
+  DiscountCategoryMapping.cs
+  DiscountLimitationType.cs
+  DiscountManufacturerMapping.cs
+  DiscountMapping.cs
+  DiscountProductMapping.cs
+  DiscountRequirement.cs
+  DiscountType.cs
+  DiscountUsageHistory.cs
+  IDiscountSupported.cs
+  RequirementGroupInteractionType.cs
+src/Libraries/Nop.Core/Domain/FilterLevels/
+  FilterLevelEnum.cs
+  FilterLevelSettings.cs
+  FilterLevelValue.cs
+  FilterLevelValueProductMapping.cs
+src/Libraries/Nop.Core/Domain/Gdpr/
+  CustomerPermanentlyDeleted.cs
+  GdprConsent.cs
+  GdprLog.cs
+  GdprRequestType.cs
+  GdprSettings.cs
+src/Libraries/Nop.Core/Domain/Localization/
+  ILocalizedEntity.cs
+  Language.cs
+  LocaleStringResource.cs
+  LocalizationSettings.cs
+  LocalizedProperty.cs
+src/Libraries/Nop.Core/Domain/Logging/
+  ActivityLog.cs
+  ActivityLogType.cs
+  Log.cs
+  LogLevel.cs
+src/Libraries/Nop.Core/Domain/Media/
+  Download.cs
+  MediaSettings.cs
+  Picture.cs
+  PictureBinary.cs
+  PictureHashItem.cs
+  PictureType.cs
+  Video.cs
+src/Libraries/Nop.Core/Domain/Menus/
+  Menu.cs
+  MenuItem.cs
+  MenuItemTemplate.cs
+  MenuItemType.cs
+  MenuSettings.cs
+  MenuType.cs
+src/Libraries/Nop.Core/Domain/Messages/
+  AdditionalTokensAddedEvent.cs
+  Campaign.cs
+  CampaignAdditionalTokensAddedEvent.cs
+  EmailAccount.cs
+  EmailAccountSettings.cs
+  EmailAuthenticationMethod.cs
+  EmailSubscribedEvent.cs
+  EmailUnsubscribedEvent.cs
+  MessageDelayPeriod.cs
+  MessageDelayPeriodExtensions.cs
+  MessageTemplate.cs
+  MessageTemplateSystemNames.cs
+  MessageTemplatesSettings.cs
+  MessagesSettings.cs
+  NewsLetterSubscription.cs
+  NewsLetterSubscriptionType.cs
+  QueuedEmail.cs
+  QueuedEmailPriority.cs
+src/Libraries/Nop.Core/Domain/Orders/
+  BestsellersReportLine.cs
+  CheckoutAttribute.cs
+  CheckoutAttributeValue.cs
+  ClearShoppingCartEvent.cs
+  CustomWishlist.cs
+  GetShoppingCartItemUnitPriceEvent.cs
+  GiftCard.cs
+  GiftCardUsageHistory.cs
+  Order.cs
+  OrderAuthorizedEvent.cs
+  OrderAverageReportLine.cs
+  OrderAverageReportLineSummary.cs
+  OrderByCountryReportLine.cs
+  OrderHistoryPeriods.cs
+  OrderItem.cs
+  OrderNote.cs
+  OrderPaidEvent.cs
+  OrderPlacedEvent.cs
+  OrderRefundedEvent.cs
+  OrderSettings.cs
+  OrderStatus.cs
+  OrderStatusChangedEvent.cs
+  OrderVoidedEvent.cs
+  RecurringPayment.cs
+  RecurringPaymentHistory.cs
+  ResetCheckoutDataEvent.cs
+  ReturnRequest.cs
+  ReturnRequestAction.cs
+  ReturnRequestReason.cs
+  ReturnRequestSettings.cs
+  ReturnRequestStatus.cs
+  SalesSummaryReportLine.cs
+  ShoppingCartItem.cs
+  ShoppingCartItemMovedToOrderItemEvent.cs
+  ShoppingCartSettings.cs
+  ShoppingCartType.cs
+src/Libraries/Nop.Core/Domain/Payments/
+  PaymentSettings.cs
+  PaymentStatus.cs
+src/Libraries/Nop.Core/Domain/PriceLists/
+  PriceCalculationTypeEnum.cs
+  PriceList.cs
+  PriceListCustomer.cs
+  PriceListCustomerRole.cs
+  PriceListItem.cs
+  PriceListStrategy.cs
+src/Libraries/Nop.Core/Domain/Reminders/
+  ReminderSettings.cs
+src/Libraries/Nop.Core/Domain/ScheduleTasks/
+  ScheduleTask.cs
+src/Libraries/Nop.Core/Domain/Security/
+  AclRecord.cs
+  CaptchaSettings.cs
+  CaptchaType.cs
+  IAclSupported.cs
+  PermissionRecord.cs
+  PermissionRecordCustomerRoleMapping.cs
+  ProxySettings.cs
+  RobotsTxtDefaults.cs
+  RobotsTxtSettings.cs
+  SecuritySettings.cs
+  SecuritySettingsChangedEvent.cs
+src/Libraries/Nop.Core/Domain/Seo/
+  ISlugSupported.cs
+  PageTitleSeoAdjustment.cs
+  SeoSettings.cs
+  UrlRecord.cs
+  WwwRequirement.cs
+src/Libraries/Nop.Core/Domain/Shipping/
+  DeliveryDate.cs
+  PickupPoint.cs
+  PickupPointTypeConverter.cs
+  ProductAvailabilityRange.cs
+  Shipment.cs
+  ShipmentCreatedEvent.cs
+  ShipmentDeliveredEvent.cs
+  ShipmentItem.cs
+  ShipmentReadyForPickupEvent.cs
+  ShipmentSentEvent.cs
+  ShipmentTrackingNumberSetEvent.cs
+  ShippingMethod.cs
+  ShippingMethodCountryMapping.cs
+  ShippingOption.cs
+  ShippingOptionListTypeConverter.cs
+  ShippingOptionTypeConverter.cs
+  ShippingSettings.cs
+  ShippingSortingEnum.cs
+  ShippingStatus.cs
+  Warehouse.cs
+src/Libraries/Nop.Core/Domain/
+  StoreInformationSettings.cs
+src/Libraries/Nop.Core/Domain/Stores/
+  IStoreMappingSupported.cs
+  Store.cs
+  StoreMapping.cs
+src/Libraries/Nop.Core/Domain/Tax/
+  TaxBasedOn.cs
+  TaxCategory.cs
+  TaxDisplayType.cs
+  TaxSettings.cs
+  VatNumberStatus.cs
+src/Libraries/Nop.Core/Domain/Topics/
+  Topic.cs
+  TopicTemplate.cs
+src/Libraries/Nop.Core/Domain/Translation/
+  TranslationServiceType.cs
+  TranslationSettings.cs
+src/Libraries/Nop.Core/Domain/Vendors/
+  Vendor.cs
+  VendorAttribute.cs
+  VendorAttributeValue.cs
+  VendorNote.cs
+  VendorSettings.cs
+src/Libraries/Nop.Core/Events/
+  AppStartedEvent.cs
+  EntityDeletedEvent.cs
+  EntityInsertedEvent.cs
+  EntityUpdatedEvent.cs
+  EventPublisherExtensions.cs
+  IEventPublisher.cs
+  IStopProcessingEvent.cs
+src/Libraries/Nop.Core/Http/Extensions/
+  HttpRequestExtensions.cs
+  SessionExtensions.cs
+src/Libraries/Nop.Core/Http/
+  NopCookieDefaults.cs
+  NopHttpDefaults.cs
+  NopRouteNames.cs
+src/Libraries/Nop.Core/Infrastructure/
+  BaseSingleton.cs
+  ConcurrentTrie.cs
+  EngineContext.cs
+  IConcurrentCollection.cs
+  IEngine.cs
+  INopFileProvider.cs
+  INopStartup.cs
+  IStartupTask.cs
+  ITypeFinder.cs
+  NopEngine.cs
+  NopFileProvider.cs
+  Singleton.cs
+  WebAppTypeFinder.cs
+src/Libraries/Nop.Core/Infrastructure/Mapper/
+  BaseMapperProfile.cs
+  IOrderedMapperProfile.cs
+  MapOptions.cs
+  MapTypeTuple.cs
+  MapperConfiguration.cs
+src/Libraries/Nop.Core/Rss/
+  NopRssDefaults.cs
+  RssFeed.cs
+  RssItem.cs
+src/Libraries/Nop.Core/Security/
+  CookieSettings.cs
+  NopDataProtectionDefaults.cs
+src/Libraries/Nop.Data/Configuration/
+  DataConfig.cs
+src/Libraries/Nop.Data/
+  DataProviderManager.cs
+  DataProviderType.cs
+  DataSettingsManager.cs
+  EntityRepository.cs
+  IDataProviderManager.cs
+  INopConnectionStringInfo.cs
+  INopDataProvider.cs
+  IRepository.cs
+  ITempDataStorage.cs
+  NopDataSettingsDefaults.cs
+  NopDbStartup.cs
+  TempSqlDataStorage.cs
+src/Libraries/Nop.Data/DataProviders/
+  BaseDataProvider.cs
+  MsSqlDataProvider.cs
+  MySqlDataProvider.cs
+  PostgreSqlDataProvider.cs
+src/Libraries/Nop.Data/DataProviders/Fluentmigrator/
+  NopMySql8TypeMap.cs
+src/Libraries/Nop.Data/DataProviders/LinqToDb/
+  LinqToDBPostgreSQLDataProvider.cs
+src/Libraries/Nop.Data/Extensions/
+  AsyncIEnumerableExtensions.cs
+  AsyncIQueryableExtensions.cs
+  FluentMigratorExtensions.cs
+  IndexOptionsSyntaxExtensions.cs
+  MigrationRunnerBuilderExtensions.cs
+src/Libraries/Nop.Data/Mapping/
+  BaseNameCompatibility.cs
+  FluentMigratorMetadataReader.cs
+  INameCompatibility.cs
+  NameCompatibilityManager.cs
+  NopEntityDescriptor.cs
+  NopEntityFieldDescriptor.cs
+  NopMappingSchema.cs
+src/Libraries/Nop.Data/Mapping/Builders/Affiliates/
+  AffiliateBuilder.cs
+src/Libraries/Nop.Data/Mapping/Builders/Blogs/
+  BlogCommentBuilder.cs
+  BlogPostBuilder.cs
+src/Libraries/Nop.Data/Mapping/Builders/Catalog/
+  BackInStockSubscriptionBuilder.cs
+  CategoryBuilder.cs
+  CategoryTemplateBuilder.cs
+  CrossSellProductBuilder.cs
+  ManufacturerBuilder.cs
+  ManufacturerTemplateBuilder.cs
+  PredefinedProductAttributeValueBuilder.cs
+  Product3dObjectBuilder.cs
+  ProductAttributeBuilder.cs
+  ProductAttributeCombinationBuilder.cs
+  ProductAttributeCombinationPictureBuilder.cs
+  ProductAttributeMappingBuilder.cs
+  ProductAttributeValueBuilder.cs
+  ProductAttributeValuePictureBuilder.cs
+  ProductBuilder.cs
+  ProductCategoryBuilder.cs
+  ProductManufacturerBuilder.cs
+  ProductPictureBuilder.cs
+  ProductProductTagMappingBuilder.cs
+  ProductReviewBuilder.cs
+  ProductReviewHelpfulnessBuilder.cs
+  ProductReviewReviewTypeMappingBuilder.cs
+  ProductSpecificationAttributeBuilder.cs
+  ProductTagBuilder.cs
+  ProductTemplateBuilder.cs
+  ProductVideoBuilder.cs
+  ProductWarehouseInventoryBuilder.cs
+  RelatedProductBuilder.cs
+  ReviewTypeBuilder.cs
+  SpecificationAttributeBuilder.cs
+  SpecificationAttributeGroupBuilder.cs
+  SpecificationAttributeOptionBuilder.cs
+  StockQuantityHistoryBuilder.cs
+  TierPriceBuilder.cs
+src/Libraries/Nop.Data/Mapping/Builders/Common/
+  AddressAttributeBuilder.cs
+  AddressAttributeValueBuilder.cs
+  AddressBuilder.cs
+  ContactFormAttributeBuilder.cs
+  ContactFormAttributeValueBuilder.cs
+  GenericAttributeBuilder.cs
+  SearchTermBuilder.cs
+src/Libraries/Nop.Data/Mapping/Builders/Configuration/
+  SettingBuilder.cs
+src/Libraries/Nop.Data/Mapping/Builders/Customers/
+  CustomerAddressMappingBuilder.cs
+  CustomerAttributeBuilder.cs
+  CustomerAttributeValueBuilder.cs
+  CustomerBuilder.cs
+  CustomerCustomerRoleMappingBuilder.cs
+  CustomerPasswordBuilder.cs
+  CustomerRoleBuilder.cs
+  ExternalAuthenticationRecordMap.cs
+  PrivateMessageBuilder.cs
+  RewardPointsHistoryBuilder.cs
+src/Libraries/Nop.Data/Mapping/Builders/Directory/
+  CountryBuilder.cs
+  CurrencyBuilder.cs
+  MeasureDimensionBuilder.cs
+  MeasureWeightBuilder.cs
+  StateProvinceBuilder.cs
+src/Libraries/Nop.Data/Mapping/Builders/Discounts/
+  DiscountBuilder.cs
+  DiscountCategoryMappingBuilder.cs
+  DiscountManufacturerMappingBuilder.cs
+  DiscountProductMappingBuilder.cs
+  DiscountRequirementBuilder.cs
+  DiscountUsageHistoryBuilder.cs
+src/Libraries/Nop.Data/Mapping/Builders/FilterLevels/
+  FilterLevelValueBuilder.cs
+  FilterLevelValueProductMappingBuilder.cs
+src/Libraries/Nop.Data/Mapping/Builders/Gdpr/
+  GdprConsentBuilder.cs
+  GdprLogBuilder.cs
+src/Libraries/Nop.Data/Mapping/Builders/
+  IEntityBuilder.cs
+  NopEntityBuilder.cs
+src/Libraries/Nop.Data/Mapping/Builders/Localization/
+  LanguageBuilder.cs
+  LocaleStringResourceBuilder.cs
+  LocalizedPropertyMap.cs
+src/Libraries/Nop.Data/Mapping/Builders/Logging/
+  ActivityLogBuilder.cs
+  ActivityLogTypeBuilder.cs
+  LogBuilder.cs
+src/Libraries/Nop.Data/Mapping/Builders/Media/
+  DownloadBuilder.cs
+  PictureBinaryBuilder.cs
+  PictureBuilder.cs
+  VideoBuilder.cs
+src/Libraries/Nop.Data/Mapping/Builders/Menus/
+  MenuBuilder.cs
+  MenuItemBuilder.cs
+src/Libraries/Nop.Data/Mapping/Builders/Messages/
+  CampaignBuilder.cs
+  EmailAccountBuilder.cs
+  MessageTemplateBuilder.cs
+  NewsLetterSubscriptionBuilder.cs
+  NewsLetterSubscriptionTypeBuilder.cs
+  QueuedEmailBuilder.cs
+src/Libraries/Nop.Data/Mapping/Builders/Orders/
+  CheckoutAttributeBuilder.cs
+  CheckoutAttributeValueBuilder.cs
+  CustomWishlistBuilder.cs
+  GiftCardBuilder.cs
+  GiftCardUsageHistoryBuilder.cs
+  OrderBuilder.cs
+  OrderItemBuilder.cs
+  OrderNoteBuilder.cs
+  RecurringPaymentBuilder.cs
+  RecurringPaymentHistoryBuilder.cs
+  ReturnRequestActionBuilder.cs
+  ReturnRequestBuilder.cs
+  ReturnRequestReasonBuilder.cs
+  ShoppingCartItemBuilder.cs
+src/Libraries/Nop.Data/Mapping/Builders/PriceLists/
+  PriceListBuilder.cs
+  PriceListCustomerBuilder.cs
+  PriceListCustomerRoleBuilder.cs
+  PriceListItemBuilder.cs
+src/Libraries/Nop.Data/Mapping/Builders/Security/
+  AclRecordBuilder.cs
+  PermissionRecordBuilder.cs
+  PermissionRecordCustomerRoleMappingBuilder.cs
+src/Libraries/Nop.Data/Mapping/Builders/Seo/
+  UrlRecordBuilder.cs
+src/Libraries/Nop.Data/Mapping/Builders/Shipping/
+  DeliveryDateBuilder.cs
+  ProductAvailabilityRangeBuilder.cs
+  ShipmentBuilder.cs
+  ShipmentItemBuilder.cs
+  ShippingMethodBuilder.cs
+  ShippingMethodCountryMappingBuilder.cs
+  WarehouseBuilder.cs
+src/Libraries/Nop.Data/Mapping/Builders/Stores/
+  StoreBuilder.cs
+  StoreMappingBuilder.cs
+src/Libraries/Nop.Data/Mapping/Builders/Tasks/
+  ScheduleTaskBuilder.cs
+src/Libraries/Nop.Data/Mapping/Builders/Tax/
+  TaxCategoryBuilder.cs
+src/Libraries/Nop.Data/Mapping/Builders/Topics/
+  TopicBuilder.cs
+  TopicTemplateBuilder.cs
+src/Libraries/Nop.Data/Mapping/Builders/Vendors/
+  VendorAttributeBuilder.cs
+  VendorAttributeValueBuilder.cs
+  VendorBuilder.cs
+  VendorNoteBuilder.cs
+src/Libraries/Nop.Data/Migrations/
+  IMigrationManager.cs
+  MigrationInfoExtension.cs
+  MigrationManager.cs
+  MigrationProcessType.cs
+  MigrationVersionInfo.cs
+  NopColumnsConvention.cs
+  NopConventionSet.cs
+  NopForeignKeyConvention.cs
+  NopGeneratorAccessor.cs
+  NopIndexConvention.cs
+  NopMigrationAttribute.cs
+  NopMigrationDefaults.cs
+  NopProcessorAccessor.cs
+  NopSchemaMigrationAttribute.cs
+  NopUpdateMigrationAttribute.cs
+  NullMigrationContext.cs
+  UpdateMigrationType.cs
+src/Libraries/Nop.Data/Migrations/Installation/
+  AddOrderRewardPointsHistoryFK.cs
+  Indexes.cs
+  SchemaMigration.cs
+src/Libraries/Nop.Data/Migrations/UpgradeTo440/
+  DataMigration.cs
+  SpecificationAttributeGroupingMigration.cs
+src/Libraries/Nop.Data/Migrations/UpgradeTo450/
+  DataMigration.cs
+src/Libraries/Nop.Data/Migrations/UpgradeTo460/
+  DataMigration.cs
+  MySqlDateTimeWithPrecisionMigration.cs
+  SchemaMigration.cs
+  StoreMigration.cs
+  VideoMigration.cs
+src/Libraries/Nop.Data/Migrations/UpgradeTo470/
+  AddIndexesMigration.cs
+  DataMigration.cs
+  SchemaMigration.cs
+src/Libraries/Nop.Data/Migrations/UpgradeTo480/
+  AddIndexesMigration.cs
+  DataMigration.cs
+  SchemaMigration.cs
+src/Libraries/Nop.Data/Migrations/UpgradeTo490/
+  AddIndexesMigration.cs
+  DataMigration.cs
+  FilterLevelMigration.cs
+  MultipleWishlistMigration.cs
+  NewsLetterSubscriptionMigration.cs
+  SchemaMigration.cs
+src/Libraries/Nop.Data/Migrations/UpgradeTo500/
+  AddIndexesMigration.cs
+  DataMigration.cs
+  MultiplePicturesMigration.cs
+  PriceListMigration.cs
+  SchemaMigration.cs
+  SearchTermMigration.cs
+src/Libraries/Nop.Services/Affiliates/
+  AffiliateService.cs
+  IAffiliateService.cs
+  NopAffiliateDefaults.cs
+src/Libraries/Nop.Services/Affiliates/Caching/
+  AffiliateCacheEventConsumer.cs
+src/Libraries/Nop.Services/ArtificialIntelligence/
+  AiRecommendationPluginManager.cs
+  ArtificialIntelligenceDefaults.cs
+  ArtificialIntelligenceHttpClient.cs
+  ArtificialIntelligenceService.cs
+  ChatGptHttpClientHelper.cs
+  DeepSeekHttpClientHelper.cs
+  GeminiHttpClientHelper.cs
+  IAiRecommendationPlugin.cs
+  IAiRecommendationPluginManager.cs
+  IArtificialIntelligenceHttpClientHelper.cs
+  IArtificialIntelligenceService.cs
+  MetaTagsGeneratingEvent.cs
+src/Libraries/Nop.Services/Attributes/
+  AttributeFormatter.cs
+  AttributeParser.cs
+  AttributeService.cs
+  IAttributeFormatter.cs
+  IAttributeParser.cs
+  IAttributeService.cs
+  NopAttributeDefaults.cs
+src/Libraries/Nop.Services/Authentication/
+  AuthenticationMiddleware.cs
+  CookieAuthenticationService.cs
+  IAuthenticationService.cs
+  NopAuthenticationDefaults.cs
+src/Libraries/Nop.Services/Authentication/External/
+  AuthenticationPluginManager.cs
+  CustomerAutoRegisteredByExternalMethodEvent.cs
+  ExternalAuthenticationClaim.cs
+  ExternalAuthenticationParameters.cs
+  ExternalAuthenticationService.cs
+  IAuthenticationPluginManager.cs
+  IExternalAuthenticationMethod.cs
+  IExternalAuthenticationRegistrar.cs
+  IExternalAuthenticationService.cs
+src/Libraries/Nop.Services/Authentication/MultiFactor/
+  IMultiFactorAuthenticationMethod.cs
+  IMultiFactorAuthenticationPluginManager.cs
+  MultiFactorAuthenticationPluginManager.cs
+  MultiFactorAuthenticationType.cs
+src/Libraries/Nop.Services/
+  BaseNopResult.cs
+  Extensions.cs
+src/Libraries/Nop.Services/Blogs/
+  BlogService.cs
+  IBlogService.cs
+  NopBlogsDefaults.cs
+src/Libraries/Nop.Services/Blogs/Caching/
+  BlogCommentCacheEventConsumer.cs
+  BlogPostCacheEventConsumer.cs
+src/Libraries/Nop.Services/Caching/
+  CacheEventConsumer.cs
+  ClearCacheTask.cs
+  IRedisConnectionWrapper.cs
+  MemoryDistributedCacheManager.cs
+  MsSqlServerCacheManager.cs
+  RedisCacheManager.cs
+  RedisConnectionWrapper.cs
+  RedisSynchronizedMemoryCache.cs
+src/Libraries/Nop.Services/Catalog/
+  BackInStockSubscriptionService.cs
+  CategoryService.cs
+  CategoryTemplateService.cs
+  CompareProductsService.cs
+  CopyProductService.cs
+  IBackInStockSubscriptionService.cs
+  ICategoryService.cs
+  ICategoryTemplateService.cs
+  ICompareProductsService.cs
+  ICopyProductService.cs
+  IManufacturerService.cs
+  IManufacturerTemplateService.cs
+  IPriceCalculationService.cs
+  IPriceFormatter.cs
+  IProductAttributeFormatter.cs
+  IProductAttributeParser.cs
+  IProductAttributeService.cs
+  IProductReviewService.cs
+  IProductService.cs
+  IProductTagService.cs
+  IProductTemplateService.cs
+  IRecentlyViewedProductsService.cs
+  IReviewTypeService.cs
+  ISearchPluginManager.cs
+  ISearchProvider.cs
+  ISpecificationAttributeService.cs
+  ManufacturerService.cs
+  ManufacturerTemplateService.cs
+  NopCatalogDefaults.cs
+  PriceCalculationService.cs
+  PriceFormatter.cs
+  ProductAttributeExtensions.cs
+  ProductAttributeFormatter.cs
+  ProductAttributeParser.cs
+  ProductAttributeService.cs
+  ProductExtensions.cs
+  ProductReviewService.cs
+  ProductService.cs
+  ProductTagService.cs
+  ProductTemplateService.cs
+  RecentlyViewedProductsService.cs
+  ReviewTypeService.cs
+  SearchPluginManager.cs
+  SpecificationAttributeService.cs
+  TierPriceExtensions.cs
+src/Libraries/Nop.Services/Catalog/Caching/
+  BackInStockSubscriptionCacheEventConsumer.cs
+  CategoryCacheEventConsumer.cs
+  CategoryTemplateCacheEventConsumer.cs
+  CrossSellProductCacheEventConsumer.cs
+  ManufacturerCacheEventConsumer.cs
+  ManufacturerTemplateCacheEventConsumer.cs
+  PredefinedProductAttributeValueCacheEventConsumer.cs
+  ProductAttributeCacheEventConsumer.cs
+  ProductAttributeCombinationCacheEventConsumer.cs
+  ProductAttributeCombinationPictureCacheEventConsumer.cs
+  ProductAttributeMappingCacheEventConsumer.cs
+  ProductAttributeValueCacheEventConsumer.cs
+  ProductAttributeValuePictureCacheEventConsumer.cs
+  ProductCacheEventConsumer.cs
+  ProductCategoryCacheEventConsumer.cs
+  ProductManufacturerCacheEventConsumer.cs
+  ProductPictureCacheEventConsumer.cs
+  ProductProductTagMappingCacheEventConsumer.cs
+  ProductReviewCacheEventConsumer.cs
+  ProductReviewHelpfulnessCacheEventConsumer.cs
+  ProductReviewReviewTypeMappingCacheEventConsumer.cs
+  ProductSpecificationAttributeCacheEventConsumer.cs
+  ProductTagCacheEventConsumer.cs
+  ProductTemplateCacheEventConsumer.cs
+  ProductWarehouseInventoryCacheEventConsumer.cs
+  RelatedProductCacheEventConsumer.cs
+  ReviewTypeCacheEventConsumer.cs
+  SpecificationAttributeCacheEventConsumer.cs
+  SpecificationAttributeGroupCacheEventConsumer.cs
+  SpecificationAttributeOptionCacheEventConsumer.cs
+  StockQuantityHistoryCacheEventConsumer.cs
+  TierPriceCacheEventConsumer.cs
+src/Libraries/Nop.Services/Cms/
+  IWidgetPlugin.cs
+  IWidgetPluginManager.cs
+  WidgetPluginManager.cs
+src/Libraries/Nop.Services/Common/
+  AddressService.cs
+  GenericAttributeService.cs
+  IAddressService.cs
+  IGenericAttributeService.cs
+  IMaintenanceService.cs
+  IMiscPlugin.cs
+  IPdfService.cs
+  ISearchTermService.cs
+  KeepAliveMiddleware.cs
+  KeepAliveTask.cs
+  MaintenanceService.cs
+  NopCommonDefaults.cs
+  NopHttpClient.cs
+  NopLinksDefaults.cs
+  PdfService.cs
+  ResetLicenseCheckTask.cs
+  SearchTermService.cs
+  StoreHttpClient.cs
+src/Libraries/Nop.Services/Common/Caching/
+  AddressAttributeCacheEventConsumer.cs
+  AddressAttributeValueCacheEventConsumer.cs
+  AddressCacheEventConsumer.cs
+  ContactFormAttributeCacheEventConsumer.cs
+  ContactFormAttributeValueCacheEventConsumer.cs
+  GenericAttributeCacheEventConsumer.cs
+  SearchTermCacheEventConsumer.cs
+src/Libraries/Nop.Services/Common/Pdf/
+  AddressItem.cs
+  CatalogDocument.cs
+  CatalogItem.cs
+  InvoiceDocument.cs
+  InvoiceTotals.cs
+  PdfDocument.cs
+  PdfDocumentHelper.cs
+  ProductItem.cs
+  ShipmentDocument.cs
+src/Libraries/Nop.Services/Configuration/Caching/
+  SettingCacheEventConsumer.cs
+src/Libraries/Nop.Services/Configuration/
+  ISettingService.cs
+  NopSettingsDefaults.cs
+  SettingService.cs
+  SettingServiceExtensions.cs
+src/Libraries/Nop.Services/Connected Services/EuropaCheckVatService/
+  Reference.cs
+src/Libraries/Nop.Services/Customers/Caching/
+  CustomerAddressMappingCacheEventConsumer.cs
+  CustomerAttributeCacheEventConsumer.cs
+  CustomerAttributeValueCacheEventConsumer.cs
+  CustomerCacheEventConsumer.cs
+  CustomerCustomerRoleMappingCacheEventConsumer.cs
+  CustomerPasswordCacheEventConsumer.cs
+  CustomerRoleCacheEventConsumer.cs
+  ExternalAuthenticationRecordCacheEventConsumer.cs
+  PrivateMessageCacheEventConsumer.cs
+  RewardPointsHistoryCacheEventConsumer.cs
+src/Libraries/Nop.Services/Customers/
+  ChangePasswordRequest.cs
+  ChangePasswordResult.cs
+  CustomerEventConsumer.cs
+  CustomerMultiFactorAuthenticationInfo.cs
+  CustomerRegistrationRequest.cs
+  CustomerRegistrationResult.cs
+  CustomerRegistrationService.cs
+  CustomerReportService.cs
+  CustomerService.cs
+  DeleteGuestsTask.cs
+  ICustomerRegistrationService.cs
+  ICustomerReportService.cs
+  ICustomerService.cs
+  NopCustomerServiceDefaults.cs
+src/Libraries/Nop.Services/Directory/Caching/
+  CountryCacheEventConsumer.cs
+  CurrencyCacheEventConsumer.cs
+  MeasureDimensionCacheEventConsumer.cs
+  MeasureWeightCacheEventConsumer.cs
+  StateProvinceCacheEventConsumer.cs
+src/Libraries/Nop.Services/Directory/
+  CountryService.cs
+  CurrencyService.cs
+  ExchangeRatePluginManager.cs
+  GeoLookupService.cs
+  ICountryService.cs
+  ICurrencyService.cs
+  IExchangeRatePluginManager.cs
+  IExchangeRateProvider.cs
+  IGeoLookupService.cs
+  IMeasureService.cs
+  IStateProvinceService.cs
+  MeasureService.cs
+  NopDirectoryDefaults.cs
+  StateProvinceService.cs
+  UpdateExchangeRateTask.cs
+src/Libraries/Nop.Services/Discounts/Caching/
+  DiscountCacheEventConsumer.cs
+  DiscountCategoryMappingCacheEventConsumer.cs
+  DiscountManufacturerMappingCacheEventConsumer.cs
+  DiscountProductMappingCacheEventConsumer.cs
+  DiscountRequirementCacheEventConsumer.cs
+  DiscountUsageHistoryCacheEventConsumer.cs
+src/Libraries/Nop.Services/Discounts/
+  DiscountPluginManager.cs
+  DiscountRequirementValidationRequest.cs
+  DiscountRequirementValidationResult.cs
+  DiscountService.cs
+  DiscountValidationResult.cs
+  IDiscountPluginManager.cs
+  IDiscountRequirementRule.cs
+  IDiscountService.cs
+  NopDiscountDefaults.cs
+src/Libraries/Nop.Services/Events/
+  EventPublisher.cs
+  IConsumer.cs
+src/Libraries/Nop.Services/ExportImport/
+  ExportImportDefaults.cs
+  ExportManager.cs
+  ExportProductAttribute.cs
+  ExportSpecificationAttribute.cs
+  ExportTierPrice.cs
+  ExportedAdditionalProductInfoType.cs
+  Extensions.cs
+  IExportManager.cs
+  IImportManager.cs
+  ImportManager.cs
+  ImportOrderMetadata.cs
+  ImportPriceListMetadata.cs
+  ImportProductMetadata.cs
+  WorkbookMetadata.cs
+src/Libraries/Nop.Services/ExportImport/Help/
+  PropertyByName.cs
+  PropertyManager.cs
+src/Libraries/Nop.Services/FilterLevels/
+  FilterLevelValueService.cs
+  IFilterLevelValueService.cs
+src/Libraries/Nop.Services/Gdpr/Caching/
+  GdprConsentCacheEventConsumer.cs
+  GdprLogCacheEventConsumer.cs
+src/Libraries/Nop.Services/Gdpr/
+  DeleteInactiveCustomersTask.cs
+  GdprService.cs
+  IGdprService.cs
+src/Libraries/Nop.Services/Helpers/
+  BrowscapXmlParser.cs
+  DateTimeHelper.cs
+  DateTimeSettings.cs
+  IDateTimeHelper.cs
+  ISyncCodeHelper.cs
+  IUserAgentHelper.cs
+  IWebHelper.cs
+  SyncCodeHelper.cs
+  UserAgentHelper.cs
+  WebHelper.cs
+src/Libraries/Nop.Services/Html/
+  HtmlFormatter.cs
+  IHtmlFormatter.cs
+src/Libraries/Nop.Services/Installation/
+  IInstallationService.cs
+  ISO3166.cs
+  InstallRequiredData.cs
+  InstallSampleData.Products.cs
+  InstallSampleData.cs
+  InstallUrlMiddleware.cs
+  InstallationService.cs
+  InstallationSettings.cs
+  NopInstallationDefaults.cs
+src/Libraries/Nop.Services/Installation/SampleData/
+  SampleActivityLog.cs
+  SampleAddress.cs
+  SampleAffiliate.cs
+  SampleBlogPost.cs
+  SampleCategory.cs
+  SampleCheckoutAttributes.cs
+  SampleCustomer.cs
+  SampleData.cs
+  SampleDiscount.cs
+  SampleManufacturer.cs
+  SampleOrder.cs
+  SampleProductAttribute.cs
+  SampleProducts.cs
+  SampleSpecificationAttributes.cs
+  SampleVendor.cs
+  SampleWarehouse.cs
+src/Libraries/Nop.Services/Localization/Caching/
+  LanguageCacheEventConsumer.cs
+  LocaleStringResourceCacheEventConsumer.cs
+  LocalizedPropertyCacheEventConsumer.cs
+src/Libraries/Nop.Services/Localization/
+  ILanguageService.cs
+  ILocalizationService.cs
+  ILocalizedEntityService.cs
+  LanguageService.cs
+  LocalizationService.cs
+  LocalizedEntityService.cs
+  LocalizedUrlExtenstions.cs
+  NopLocalizationDefaults.cs
+src/Libraries/Nop.Services/Logging/Caching/
+  ActivityLogCacheEventConsumer.cs
+  ActivityLogTypeCacheEventConsumer.cs
+  LogCacheEventConsumer.cs
+src/Libraries/Nop.Services/Logging/
+  ClearLogTask.cs
+  CustomerActivityService.cs
+  DefaultLogger.cs
+  ICustomerActivityService.cs
+  ILogger.cs
+src/Libraries/Nop.Services/Media/Caching/
+  DownloadCacheEventConsumer.cs
+  PictureBinaryCacheEventConsumer.cs
+src/Libraries/Nop.Services/Media/
+  DownloadService.cs
+  Extensions.cs
+  IDownloadService.cs
+  IPictureService.cs
+  IThumbService.cs
+  IVideoService.cs
+  NopMediaDefaults.cs
+  PictureService.cs
+  ThumbService.cs
+  VideoService.cs
+src/Libraries/Nop.Services/Media/elFinder/
+  ElFinderService.cs
+  IElFinderService.cs
+  NopElFinderDefaults.cs
+src/Libraries/Nop.Services/Menus/Caching/
+  MenuCacheEventConsumer.cs
+  MenuItemCacheEventConsumer.cs
+src/Libraries/Nop.Services/Menus/
+  IMenuService.cs
+  MenuService.cs
+src/Libraries/Nop.Services/Messages/Caching/
+  CampaignCacheEventConsumer.cs
+  EmailAccountCacheEventConsumer.cs
+  MessageTemplateCacheEventConsumer.cs
+  NewsLetterSubscriptionCacheEventConsumer.cs
+  QueuedEmailCacheEventConsumer.cs
+src/Libraries/Nop.Services/Messages/
+  CampaignService.cs
+  EmailAccountService.cs
+  EmailSender.cs
+  EntityTokensAddedEvent.cs
+  EventPublisherExtensions.cs
+  ICampaignService.cs
+  IEmailAccountService.cs
+  IEmailSender.cs
+  IMessageTemplateService.cs
+  IMessageTokenProvider.cs
+  INewsLetterSubscriptionService.cs
+  INewsLetterSubscriptionTypeService.cs
+  INotificationService.cs
+  IQueuedEmailService.cs
+  ISmsPluginManager.cs
+  ISmsProvider.cs
+  ISmsService.cs
+  ISmtpBuilder.cs
+  ITokenizer.cs
+  IWorkflowMessageService.cs
+  MessageTemplateService.cs
+  MessageTokenProvider.cs
+  MessageTokensAddedEvent.cs
+  NewsLetterSubscriptionService.cs
+  NewsLetterSubscriptionTypeService.cs
+  NopMessageDefaults.cs
+  NotificationService.cs
+  NotifyData.cs
+  NotifyType.cs
+  OtpContext.cs
+  QueuedEmailService.cs
+  QueuedMessagesSendTask.cs
+  SmsPluginManager.cs
+  SmsService.cs
+  SmtpBuilder.cs
+  Token.cs
+  TokenGroupNames.cs
+  Tokenizer.cs
+  WorkflowMessageService.cs
+src/Libraries/Nop.Services/Orders/
+  AppStartedConsumer.cs
+  AppliedGiftCard.cs
+  AutoCancelOrdersTask.cs
+  CheckoutAttributeFormatter.cs
+  CheckoutAttributeParserExtensions.cs
+  CheckoutAttributeServiceExtensions.cs
+  CustomNumberFormatter.cs
+  CustomValue.cs
+  CustomValueDisplayLocation.cs
+  CustomValues.cs
+  CustomWishlistService.cs
+  GiftCardService.cs
+  GroupByOptions.cs
+  ICheckoutAttributeFormatter.cs
+  ICustomNumberFormatter.cs
+  ICustomWishlistService.cs
+  IGiftCardService.cs
+  IOrderProcessingService.cs
+  IOrderReportService.cs
+  IOrderService.cs
+  IOrderTotalCalculationService.cs
+  IReturnRequestService.cs
+  IRewardPointService.cs
+  IShoppingCartService.cs
+  NopOrderDefaults.cs
+  OrderByEnum.cs
+  OrderProcessingService.cs
+  OrderReportService.cs
+  OrderService.cs
+  OrderTotalCalculationService.cs
+  PlaceOrderResult.cs
+  ReturnRequestAvailability.cs
+  ReturnRequestService.cs
+  ReturnableOrderItem.cs
+  RewardPointService.cs
+  ShoppingCartService.cs
+  UpdateOrderParameters.cs
+src/Libraries/Nop.Services/Orders/Caching/
+  CheckoutAttributeCacheEventConsumer.cs
+  CheckoutAttributeValueCacheEventConsumer.cs
+  CustomWishlistsCacheEventConsumer.cs
+  GiftCardCacheEventConsumer.cs
+  GiftCardUsageHistoryCacheEventConsumer.cs
+  OrderCacheEventConsumer.cs
+  OrderItemCacheEventConsumer.cs
+  OrderNoteCacheEventConsumer.cs
+  RecurringPaymentCacheEventConsumer.cs
+  RecurringPaymentHistoryCacheEventConsumer.cs
+  ReturnRequestActionCacheEventConsumer.cs
+  ReturnRequestCacheEventConsumer.cs
+  ReturnRequestReasonCacheEventConsumer.cs
+  ShoppingCartItemCacheEventConsumer.cs
+src/Libraries/Nop.Services/Payments/
+  CancelRecurringPaymentRequest.cs
+  CancelRecurringPaymentResult.cs
+  CapturePaymentRequest.cs
+  CapturePaymentResult.cs
+  IPaymentMethod.cs
+  IPaymentPluginManager.cs
+  IPaymentService.cs
+  NopPaymentDefaults.cs
+  PaymentMethodType.cs
+  PaymentPluginManager.cs
+  PaymentService.cs
+  PostProcessPaymentRequest.cs
+  ProcessPaymentRequest.cs
+  ProcessPaymentResult.cs
+  RecurringPaymentType.cs
+  RefundPaymentRequest.cs
+  RefundPaymentResult.cs
+  VoidPaymentRequest.cs
+  VoidPaymentResult.cs
+src/Libraries/Nop.Services/Plugins/
+  BasePlugin.cs
+  IDescriptor.cs
+  IPlugin.cs
+  IPluginManager.cs
+  IPluginService.cs
+  IPluginsInfo.cs
+  IUploadService.cs
+  LoadPluginsMode.cs
+  NopPluginDefaults.cs
+  PluginDescriptor.cs
+  PluginDescriptorBaseInfo.cs
+  PluginIncompatibleType.cs
+  PluginLoadedAssemblyInfo.cs
+  PluginManager.cs
+  PluginService.cs
+  PluginUpdatedEvent.cs
+  PluginsInfo.cs
+  PluginsUploadedEvent.cs
+  UploadService.cs
+src/Libraries/Nop.Services/Plugins/Marketplace/
+  OfficialFeedCategory.cs
+  OfficialFeedManager.cs
+  OfficialFeedPlugin.cs
+  OfficialFeedVersion.cs
+src/Libraries/Nop.Services/PriceLists/Caching/
+  PriceListCacheEventConsumer.cs
+  PriceListCustomerCacheEventConsumer.cs
+  PriceListCustomerRoleCacheEventConsumer.cs
+src/Libraries/Nop.Services/PriceLists/
+  IPriceListService.cs
+  NopPriceListDefaults.cs
+  PriceListService.cs
+src/Libraries/Nop.Services/Reminders/
+  IReminderService.cs
+  NopReminderDefaults.cs
+  ProcessAbandonedCartsTask.cs
+  ProcessIncompleteRegistrationsTask.cs
+  ProcessPendingOrdersTask.cs
+  ReminderEventConsumer.cs
+  ReminderService.cs
+src/Libraries/Nop.Services/ScheduleTasks/Caching/
+  ScheduleTaskCacheEventConsumer.cs
+src/Libraries/Nop.Services/ScheduleTasks/
+  IScheduleTask.cs
+  IScheduleTaskRunner.cs
+  IScheduleTaskService.cs
+  ITaskScheduler.cs
+  NopTaskDefaults.cs
+  ScheduleTaskRunner.cs
+  ScheduleTaskService.cs
+  TaskScheduler.cs
+src/Libraries/Nop.Services/Security/
+  AclService.cs
+  DefaultPermissionConfigManager.cs
+  EncryptionService.cs
+  IAclService.cs
+  IEncryptionService.cs
+  IPermissionConfigManager.cs
+  IPermissionService.cs
+  NopSecurityDefaults.cs
+  PermissionConfig.cs
+  PermissionService.cs
+  StandardPermission.cs
+src/Libraries/Nop.Services/Security/Caching/
+  AclRecordCacheEventConsumer.cs
+  PermissionRecordCacheEventConsumer.cs
+  PermissionRecordCustomerRoleMappingCacheEventConsumer.cs
+src/Libraries/Nop.Services/Seo/Caching/
+  UrlRecordCacheEventConsumer.cs
+src/Libraries/Nop.Services/Seo/
+  IUrlRecordService.cs
+  NopSeoDefaults.cs
+  UrlRecordService.cs
+src/Libraries/Nop.Services/Shipping/Caching/
+  DeliveryDateCacheEventConsumer.cs
+  ProductAvailabilityRangeCacheEventConsumer.cs
+  ShipmentCacheEventConsumer.cs
+  ShipmentItemCacheEventConsumer.cs
+  ShippingMethodCacheEventConsumer.cs
+  ShippingMethodCountryMappingCacheEventConsumer.cs
+  WarehouseCacheEventConsumer.cs
+src/Libraries/Nop.Services/Shipping/Date/
+  DateRangeService.cs
+  IDateRangeService.cs
+src/Libraries/Nop.Services/Shipping/
+  EventPublisherExtensions.cs
+  GetShippingOptionRequest.cs
+  GetShippingOptionResponse.cs
+  IShipmentService.cs
+  IShippingMethodsService.cs
+  IShippingPluginManager.cs
+  IShippingRateComputationMethod.cs
+  IShippingService.cs
+  IWarehouseService.cs
+  NopShippingDefaults.cs
+  ShipmentService.cs
+  ShippingMethodsService.cs
+  ShippingPluginManager.cs
+  ShippingService.cs
+  WarehouseService.cs
+src/Libraries/Nop.Services/Shipping/Pickup/
+  GetPickupPointsResponse.cs
+  IPickupPluginManager.cs
+  IPickupPointProvider.cs
+  PickupPluginManager.cs
+src/Libraries/Nop.Services/Shipping/Tracking/
+  IShipmentTracker.cs
+  ShipmentStatusEvent.cs
+src/Libraries/Nop.Services/Stores/Caching/
+  StoreCacheEventConsumer.cs
+  StoreMappingCacheEventConsumer.cs
+src/Libraries/Nop.Services/Stores/
+  IStoreMappingService.cs
+  IStoreService.cs
+  NopStoreDefaults.cs
+  StoreMappingService.cs
+  StoreService.cs
+src/Libraries/Nop.Services/Tax/Caching/
+  TaxCategoryCacheEventConsumer.cs
+src/Libraries/Nop.Services/Tax/
+  CheckVatService.cs
+  ICheckVatService.cs
+  ITaxCategoryService.cs
+  ITaxPluginManager.cs
+  ITaxProvider.cs
+  ITaxService.cs
+  NopTaxDefaults.cs
+  TaxCategoryService.cs
+  TaxPluginManager.cs
+  TaxRateRequest.cs
+  TaxRateResult.cs
+  TaxService.cs
+  TaxTotalRequest.cs
+  TaxTotalResult.cs
+src/Libraries/Nop.Services/Tax/Events/
+  TaxRateCalculatedEvent.cs
+  TaxTotalCalculatedEvent.cs
+src/Libraries/Nop.Services/Themes/
+  IThemeContext.cs
+  IThemeProvider.cs
+  NopThemeDefaults.cs
+  ThemeDescriptor.cs
+  ThemeProvider.cs
+  ThemesMiddleware.cs
+  ThemesUploadedEvent.cs
+src/Libraries/Nop.Services/Topics/Caching/
+  TopicCacheEventConsumer.cs
+  TopicTemplateCacheEventConsumer.cs
+src/Libraries/Nop.Services/Topics/
+  ITopicService.cs
+  ITopicTemplateService.cs
+  NopTopicDefaults.cs
+  TopicService.cs
+  TopicTemplateService.cs
+src/Libraries/Nop.Services/Vendors/Caching/
+  VendorAttributeCacheEventConsumer.cs
+  VendorAttributeValueCacheEventConsumer.cs
+  VendorCacheEventConsumer.cs
+  VendorNoteCacheEventConsumer.cs
+src/Libraries/Nop.Services/Vendors/
+  IVendorService.cs
+  NopVendorDefaults.cs
+  VendorService.cs
+src/Plugins/Nop.Plugin.AIRecommendation.GoogleAI/Controllers/
+  GoogleAIController.cs
+src/Plugins/Nop.Plugin.AIRecommendation.GoogleAI/
+  GoogleAiDefaults.cs
+  GoogleAiPlugin.cs
+  GoogleAiSettings.cs
+src/Plugins/Nop.Plugin.AIRecommendation.GoogleAI/Infrastructure/
+  NopStartup.cs
+  RouteProvider.cs
+src/Plugins/Nop.Plugin.AIRecommendation.GoogleAI/Models/
+  ConfigurationModel.cs
+src/Plugins/Nop.Plugin.AIRecommendation.GoogleAI/Services/
+  EventConsumer.cs
+  GoogleAiService.cs
+src/Plugins/Nop.Plugin.AIRecommendation.GoogleAI/Validators/
+  ConfigurationModelValidator.cs
+src/Plugins/Nop.Plugin.DiscountRules.CustomerRoles/Controllers/
+  DiscountRulesCustomerRolesController.cs
+src/Plugins/Nop.Plugin.DiscountRules.CustomerRoles/
+  CustomerRoleDiscountRequirementRule.cs
+  DiscountRequirementDefaults.cs
+src/Plugins/Nop.Plugin.DiscountRules.CustomerRoles/Infrastructure/Cache/
+  DiscountRequirementEventConsumer.cs
+src/Plugins/Nop.Plugin.DiscountRules.CustomerRoles/Infrastructure/
+  RouteProvider.cs
+src/Plugins/Nop.Plugin.DiscountRules.CustomerRoles/Models/
+  RequirementModel.cs
+src/Plugins/Nop.Plugin.DiscountRules.CustomerRoles/Validators/
+  RequirementModelValidator.cs
+src/Plugins/Nop.Plugin.ExchangeRate.EcbExchange/Data/
+  ExchangeMigration.cs
+src/Plugins/Nop.Plugin.ExchangeRate.EcbExchange/
+  EcbExchangeRateProvider.cs
+  EcbExchangeRateSettings.cs
+src/Plugins/Nop.Plugin.ExternalAuth.Facebook/Components/
+  FacebookAuthenticationViewComponent.cs
+src/Plugins/Nop.Plugin.ExternalAuth.Facebook/Controllers/
+  FacebookAuthenticationController.cs
+  FacebookDataDeletionController.cs
+src/Plugins/Nop.Plugin.ExternalAuth.Facebook/
+  FacebookAuthenticationDefaults.cs
+  FacebookAuthenticationMethod.cs
+  FacebookExternalAuthSettings.cs
+src/Plugins/Nop.Plugin.ExternalAuth.Facebook/Infrastructure/
+  FacebookAuthenticationEventConsumer.cs
+  FacebookAuthenticationRegistrar.cs
+  RouteProvider.cs
+src/Plugins/Nop.Plugin.ExternalAuth.Facebook/Migrations/
+  DataDeletionMigration.cs
+src/Plugins/Nop.Plugin.ExternalAuth.Facebook/Models/
+  ConfigurationModel.cs
+  FacebookUserDTO.cs
+src/Plugins/Nop.Plugin.Feed.ChatGptShopping/
+  ChatGptShoppingDefaults.cs
+  ChatGptShoppingPlugin.cs
+  ChatGptShoppingSettings.cs
+src/Plugins/Nop.Plugin.Feed.ChatGptShopping/Controllers/
+  ChatGptShoppingController.cs
+src/Plugins/Nop.Plugin.Feed.ChatGptShopping/Domain/
+  ChatGptShoppingProductDto.cs
+src/Plugins/Nop.Plugin.Feed.ChatGptShopping/Infrastructure/
+  NopStartup.cs
+  RouteProvider.cs
+src/Plugins/Nop.Plugin.Feed.ChatGptShopping/Models/
+  ConfigurationModel.cs
+  GeneratedFileModel.cs
+src/Plugins/Nop.Plugin.Feed.ChatGptShopping/Services/
+  ChatGptShoppingService.cs
+  ChatGptShoppingSyncTask.cs
+src/Plugins/Nop.Plugin.Feed.ChatGptShopping/Validators/
+  ConfigurationValidator.cs
+src/Plugins/Nop.Plugin.Misc.AzureBlob/
+  AzureBlobDefaults.cs
+  AzureBlobPlugin.cs
+  AzureBlobSettings.cs
+src/Plugins/Nop.Plugin.Misc.AzureBlob/Controllers/
+  AzureBlobController.cs
+src/Plugins/Nop.Plugin.Misc.AzureBlob/Infrastructure/
+  PluginNopStartup.cs
+src/Plugins/Nop.Plugin.Misc.AzureBlob/Models/
+  ConfigurationModel.cs
+src/Plugins/Nop.Plugin.Misc.AzureBlob/Services/
+  AzureThumbService.cs
+src/Plugins/Nop.Plugin.Misc.AzureBlob/Services/Caching/
+  PictureCacheEventConsumer.cs
+src/Plugins/Nop.Plugin.Misc.Brevo/
+  BrevoDefaults.cs
+  BrevoPlugin.cs
+  BrevoSettings.cs
+src/Plugins/Nop.Plugin.Misc.Brevo/Components/
+  WidgetsBrevoViewComponent.cs
+src/Plugins/Nop.Plugin.Misc.Brevo/Controllers/
+  BrevoController.cs
+  BrevoWebhookController.cs
+src/Plugins/Nop.Plugin.Misc.Brevo/Data/
+  BrevoMigration.cs
+src/Plugins/Nop.Plugin.Misc.Brevo/Domain/
+  BrevoAccountLanguage.cs
+src/Plugins/Nop.Plugin.Misc.Brevo/Infrastructure/
+  NopStartup.cs
+  RouteProvider.cs
+src/Plugins/Nop.Plugin.Misc.Brevo/MarketingAutomation/
+  IdentifyRequest.cs
+  Request.cs
+  TrackEventRequest.cs
+src/Plugins/Nop.Plugin.Misc.Brevo/Models/
+  BrevoMessageTemplateListModel.cs
+  BrevoMessageTemplateModel.cs
+  BrevoMessageTemplateSearchModel.cs
+  ConfigurationModel.cs
+  NewsLetterSubscriptionMapModel.cs
+  SmsListModel.cs
+  SmsModel.cs
+  SmsSearchModel.cs
+src/Plugins/Nop.Plugin.Misc.Brevo/Services/
+  BrevoManager.cs
+  BrevoMessageService.cs
+  EventConsumer.cs
+  MarketingAutomationHttpClient.cs
+  MarketingAutomationManager.cs
+  SynchronizationTask.cs
+src/Plugins/Nop.Plugin.Misc.CloudflareImages/
+  CloudflareImagesDefaults.cs
+  CloudflareImagesPlugin.cs
+  CloudflareImagesSettings.cs
+src/Plugins/Nop.Plugin.Misc.CloudflareImages/Controllers/
+  CloudflareImagesController.cs
+src/Plugins/Nop.Plugin.Misc.CloudflareImages/Data/
+  CloudflareImagesBuilder.cs
+  SchemaMigration.cs
+src/Plugins/Nop.Plugin.Misc.CloudflareImages/Domain/
+  CloudflareImages.cs
+src/Plugins/Nop.Plugin.Misc.CloudflareImages/Infrastructure/
+  PluginNopStartup.cs
+src/Plugins/Nop.Plugin.Misc.CloudflareImages/Models/
+  ConfigurationModel.cs
+src/Plugins/Nop.Plugin.Misc.CloudflareImages/Services/
+  CloudflareImagesHttpClient.cs
+  CloudflareThumbService.cs
+src/Plugins/Nop.Plugin.Misc.Dynamics365/Controllers/
+  Dynamics365Controller.cs
+src/Plugins/Nop.Plugin.Misc.Dynamics365/
+  Dynamics365Defaults.cs
+  Dynamics365Plugin.cs
+src/Plugins/Nop.Plugin.Misc.Dynamics365/Services/
+  EventConsumer.cs
+src/Plugins/Nop.Plugin.Misc.Forums/Admin/Controllers/
+  ForumController.cs
+src/Plugins/Nop.Plugin.Misc.Forums/Admin/Factories/
+  ForumModelFactory.cs
+src/Plugins/Nop.Plugin.Misc.Forums/Admin/Models/
+  ConfigurationModel.cs
+  ForumGroupListModel.cs
+  ForumGroupModel.cs
+  ForumGroupSearchModel.cs
+  ForumListModel.cs
+  ForumModel.cs
+  ForumSearchModel.cs
+src/Plugins/Nop.Plugin.Misc.Forums/Admin/Validators/
+  ForumGroupValidator.cs
+  ForumValidator.cs
+src/Plugins/Nop.Plugin.Misc.Forums/Data/Mapping/Builders/
+  ForumBuilder.cs
+  ForumGroupBuilder.cs
+  ForumPostBuilder.cs
+  ForumPostVoteBuilder.cs
+  ForumSubscriptionBuilder.cs
+  ForumTopicBuilder.cs
+src/Plugins/Nop.Plugin.Misc.Forums/Data/Mapping/
+  ForumNameCompatibility.cs
+src/Plugins/Nop.Plugin.Misc.Forums/Data/Migrations/
+  SchemaMigration.cs
+src/Plugins/Nop.Plugin.Misc.Forums/Domain/
+  EditorType.cs
+  Forum.cs
+  ForumGroup.cs
+  ForumPost.cs
+  ForumPostVote.cs
+  ForumSearchType.cs
+  ForumSubscription.cs
+  ForumTopic.cs
+  ForumTopicType.cs
+src/Plugins/Nop.Plugin.Misc.Forums/
+  ForumDefaults.cs
+  ForumPlugin.cs
+  ForumSettings.cs
+src/Plugins/Nop.Plugin.Misc.Forums/Infrastructure/
+  MapperConfiguration.cs
+  NopStartup.cs
+  RouteProvider.cs
+src/Plugins/Nop.Plugin.Misc.Forums/Public/Components/
+  ForumAccountInfoViewComponent.cs
+  ForumActiveDiscussionsSmallViewComponent.cs
+  ForumBreadcrumbViewComponent.cs
+  ForumLastPostViewComponent.cs
+  ProfileForumPostLinkViewComponent.cs
+src/Plugins/Nop.Plugin.Misc.Forums/Public/Controllers/
+  BoardsController.cs
+src/Plugins/Nop.Plugin.Misc.Forums/Public/Factories/
+  ForumModelFactory.cs
+src/Plugins/Nop.Plugin.Misc.Forums/Public/Models/
+  ActiveDiscussionsModel.cs
+  BoardsIndexModel.cs
+  CustomerForumSubscriptionsModel.cs
+  EditForumPostModel.cs
+  EditForumTopicModel.cs
+  ForumAccountInfoModel.cs
+  ForumBreadcrumbModel.cs
+  ForumGroupModel.cs
+  ForumPageModel.cs
+  ForumPostModel.cs
+  ForumPostTextModel.cs
+  ForumRowModel.cs
+  ForumTopicPageModel.cs
+  ForumTopicRowModel.cs
+  LastPostModel.cs
+  ProfilePostsModel.cs
+  SearchModel.cs
+  SlugRouteValues.cs
+  TopicMoveModel.cs
+src/Plugins/Nop.Plugin.Misc.Forums/Public/Models/JsonLD/
+  JsonLdForumTopicCommentModel.cs
+  JsonLdForumTopicModel.cs
+src/Plugins/Nop.Plugin.Misc.Forums/Public/Validators/
+  EditForumPostValidator.cs
+  EditForumTopicValidator.cs
+src/Plugins/Nop.Plugin.Misc.Forums/Services/
+  BBCodeHelper.cs
+  CSharpFormat.cs
+  ForumInstallService.cs
+  ForumPermissionConfigManager.cs
+  ForumService.cs
+  TextFormatType.cs
+src/Plugins/Nop.Plugin.Misc.Forums/Services/Caching/
+  ForumCacheEventConsumer.cs
+  ForumGroupCacheEventConsumer.cs
+src/Plugins/Nop.Plugin.Misc.Forums/Services/Events/
+  AdminMenuCreatedEventConsumer.cs
+  EventConsumer.cs
+  SitemapEventConsumer.cs
+src/Plugins/Nop.Plugin.Misc.Forums/TagHelpers/
+  NopBBCodeEditorTagHelper.cs
+src/Plugins/Nop.Plugin.Misc.News/Admin/Controllers/
+  NewsAdminController.cs
+src/Plugins/Nop.Plugin.Misc.News/Admin/Factories/
+  NewsModelFactory.cs
+src/Plugins/Nop.Plugin.Misc.News/Admin/Models/
+  ConfigurationModel.cs
+  NewsCommentListModel.cs
+  NewsCommentModel.cs
+  NewsCommentSearchModel.cs
+  NewsContentModel.cs
+  NewsItemListModel.cs
+  NewsItemModel.cs
+  NewsItemSearchModel.cs
+src/Plugins/Nop.Plugin.Misc.News/Admin/Validators/
+  NewsItemValidator.cs
+src/Plugins/Nop.Plugin.Misc.News/Data/Mapping/Builders/
+  NewsCommentBuilder.cs
+  NewsItemBuilder.cs
+src/Plugins/Nop.Plugin.Misc.News/Data/Mapping/
+  NewsNameCompatibility.cs
+src/Plugins/Nop.Plugin.Misc.News/Data/Migrations/
+  SchemaMigration.cs
+src/Plugins/Nop.Plugin.Misc.News/Domain/
+  NewsComment.cs
+  NewsItem.cs
+src/Plugins/Nop.Plugin.Misc.News/Infrastructure/
+  GenericUrlRouteProvider.cs
+  MapperConfiguration.cs
+  NopStartup.cs
+  RouteProvider.cs
+src/Plugins/Nop.Plugin.Misc.News/
+  NewsDefaults.cs
+  NewsPlugin.cs
+  NewsSettings.cs
+src/Plugins/Nop.Plugin.Misc.News/Public/Components/
+  HomepageNewsViewComponent.cs
+  NewsRssHeaderLinkViewComponent.cs
+src/Plugins/Nop.Plugin.Misc.News/Public/Controllers/
+  NewsController.cs
+src/Plugins/Nop.Plugin.Misc.News/Public/Factories/
+  NewsModelFactory.cs
+src/Plugins/Nop.Plugin.Misc.News/Public/Models/
+  AddNewsCommentModel.cs
+  HomePageNewsItemsModel.cs
+  NewsCommentModel.cs
+  NewsItemListModel.cs
+  NewsItemModel.cs
+  NewsPagingFilteringModel.cs
+src/Plugins/Nop.Plugin.Misc.News/Public/Validators/
+  NewsCommentValidator.cs
+src/Plugins/Nop.Plugin.Misc.News/Services/Caching/
+  NewsCommentCacheEventConsumer.cs
+  NewsItemCacheEventConsumer.cs
+src/Plugins/Nop.Plugin.Misc.News/Services/Events/
+  AdminMenuCreatedEventConsumer.cs
+  EventConsumer.cs
+  RoutingEventConsumer.cs
+  SitemapEventConsumer.cs
+src/Plugins/Nop.Plugin.Misc.News/Services/
+  NewsInstallService.cs
+  NewsPermissionConfigManager.cs
+  NewsService.cs
+src/Plugins/Nop.Plugin.Misc.NopMobileApp/Controllers/
+  NopMobileAppController.cs
+src/Plugins/Nop.Plugin.Misc.NopMobileApp/
+  NopMobileAppDefaults.cs
+  NopMobilePlugin.cs
+src/Plugins/Nop.Plugin.Misc.NopMobileApp/Services/
+  EventConsumer.cs
+src/Plugins/Nop.Plugin.Misc.OmnibusDirective/Controllers/
+  OmnibusDirectiveController.cs
+src/Plugins/Nop.Plugin.Misc.OmnibusDirective/
+  OmnibusDefaults.cs
+  OmnibusDirectivePlugin.cs
+src/Plugins/Nop.Plugin.Misc.OmnibusDirective/Services/
+  EventConsumer.cs
+src/Plugins/Nop.Plugin.Misc.Omnisend/Components/
+  CustomViewComponent.cs
+src/Plugins/Nop.Plugin.Misc.Omnisend/Controllers/
+  OmnisendAdminController.cs
+  OmnisendController.cs
+src/Plugins/Nop.Plugin.Misc.Omnisend/DTO/
+  AccountsResponse.cs
+  BaseContactInfoDto.cs
+  BatchItem.cs
+  BatchItemsResponse.cs
+  BatchRequest.cs
+  BatchResponse.cs
+  CategoryDto.cs
+  ContactInfoDto.cs
+  CreateContactRequest.cs
+  DtoExtensions.cs
+  IBatchSupport.cs
+  IEventProperty.cs
+  ProductDto.cs
+src/Plugins/Nop.Plugin.Misc.Omnisend/DTO/Events/
+  AddedProductToCartProperty.cs
+  AddressItem.cs
+  CartEventProperties.cs
+  CustomerEventType.cs
+  CustomerEvents.cs
+  DiscountItem.cs
+  OrderCanceledProperty.cs
+  OrderEventProperties.cs
+  OrderFulfilledProperty.cs
+  OrderProductItem.cs
+  OrderRefundedProperty.cs
+  PaidForOrderProperty.cs
+  PlacedOrderProperty.cs
+  ProductItem.cs
+  StartedCheckoutProperty.cs
+  TrackingItem.cs
+src/Plugins/Nop.Plugin.Misc.Omnisend/Infrastructure/
+  EventConsumer.cs
+  PluginNopStartup.cs
+  RouteProvider.cs
+src/Plugins/Nop.Plugin.Misc.Omnisend/Models/
+  ConfigurationModel.cs
+src/Plugins/Nop.Plugin.Misc.Omnisend/
+  OmnisendDefaults.cs
+  OmnisendPlugin.cs
+  OmnisendSettings.cs
+src/Plugins/Nop.Plugin.Misc.Omnisend/Services/
+  OmnisendCustomerService.cs
+  OmnisendEventsService.cs
+  OmnisendHelper.cs
+  OmnisendHttpClient.cs
+  OmnisendService.cs
+src/Plugins/Nop.Plugin.Misc.Omnisend/Validators/
+  ConfigurationModelValidator.cs
+src/Plugins/Nop.Plugin.Misc.Polls/Admin/Controllers/
+  PollAdminController.cs
+src/Plugins/Nop.Plugin.Misc.Polls/Admin/Factories/
+  PollModelFactory.cs
+src/Plugins/Nop.Plugin.Misc.Polls/Admin/Models/
+  ConfigurationModel.cs
+  PollAnswerListModel.cs
+  PollAnswerModel.cs
+  PollAnswerSearchModel.cs
+  PollListModel.cs
+  PollModel.cs
+  PollSearchModel.cs
+src/Plugins/Nop.Plugin.Misc.Polls/Admin/Validators/
+  PollAnswerValidator.cs
+  PollValidator.cs
+src/Plugins/Nop.Plugin.Misc.Polls/Data/Mapping/
+  PollAnswerBuilder.cs
+  PollBuilder.cs
+  PollVotingRecordBuilder.cs
+src/Plugins/Nop.Plugin.Misc.Polls/Data/Migrations/
+  SchemaMigration.cs
+src/Plugins/Nop.Plugin.Misc.Polls/Domain/
+  Poll.cs
+  PollAnswer.cs
+  PollVotingRecord.cs
+src/Plugins/Nop.Plugin.Misc.Polls/Infrastructure/
+  MapperConfiguration.cs
+  NopStartup.cs
+  RouteProvider.cs
+src/Plugins/Nop.Plugin.Misc.Polls/
+  PollSettings.cs
+  PollsDefaults.cs
+  PollsPlugin.cs
+src/Plugins/Nop.Plugin.Misc.Polls/Public/Components/
+  HomepagePollsViewComponent.cs
+  LeftSidePollsViewComponent.cs
+src/Plugins/Nop.Plugin.Misc.Polls/Public/Controllers/
+  PollController.cs
+src/Plugins/Nop.Plugin.Misc.Polls/Public/Factories/
+  PollModelFactory.cs
+src/Plugins/Nop.Plugin.Misc.Polls/Public/Models/
+  PollAnswerModel.cs
+  PollModel.cs
+src/Plugins/Nop.Plugin.Misc.Polls/Services/Events/
+  AdminMenuCreatedEventConsumer.cs
+  EventConsumer.cs
+src/Plugins/Nop.Plugin.Misc.Polls/Services/
+  PollInstallationService.cs
+  PollPermissionConfigManager.cs
+  PollService.cs
+src/Plugins/Nop.Plugin.Misc.PowerBI/Controllers/
+  PowerBIController.cs
+src/Plugins/Nop.Plugin.Misc.PowerBI/
+  PowerBIDefaults.cs
+  PowerBIPlugin.cs
+src/Plugins/Nop.Plugin.Misc.PowerBI/Services/
+  EventConsumer.cs
+src/Plugins/Nop.Plugin.Misc.PunchOut/Controllers/
+  PunchOutAdminController.cs
+  PunchOutController.cs
+src/Plugins/Nop.Plugin.Misc.PunchOut/Data/
+  SchemaMigration.cs
+src/Plugins/Nop.Plugin.Misc.PunchOut/Domain/CXML/
+  BasePunchOutModel.cs
+  PunchOutAddress.cs
+  PunchOutErrorResponse.cs
+  PunchOutOrderItem.cs
+  PunchOutOrderMessage.cs
+  PunchOutSessionStartResult.cs
+  PunchOutSetupRequest.cs
+  PunchOutSetupResponse.cs
+src/Plugins/Nop.Plugin.Misc.PunchOut/Domain/
+  PunchOutDirection.cs
+  PunchOutIdentity.cs
+  PunchOutLog.cs
+  PunchOutMessageType.cs
+  PunchOutSession.cs
+src/Plugins/Nop.Plugin.Misc.PunchOut/Infrastructure/
+  NopStartup.cs
+  PunchOutSessionGuardAttribute.cs
+  RouteProvider.cs
+src/Plugins/Nop.Plugin.Misc.PunchOut/Models/
+  ConfigurationModel.cs
+src/Plugins/Nop.Plugin.Misc.PunchOut/Models/Identity/
+  PunchOutIdentityListModel.cs
+  PunchOutIdentityModel.cs
+  PunchOutIdentitySearchModel.cs
+src/Plugins/Nop.Plugin.Misc.PunchOut/Models/Log/
+  PunchOutLogListModel.cs
+  PunchOutLogModel.cs
+  PunchOutLogSearchModel.cs
+src/Plugins/Nop.Plugin.Misc.PunchOut/Models/Session/
+  PunchOutSessionListModel.cs
+  PunchOutSessionModel.cs
+  PunchOutSessionSearchModel.cs
+src/Plugins/Nop.Plugin.Misc.PunchOut/
+  PunchOutDefaults.cs
+  PunchOutMethod.cs
+  PunchOutSettings.cs
+src/Plugins/Nop.Plugin.Misc.PunchOut/Services/
+  PunchOutIdentityService.cs
+  PunchOutLogService.cs
+  PunchOutService.cs
+  PunchOutXmlBuilder.cs
+src/Plugins/Nop.Plugin.Misc.RFQ/Components/
+  AddRfqComponent.cs
+  CustomerRfqMenuComponent.cs
+src/Plugins/Nop.Plugin.Misc.RFQ/Controllers/
+  RfqAdminController.cs
+  RfqCustomerController.cs
+src/Plugins/Nop.Plugin.Misc.RFQ/Data/Mapping/Builders/
+  QuoteBuilder.cs
+  QuoteItemBuilder.cs
+  RequestQuoteBuilder.cs
+  RequestQuoteItemBuilder.cs
+src/Plugins/Nop.Plugin.Misc.RFQ/Data/Mapping/
+  RfqNameCompatibility.cs
+src/Plugins/Nop.Plugin.Misc.RFQ/Data/Migrations/
+  AddLocales.cs
+  AddSettings.cs
+  SchemaMigration.cs
+  UpdateDateTimeLocales.cs
+src/Plugins/Nop.Plugin.Misc.RFQ/Domains/
+  IAdminNote.cs
+  Quote.cs
+  QuoteItem.cs
+  QuoteStatus.cs
+  RequestQuote.cs
+  RequestQuoteItem.cs
+  RequestQuoteStatus.cs
+src/Plugins/Nop.Plugin.Misc.RFQ/Factories/
+  AdminModelFactory.cs
+  CustomerModelFactory.cs
+src/Plugins/Nop.Plugin.Misc.RFQ/Infrastructure/
+  PluginNopStartup.cs
+  RouteProvider.cs
+src/Plugins/Nop.Plugin.Misc.RFQ/Models/Admin/
+  AddProductModel.cs
+  ConfigurationModel.cs
+  ProductSearchModel.cs
+  ProductToRequestListModel.cs
+  QuoteItemModel.cs
+  QuoteListModel.cs
+  QuoteModel.cs
+  QuoteSearchModel.cs
+  RequestListModel.cs
+  RequestQuoteItemModel.cs
+  RequestQuoteModel.cs
+  RequestQuoteSearchModel.cs
+src/Plugins/Nop.Plugin.Misc.RFQ/Models/Customer/
+  QuoteItemModel.cs
+  QuoteModel.cs
+  RequestQuoteItemModel.cs
+  RequestQuoteModel.cs
+src/Plugins/Nop.Plugin.Misc.RFQ/
+  RfqDefaults.cs
+  RfqPlugin.cs
+  RfqSettings.cs
+src/Plugins/Nop.Plugin.Misc.RFQ/Services/Caching/
+  QuoteCacheEventConsumer.cs
+  QuoteItemCacheEventConsumer.cs
+  RequestQuoteCacheEventConsumer.cs
+  RequestQuoteItemCacheEventConsumer.cs
+src/Plugins/Nop.Plugin.Misc.RFQ/Services/
+  EventConsumer.cs
+  RfqMessageService.cs
+  RfqMessageTokenEventConsumer.cs
+  RfqPermissionConfigManager.cs
+  RfqService.cs
+src/Plugins/Nop.Plugin.Misc.RFQ/Services/Pdf/
+  PdfQuoteItem.cs
+  QuoteDocument.cs
+  QuoteInfo.cs
+src/Plugins/Nop.Plugin.Misc.WebApi.Frontend/Controllers/
+  WebApiFrontendController.cs
+src/Plugins/Nop.Plugin.Misc.WebApi.Frontend/Services/
+  EventConsumer.cs
+src/Plugins/Nop.Plugin.Misc.WebApi.Frontend/
+  WebApiFrontendDefaults.cs
+  WebApiFrontendPlugin.cs
+src/Plugins/Nop.Plugin.Misc.Zettle/Controllers/
+  ZettleAdminController.cs
+  ZettleWebhookController.cs
+src/Plugins/Nop.Plugin.Misc.Zettle/Data/
+  InventoryBalanceMigration.cs
+  SchemaMigration.cs
+src/Plugins/Nop.Plugin.Misc.Zettle/Domain/Api/
+  ApiRequest.cs
+  ApiResponse.cs
+  IApiRequest.cs
+  IApiResponse.cs
+  IAuthorizedRequest.cs
+  IConditionalRequest.cs
+src/Plugins/Nop.Plugin.Misc.Zettle/Domain/Api/Image/
+  CreateImageRequest .cs
+  CreateImagesRequest.cs
+  GetImageRequest.cs
+  Image.cs
+  ImageApiRequest.cs
+  ImageList.cs
+src/Plugins/Nop.Plugin.Misc.Zettle/Domain/Api/Inventory/
+  CreateTrackingRequest .cs
+  GetLocationInventoryBalanceRequest.cs
+  GetLocationsRequest.cs
+  InventoryApiRequest.cs
+  InventoryBalance.cs
+  InventoryBalanceUpdate.cs
+  Location.cs
+  LocationInventoryBalance.cs
+  LocationList.cs
+src/Plugins/Nop.Plugin.Misc.Zettle/Domain/Api/OAuth/
+  Authentication.cs
+  DeleteAppRequest.cs
+  GetAuthenticationRequest.cs
+  GetUserInfoRequest.cs
+  OAuthApiRequest.cs
+  UserInfo.cs
+src/Plugins/Nop.Plugin.Misc.Zettle/Domain/Api/Product/
+  CategoryList.cs
+  CreateCategoryRequest.cs
+  CreateDiscountRequest.cs
+  CreateImportRequest.cs
+  CreateProductRequest.cs
+  DeleteProductRequest.cs
+  DeleteProductsRequest.cs
+  Discount.cs
+  DiscountList.cs
+  GetCategoriesRequest.cs
+  GetDiscountsRequest.cs
+  GetImportRequest.cs
+  GetProductRequest.cs
+  GetProductsRequest.cs
+  GetTaxRatesRequest.cs
+  Import.cs
+  Product.cs
+  ProductApiRequest.cs
+  ProductList.cs
+  TaxRate.cs
+  TaxRateList.cs
+  UpdateProductRequest .cs
+src/Plugins/Nop.Plugin.Misc.Zettle/Domain/Api/Pusher/
+  CreateSubscriptionRequest .cs
+  DeleteSubscriptionsRequest.cs
+  GetSubscriptionsRequest.cs
+  Message.cs
+  PusherApiRequest.cs
+  Subscription.cs
+  SubscriptionList.cs
+src/Plugins/Nop.Plugin.Misc.Zettle/Domain/Api/Secure/
+  AccountInfo.cs
+  GetAccountInfoRequest.cs
+  SecureApiRequest.cs
+src/Plugins/Nop.Plugin.Misc.Zettle/Domain/
+  InventoryBalanceChangeType.cs
+  OperationType.cs
+  ProductToSync.cs
+  ZettleRecord.cs
+src/Plugins/Nop.Plugin.Misc.Zettle/Infrastructure/
+  NopStartup.cs
+  RouteProvider.cs
+src/Plugins/Nop.Plugin.Misc.Zettle/Models/
+  AddProductToSyncListModel.cs
+  AddProductToSyncModel.cs
+  AddProductToSyncSearchModel.cs
+  ConfigurationModel.cs
+  SyncRecordListModel.cs
+  SyncRecordModel.cs
+  SyncRecordSearchModel.cs
+src/Plugins/Nop.Plugin.Misc.Zettle/Services/
+  EventConsumer.cs
+  GuidGenerator.cs
+  ZettleHttpClient.cs
+  ZettleRecordService.cs
+  ZettleService.cs
+  ZettleSyncTask.cs
+src/Plugins/Nop.Plugin.Misc.Zettle/Validators/
+  ConfigurationValidator.cs
+src/Plugins/Nop.Plugin.Misc.Zettle/
+  ZettleDefaults.cs
+  ZettlePlugin.cs
+  ZettleSettings.cs
+src/Plugins/Nop.Plugin.MultiFactorAuth.GoogleAuthenticator/Components/
+  GAAuthenticationViewComponent.cs
+  GAVerificationViewComponent.cs
+src/Plugins/Nop.Plugin.MultiFactorAuth.GoogleAuthenticator/Controllers/
+  AuthenticationController.cs
+  GoogleAuthenticatorController.cs
+src/Plugins/Nop.Plugin.MultiFactorAuth.GoogleAuthenticator/Domains/
+  GoogleAuthenticatorRecord.cs
+src/Plugins/Nop.Plugin.MultiFactorAuth.GoogleAuthenticator/Factories/
+  AuthenticationModelFactory.cs
+src/Plugins/Nop.Plugin.MultiFactorAuth.GoogleAuthenticator/
+  GoogleAuthenticatorDefaults.cs
+  GoogleAuthenticatorMethod.cs
+  GoogleAuthenticatorSettings.cs
+src/Plugins/Nop.Plugin.MultiFactorAuth.GoogleAuthenticator/Infrastructure/
+  NopStartup.cs
+  RouteProvider.cs
+src/Plugins/Nop.Plugin.MultiFactorAuth.GoogleAuthenticator/Migrations/
+  GoogleAuthenticatorSchemaMigration.cs
+src/Plugins/Nop.Plugin.MultiFactorAuth.GoogleAuthenticator/Models/
+  AuthModel.cs
+  ConfigurationModel.cs
+  GoogleAuthenticatorListModel.cs
+  GoogleAuthenticatorModel.cs
+  GoogleAuthenticatorSearchModel.cs
+  TokenModel.cs
+src/Plugins/Nop.Plugin.MultiFactorAuth.GoogleAuthenticator/Services/
+  GoogleAuthenticatorService.cs
+src/Plugins/Nop.Plugin.MultiFactorAuth.GoogleAuthenticator/Validators/
+  AuthModelValidator.cs
+  TokenModelValidator.cs
+src/Plugins/Nop.Plugin.Payments.CheckMoneyOrder/
+  CheckMoneyOrderPaymentProcessor.cs
+  CheckMoneyOrderPaymentSettings.cs
+src/Plugins/Nop.Plugin.Payments.CheckMoneyOrder/Components/
+  CheckMoneyOrderPaymentInfoViewComponent.cs
+src/Plugins/Nop.Plugin.Payments.CheckMoneyOrder/Controllers/
+  PaymentCheckMoneyOrderController.cs
+src/Plugins/Nop.Plugin.Payments.CheckMoneyOrder/Models/
+  ConfigurationModel.cs
+  PaymentInfoModel.cs
+src/Plugins/Nop.Plugin.Payments.PayPalCommerce/Components/Admin/
+  PaymentMethodViewComponent.cs
+  ShipmentCarrierViewComponent.cs
+src/Plugins/Nop.Plugin.Payments.PayPalCommerce/Components/Public/
+  ButtonsViewComponent.cs
+  LogoViewComponent.cs
+  MessagesViewComponent.cs
+  PaymentInfoViewComponent.cs
+src/Plugins/Nop.Plugin.Payments.PayPalCommerce/Controllers/
+  PayPalCommerceController.cs
+  PayPalCommercePublicController.cs
+  PayPalCommerceWebhookController.cs
+src/Plugins/Nop.Plugin.Payments.PayPalCommerce/Data/
+  AdvancedCardsMigration.cs
+  PayPalTokenBuilder.cs
+  SchemaMigration.cs
+src/Plugins/Nop.Plugin.Payments.PayPalCommerce/Domain/
+  ButtonPlacement.cs
+  Contact.cs
+  MessageConfiguration.cs
+  PayPalToken.cs
+  PaymentType.cs
+src/Plugins/Nop.Plugin.Payments.PayPalCommerce/Factories/
+  PayPalCommerceModelFactory.cs
+src/Plugins/Nop.Plugin.Payments.PayPalCommerce/Infrastructure/
+  NopStartup.cs
+  RouteProvider.cs
+src/Plugins/Nop.Plugin.Payments.PayPalCommerce/Models/Admin/
+  AuthenticationModel.cs
+  ConfigurationModel.cs
+  MerchantModel.cs
+  OnboardingCallbackModel.cs
+  PayLaterConfigurationModel.cs
+  ShipmentCarrierModel.cs
+src/Plugins/Nop.Plugin.Payments.PayPalCommerce/Models/Public/
+  ApplePayModel.cs
+  ApplePayShippingModel.cs
+  GooglePayModel.cs
+  GooglePayShippingModel.cs
+  MessagesModel.cs
+  OrderApprovedModel.cs
+  OrderCompletedModel.cs
+  OrderConfirmModel.cs
+  OrderModel.cs
+  OrderShippingModel.cs
+  PaymentInfoModel.cs
+  PaymentTokenListModel.cs
+  PaymentTokenModel.cs
+  RecurringOrderModel.cs
+  SavedCardListModel.cs
+  SetupTokenModel.cs
+src/Plugins/Nop.Plugin.Payments.PayPalCommerce/
+  PayPalCommerceDefaults.cs
+  PayPalCommercePaymentMethod.cs
+  PayPalCommerceSettings.cs
+src/Plugins/Nop.Plugin.Payments.PayPalCommerce/Services/Api/Authentication/
+  GetAccessTokenRequest.cs
+  GetAccessTokenResponse.cs
+src/Plugins/Nop.Plugin.Payments.PayPalCommerce/Services/Api/
+  EmptyResponse.cs
+  ErrorResponse.cs
+  IApiRequest.cs
+  IApiResponse.cs
+  IAuthorizedRequest.cs
+  IWebhookResource.cs
+  IdentityErrorResponse.cs
+src/Plugins/Nop.Plugin.Payments.PayPalCommerce/Services/Api/Identity/
+  CreateIdentityTokenRequest.cs
+  CreateIdentityTokenResponse.cs
+src/Plugins/Nop.Plugin.Payments.PayPalCommerce/Services/Api/Models/
+  AccessToken.cs
+  Address.cs
+  ApplicationContext.cs
+  Attributes.cs
+  AuthenticationResult.cs
+  AuthenticationResult3DS.cs
+  Authorization.cs
+  BillingCycle.cs
+  BillingCycleFrequency.cs
+  BillingPlan.cs
+  BinDetails.cs
+  Capture.cs
+  CardData.cs
+  CardDataLevel2.cs
+  CardDataLevel3.cs
+  Credentials.cs
+  Event.cs
+  EventType.cs
+  ExchangeRate.cs
+  ExperienceContext.cs
+  IdentityToken.cs
+  Integration.cs
+  Item.cs
+  Link.cs
+  Merchant.cs
+  Money.cs
+  Name.cs
+  NetAmountBreakdown.cs
+  NetworkToken.cs
+  NetworkTransactionReference.cs
+  Onboarding.cs
+  OneTimeCharge.cs
+  Order.cs
+  OrderAmountBreakdown.cs
+  OrderMoney.cs
+  Patch.cs
+  PayPalProduct.cs
+  Payee.cs
+  Payer.cs
+  PayerTax.cs
+  PaymentBreakdown.cs
+  PaymentInstruction.cs
+  PaymentSource.cs
+  PaymentToken.cs
+  PaymentTokenMetadata.cs
+  Payments.cs
+  Phone.cs
+  PhoneNumber.cs
+  PlatformFee.cs
+  PricingScheme.cs
+  ProcessorResponse.cs
+  ProductCapability.cs
+  ProductCapabilityLimit.cs
+  PurchaseUnit.cs
+  RecurringPaymentSource.cs
+  Refund.cs
+  Script.cs
+  SellerProtection.cs
+  Shipping.cs
+  ShippingOption.cs
+  ShippingTracker.cs
+  StatusDetails.cs
+  StoredCredential.cs
+  SupplementaryData.cs
+  UniversalProductCode.cs
+  Vault.cs
+  VaultInstruction.cs
+  VerificationInstruction.cs
+  Webhook.cs
+  WebhookResource.cs
+  WebhookSignature.cs
+src/Plugins/Nop.Plugin.Payments.PayPalCommerce/Services/Api/Models/Enums/
+  AuthorizationStatusType.cs
+  CaptureStatusType.cs
+  CardNetworkType.cs
+  CategoryType.cs
+  DisbursementModeType.cs
+  FeatureType.cs
+  IntegrationMethodType.cs
+  IntegrationType.cs
+  IntentType.cs
+  IntervalUnitType.cs
+  LandingPageType.cs
+  LiabilityShiftType.cs
+  OrderStatusType.cs
+  PatchOpType.cs
+  PayPalProductType.cs
+  PaymentInitiatorType.cs
+  PaymentMethodPreferenceType.cs
+  PaymentTokenStatusType.cs
+  PaymentTokenType.cs
+  PaymentType.cs
+  PhoneType.cs
+  PricingModelType.cs
+  ProductCapabilityStatusType.cs
+  ProductCapabilityType.cs
+  ProductStatusType.cs
+  RefundStatusType.cs
+  SellerProtectionType.cs
+  ShipmentStatusType.cs
+  ShippingPreferenceType.cs
+  ShippingType.cs
+  StoredPaymentUsageType.cs
+  TenureType.cs
+  UsagePatternType.cs
+  UserActionType.cs
+  VaultInstructionType.cs
+  VaultStatusType.cs
+  VaultUsageType.cs
+  VerificationInstructionMethodType.cs
+  WebhookSignatureVerificationStatusType.cs
+src/Plugins/Nop.Plugin.Payments.PayPalCommerce/Services/Api/Models/PaymentSources/
+  ApplePay.cs
+  Card.cs
+  PayPal.cs
+  Token.cs
+  VaultPayPal.cs
+  Venmo.cs
+src/Plugins/Nop.Plugin.Payments.PayPalCommerce/Services/Api/Onboarding/
+  GetCredentialsRequest.cs
+  GetCredentialsResponse.cs
+  GetMerchantRequest.cs
+  GetMerchantResponse.cs
+src/Plugins/Nop.Plugin.Payments.PayPalCommerce/Services/Api/Orders/
+  CreateAuthorizationRequest.cs
+  CreateAuthorizationResponse.cs
+  CreateCaptureRequest.cs
+  CreateCaptureResponse.cs
+  CreateOrderRequest.cs
+  CreateOrderResponse.cs
+  CreateTrackingRequest.cs
+  CreateTrackingResponse.cs
+  GetOrderRequest.cs
+  GetOrderResponse.cs
+  UpdateOrderRequest.cs
+src/Plugins/Nop.Plugin.Payments.PayPalCommerce/Services/Api/PaymentTokens/
+  CreatePaymentTokenRequest.cs
+  CreatePaymentTokenResponse.cs
+  CreateSetupTokenRequest.cs
+  CreateSetupTokenResponse.cs
+  DeletePaymentTokenRequest.cs
+  GetPaymentTokenRequest.cs
+  GetPaymentTokenResponse.cs
+  GetPaymentTokensRequest.cs
+  GetPaymentTokensResponse.cs
+src/Plugins/Nop.Plugin.Payments.PayPalCommerce/Services/Api/Payments/
+  CreateCaptureRequest.cs
+  CreateCaptureResponse.cs
+  CreateRefundRequest.cs
+  CreateRefundResponse.cs
+  CreateVoidRequest.cs
+src/Plugins/Nop.Plugin.Payments.PayPalCommerce/Services/Api/Webhooks/
+  CreateWebhookRequest.cs
+  CreateWebhookResponse.cs
+  CreateWebhookSignatureRequest.cs
+  CreateWebhookSignatureResponse.cs
+  DeleteWebhookRequest.cs
+  GetWebhooksRequest.cs
+  GetWebhooksResponse.cs
+src/Plugins/Nop.Plugin.Payments.PayPalCommerce/Services/
+  EventConsumer.cs
+  OnboardingHttpClient.cs
+  PayPalCommerceHttpClient.cs
+  PayPalCommerceServiceManager.cs
+  PayPalTokenService.cs
+src/Plugins/Nop.Plugin.Payments.PayPalCommerce/Validators/
+  ConfigurationValidator.cs
+src/Plugins/Nop.Plugin.Pickup.PickupInStore/Controllers/
+  PickupInStoreController.cs
+src/Plugins/Nop.Plugin.Pickup.PickupInStore/Data/Mapping/
+  StorePickupPointBuilder.cs
+src/Plugins/Nop.Plugin.Pickup.PickupInStore/Data/Migrations/
+  LonLatUpdateMigration.cs
+  SchemaMigration.cs
+src/Plugins/Nop.Plugin.Pickup.PickupInStore/Domain/
+  StorePickupPoint.cs
+src/Plugins/Nop.Plugin.Pickup.PickupInStore/Factories/
+  IStorePickupPointModelFactory.cs
+  StorePickupPointModelFactory.cs
+src/Plugins/Nop.Plugin.Pickup.PickupInStore/Infrastructure/
+  NopStartup.cs
+src/Plugins/Nop.Plugin.Pickup.PickupInStore/Models/
+  StorePickupPointListModel.cs
+  StorePickupPointModel.cs
+  StorePickupPointSearchModel.cs
+src/Plugins/Nop.Plugin.Pickup.PickupInStore/
+  PickupInStoreProvider.cs
+src/Plugins/Nop.Plugin.Pickup.PickupInStore/Services/
+  IStorePickupPointService.cs
+  StorePickupPointService.cs
+src/Plugins/Nop.Plugin.Pickup.PickupInStore/Validators/
+  StorePickupPointValidator.cs
+src/Plugins/Nop.Plugin.Search.Lucene/Controllers/
+  LuceneController.cs
+src/Plugins/Nop.Plugin.Search.Lucene/
+  LuceneDefaults.cs
+  LuceneSearchProvider.cs
+src/Plugins/Nop.Plugin.Search.Lucene/Services/
+  EventConsumer.cs
+src/Plugins/Nop.Plugin.Shipping.FixedByWeightByTotal/Controllers/
+  FixedByWeightByTotalController.cs
+src/Plugins/Nop.Plugin.Shipping.FixedByWeightByTotal/Data/
+  ShippingByWeightByTotalRecordBuilder.cs
+src/Plugins/Nop.Plugin.Shipping.FixedByWeightByTotal/Domain/
+  ShippingByWeightByTotalRecord.cs
+src/Plugins/Nop.Plugin.Shipping.FixedByWeightByTotal/
+  FixedByWeightByTotalComputationMethod.cs
+  FixedByWeightByTotalDefaults.cs
+  FixedByWeightByTotalSettings.cs
+src/Plugins/Nop.Plugin.Shipping.FixedByWeightByTotal/Infrastructure/Cache/
+  FixedByWeightByTotalEventConsumer.cs
+src/Plugins/Nop.Plugin.Shipping.FixedByWeightByTotal/Infrastructure/
+  NopStartup.cs
+src/Plugins/Nop.Plugin.Shipping.FixedByWeightByTotal/Migrations/
+  AddLoadAllRecordSetting.cs
+  SchemaMigration.cs
+  UpgradeTo450.cs
+src/Plugins/Nop.Plugin.Shipping.FixedByWeightByTotal/Models/
+  ConfigurationModel.cs
+  FixedRateListModel.cs
+  FixedRateModel.cs
+  ShippingByWeightByTotalListModel.cs
+  ShippingByWeightByTotalModel.cs
+src/Plugins/Nop.Plugin.Shipping.FixedByWeightByTotal/Services/
+  IShippingByWeightByTotalService.cs
+  ShippingByWeightByTotalService.cs
+src/Plugins/Nop.Plugin.Shipping.UPS/API/
+  NullToEmptyStringResolver.cs
+  NullToEmptyStringValueProvider.cs
+src/Plugins/Nop.Plugin.Shipping.UPS/API/OAuth/
+  NopOAuthClient.cs
+  OAuthClient.cs
+src/Plugins/Nop.Plugin.Shipping.UPS/API/Rates/
+  NopRateClient.cs
+  RateClient.cs
+src/Plugins/Nop.Plugin.Shipping.UPS/API/Track/
+  NopTrackClient.cs
+  TrackClient.cs
+src/Plugins/Nop.Plugin.Shipping.UPS/Controllers/
+  UPSShippingController.cs
+src/Plugins/Nop.Plugin.Shipping.UPS/Domain/
+  CustomerClassification.cs
+  DeliveryService.cs
+  PackagingType.cs
+  PackingType.cs
+  PickupType.cs
+  UPSCodeAttribute.cs
+src/Plugins/Nop.Plugin.Shipping.UPS/Infrastructure/
+  NopStartup.cs
+src/Plugins/Nop.Plugin.Shipping.UPS/Migrations/
+  UpgradeTo470.cs
+src/Plugins/Nop.Plugin.Shipping.UPS/Models/
+  UPSShippingModel.cs
+src/Plugins/Nop.Plugin.Shipping.UPS/Services/
+  HttpClientExtensions.cs
+  UPSService.cs
+src/Plugins/Nop.Plugin.Shipping.UPS/
+  UPSComputationMethod.cs
+  UPSDefaults.cs
+  UPSSettings.cs
+  UPSShipmentTracker.cs
+src/Plugins/Nop.Plugin.Sms.Twilio/Controllers/
+  TwilioController.cs
+src/Plugins/Nop.Plugin.Sms.Twilio/Infrastructure/
+  NopStartup.cs
+  RouteProvider.cs
+src/Plugins/Nop.Plugin.Sms.Twilio/Models/
+  ConfigurationModel.cs
+src/Plugins/Nop.Plugin.Sms.Twilio/Services/
+  TwilioHttpClient.cs
+  TwilioService.cs
+src/Plugins/Nop.Plugin.Sms.Twilio/
+  TwilioDefaults.cs
+  TwilioProvider.cs
+  TwilioSettings.cs
+src/Plugins/Nop.Plugin.Tax.Avalara/
+  AvalaraTaxDefaults.cs
+  AvalaraTaxProvider.cs
+  AvalaraTaxSettings.cs
+src/Plugins/Nop.Plugin.Tax.Avalara/Components/
+  AddressValidationViewComponent.cs
+  AppliedCertificateViewComponent.cs
+  EntityUseCodeViewComponent.cs
+  ExportItemsViewComponent.cs
+src/Plugins/Nop.Plugin.Tax.Avalara/Controllers/
+  AddressValidationController.cs
+  AvalaraController.cs
+  AvalaraProductController.cs
+  AvalaraPublicController.cs
+  AvalaraTaxController.cs
+  AvalaraWebhookController.cs
+  ItemClassificationController.cs
+  TaxTransactionLogController.cs
+src/Plugins/Nop.Plugin.Tax.Avalara/Data/
+  AvalaraNameCompatibility.cs
+  CertificatesMigration.cs
+  ItemClassificationMigration.cs
+  MySqlDateTimeWithPrecisionMigration.cs
+  ScheduleTaskMigration.cs
+  SchemaMigration.cs
+src/Plugins/Nop.Plugin.Tax.Avalara/Domain/
+  ItemClassification.cs
+  TaxOriginAddressType.cs
+  TaxRate.cs
+  TaxTransactionLog.cs
+src/Plugins/Nop.Plugin.Tax.Avalara/Infrastructure/
+  NopStartup.cs
+  RouteProvider.cs
+src/Plugins/Nop.Plugin.Tax.Avalara/ItemClassificationAPI/
+  ActivityEnum.cs
+  ClassificationParameters.cs
+  CreateHSClassificationRequest.cs
+  GetHSClassificationRequest.cs
+  HSClassificationModel.cs
+  ItemClassificationModel.cs
+  NameEnum.cs
+  Request.cs
+  Response.cs
+src/Plugins/Nop.Plugin.Tax.Avalara/Models/Checkout/
+  AddressValidationModel.cs
+src/Plugins/Nop.Plugin.Tax.Avalara/Models/Configuration/
+  ConfigurationModel.cs
+src/Plugins/Nop.Plugin.Tax.Avalara/Models/Customer/
+  ExemptionCertificateModel.cs
+  TaxExemptionModel.cs
+src/Plugins/Nop.Plugin.Tax.Avalara/Models/EntityUseCode/
+  EntityUseCodeModel.cs
+src/Plugins/Nop.Plugin.Tax.Avalara/Models/ItemClassification/
+  AddProductToClassificationListModel.cs
+  AddProductToClassificationModel.cs
+  AddProductToClassificationSearchModel.cs
+  ItemClassificationListModel.cs
+  ItemClassificationModel.cs
+  ItemClassificationSearchModel.cs
+src/Plugins/Nop.Plugin.Tax.Avalara/Models/Log/
+  TaxTransactionLogListModel.cs
+  TaxTransactionLogModel.cs
+  TaxTransactionLogSearchModel.cs
+src/Plugins/Nop.Plugin.Tax.Avalara/Models/Tax/
+  TaxCategoryListModel.cs
+  TaxCategoryModel.cs
+  TaxCategorySearchModel.cs
+src/Plugins/Nop.Plugin.Tax.Avalara/Services/
+  AvalaraTaxManager.cs
+  DownloadTaxRatesTask.cs
+  EventConsumer.cs
+  ItemClassificationHttpClient.cs
+  ItemClassificationService.cs
+  TaxTransactionLogService.cs
+src/Plugins/Nop.Plugin.Tax.Avalara/Services/Caching/
+  CustomerCacheEventConsumer.cs
+src/Plugins/Nop.Plugin.Tax.Avalara/Validators/
+  ConfigurationValidator.cs
+src/Plugins/Nop.Plugin.Tax.FixedOrByCountryStateZip/Controllers/
+  FixedOrByCountryStateZipController.cs
+src/Plugins/Nop.Plugin.Tax.FixedOrByCountryStateZip/Data/
+  SchemaMigration.cs
+src/Plugins/Nop.Plugin.Tax.FixedOrByCountryStateZip/Domain/
+  TaxRate.cs
+src/Plugins/Nop.Plugin.Tax.FixedOrByCountryStateZip/
+  FixedOrByCountryStateZipDefaults.cs
+  FixedOrByCountryStateZipTaxProvider.cs
+  FixedOrByCountryStateZipTaxSettings.cs
+src/Plugins/Nop.Plugin.Tax.FixedOrByCountryStateZip/Infrastructure/Cache/
+  ModelCacheEventConsumer.cs
+src/Plugins/Nop.Plugin.Tax.FixedOrByCountryStateZip/Infrastructure/
+  NopStartup.cs
+src/Plugins/Nop.Plugin.Tax.FixedOrByCountryStateZip/Migrations/UpgradeTo470/
+  LocalizationMigration.cs
+src/Plugins/Nop.Plugin.Tax.FixedOrByCountryStateZip/Models/
+  ConfigurationModel.cs
+  CountryStateZipListModel.cs
+  CountryStateZipModel.cs
+  FixedRateListModel.cs
+  FixedTaxRateModel.cs
+src/Plugins/Nop.Plugin.Tax.FixedOrByCountryStateZip/Services/
+  CountryStateZipService.cs
+  ICountryStateZipService.cs
+src/Plugins/Nop.Plugin.Widgets.FacebookPixel/Components/
+  FacebookPixelViewComponent.cs
+src/Plugins/Nop.Plugin.Widgets.FacebookPixel/Controllers/
+  FacebookPixelController.cs
+src/Plugins/Nop.Plugin.Widgets.FacebookPixel/Data/
+  ConversionsApiMigration.cs
+  FacebookPixelSchemaMigration.cs
+src/Plugins/Nop.Plugin.Widgets.FacebookPixel/Domain/
+  ApiError.cs
+  ConversionsEvent.cs
+  ConversionsEventCustomData.cs
+  ConversionsEventDatum.cs
+  ConversionsEventUserData.cs
+  CustomEvent.cs
+  FacebookPixelConfiguration.cs
+  TrackedEvent.cs
+src/Plugins/Nop.Plugin.Widgets.FacebookPixel/
+  FacebookPixelDefaults.cs
+  FacebookPixelPlugin.cs
+src/Plugins/Nop.Plugin.Widgets.FacebookPixel/Infrastructure/Mapper/
+  MapperConfiguration.cs
+src/Plugins/Nop.Plugin.Widgets.FacebookPixel/Infrastructure/
+  NopStartup.cs
+  RouteProvider.cs
+src/Plugins/Nop.Plugin.Widgets.FacebookPixel/Models/
+  ConfigurationModel.cs
+  CustomEventListModel.cs
+  CustomEventModel.cs
+  CustomEventSearchModel.cs
+  FacebookPixelListModel.cs
+  FacebookPixelModel.cs
+  FacebookPixelSearchModel.cs
+src/Plugins/Nop.Plugin.Widgets.FacebookPixel/Services/
+  EventConsumer.cs
+  FacebookConversionsHttpClient.cs
+  FacebookPixelService.cs
+src/Plugins/Nop.Plugin.Widgets.FacebookPixel/Validators/
+  ConfigurationValidator.cs
+src/Plugins/Nop.Plugin.Widgets.GoogleAnalytics/Api/
+  GoogleAnalyticsHttpClient.cs
+src/Plugins/Nop.Plugin.Widgets.GoogleAnalytics/Api/Models/
+  Event.cs
+  EventRequest.cs
+  Item.cs
+  Parameters.cs
+  Response.cs
+  ValidationMessage.cs
+src/Plugins/Nop.Plugin.Widgets.GoogleAnalytics/Components/
+  WidgetsGoogleAnalyticsViewComponent.cs
+src/Plugins/Nop.Plugin.Widgets.GoogleAnalytics/Controllers/
+  WidgetsGoogleAnalyticsController.cs
+src/Plugins/Nop.Plugin.Widgets.GoogleAnalytics/
+  EventConsumer.cs
+  GoogleAnalyticsDefaults.cs
+  GoogleAnalyticsPlugin.cs
+  GoogleAnalyticsSettings.cs
+  PluginExtensions.cs
+src/Plugins/Nop.Plugin.Widgets.GoogleAnalytics/Infrastructure/
+  NopStartup.cs
+  RouteProvider.cs
+src/Plugins/Nop.Plugin.Widgets.GoogleAnalytics/Migrations/UpgradeTo460/
+  LocalizationMigration.cs
+src/Plugins/Nop.Plugin.Widgets.GoogleAnalytics/Migrations/UpgradeTo470/
+  LocalizationMigration.cs
+src/Plugins/Nop.Plugin.Widgets.GoogleAnalytics/Models/
+  ConfigurationModel.cs
+src/Plugins/Nop.Plugin.Widgets.Jotform/Components/
+  WidgetJotformViewComponent.cs
+src/Plugins/Nop.Plugin.Widgets.Jotform/Controllers/
+  JotformController.cs
+src/Plugins/Nop.Plugin.Widgets.Jotform/Infrastructure/
+  RouteProvider.cs
+src/Plugins/Nop.Plugin.Widgets.Jotform/
+  JotformDefaults.cs
+  JotformPlugin.cs
+  JotformSettings.cs
+src/Plugins/Nop.Plugin.Widgets.Jotform/Models/
+  ConfigurationModel.cs
+src/Plugins/Nop.Plugin.Widgets.Jotform/Validators/
+  ConfigurationValidator.cs
+src/Plugins/Nop.Plugin.Widgets.Swiper/Components/
+  WidgetSwiperViewComponent.cs
+src/Plugins/Nop.Plugin.Widgets.Swiper/Controllers/
+  WidgetSwiperController.cs
+src/Plugins/Nop.Plugin.Widgets.Swiper/Domain/
+  Slide.cs
+src/Plugins/Nop.Plugin.Widgets.Swiper/Infrastructure/Cache/
+  ModelCacheEventConsumer.cs
+src/Plugins/Nop.Plugin.Widgets.Swiper/Models/
+  ConfigurationModel.cs
+  PublicInfoModel.cs
+  PublicSlideModel.cs
+  SlideListModel.cs
+  SlidePictureModel.cs
+  SlidesSearchModel.cs
+src/Plugins/Nop.Plugin.Widgets.Swiper/
+  SwiperPlugin.cs
+  SwiperSettings.cs
+src/Plugins/Nop.Plugin.Widgets.Swiper/Validators/
+  SlidePictureValidator.cs
+src/Presentation/Nop.Web.Framework/
+  AreaNames.cs
+  RemotePost.cs
+  WebStoreContext.cs
+  WebWorkContext.cs
+src/Presentation/Nop.Web.Framework/ClientsideFluentValidation/
+  NopClientModelValidatorProvider.cs
+src/Presentation/Nop.Web.Framework/ClientsideFluentValidation/Validators/
+  ClientValidatorBase.cs
+  EmailClientValidator.cs
+  EqualToClientValidator.cs
+  MaxLengthClientValidator.cs
+  MinLengthClientValidator.cs
+  RangeClientValidator.cs
+  RangeMaxClientValidator.cs
+  RangeMinClientValidator.cs
+  RegexClientValidator.cs
+  RequiredClientValidator.cs
+  StringLengthClientValidator.cs
+src/Presentation/Nop.Web.Framework/Components/
+  NopViewComponent.cs
+src/Presentation/Nop.Web.Framework/Controllers/
+  BaseController.cs
+  BasePaymentController.cs
+  BasePluginController.cs
+  FormValueRequiredAttribute.cs
+  NullView.cs
+src/Presentation/Nop.Web.Framework/Events/
+  AdminMenuCreatedEvent.cs
+  AdminTabStripCreated.cs
+  BaseAdminMenuCreatedEventConsumer.cs
+  BaseMenuItemCreatedEvent.cs
+  ClientModelValidatorsCreatedEvent.cs
+  EventPublisherExtensions.cs
+  GenericRoutingEvent.cs
+  MenuItemInsertType.cs
+  ModelPreparedEvent.cs
+  ModelReceivedEvent.cs
+  PageRenderingEvent.cs
+  ProductSearchEvent.cs
+  RouteUrlEvent.cs
+  ThirdPartyPluginsMenuItemCreatedEvent.cs
+src/Presentation/Nop.Web.Framework/Extensions/
+  CommonExtensions.cs
+  HtmlExtensions.cs
+  MigrationExtensions.cs
+src/Presentation/Nop.Web.Framework/Factories/
+  DiscountSupportedModelFactory.cs
+  IDiscountSupportedModelFactory.cs
+  ILocalizedModelFactory.cs
+  IStoreMappingSupportedModelFactory.cs
+  ITranslationModelFactory.cs
+  IWidgetModelFactory.cs
+  LocalizedModelFactory.cs
+  StoreMappingSupportedModelFactory.cs
+  TranslationModelFactory.cs
+  WidgetModelFactory.cs
+src/Presentation/Nop.Web.Framework/Globalization/
+  AcceptLanguageHeaderRequestCultureProvider.cs
+  NopSeoUrlCultureProvider.cs
+src/Presentation/Nop.Web.Framework/Infrastructure/
+  AdminWidgetZones.cs
+  AppStartedConsumer.cs
+  AuthenticationStartup.cs
+  AuthorizationStartup.cs
+  ErrorHandlerStartup.cs
+  LazyInstance.cs
+  NopCommonStartup.cs
+  NopEndpoints.cs
+  NopMvcStartup.cs
+  NopProxyStartup.cs
+  NopRoutingStartup.cs
+  NopStartup.cs
+  NopStaticFilesStartup.cs
+  NopWebMarkupMinStartup.cs
+  PublicWidgetZones.cs
+src/Presentation/Nop.Web.Framework/Infrastructure/Extensions/
+  ApplicationBuilderExtensions.cs
+  ApplicationPartManagerExtensions.cs
+  HttpClientBuilderExtensions.cs
+  ServiceCollectionExtensions.cs
+src/Presentation/Nop.Web.Framework/Localization/
+  LocalizedString.cs
+  Localizer.cs
+src/Presentation/Nop.Web.Framework/Menu/
+  AdminMenu.cs
+  AdminMenuItem.cs
+  IAdminMenu.cs
+  IAdminMenuPlugin.cs
+  PluginAdminMenuExtensions.cs
+src/Presentation/Nop.Web.Framework/Migrations/UpgradeTo440/
+  LocalizationMigration.cs
+  SettingMigration.cs
+src/Presentation/Nop.Web.Framework/Migrations/UpgradeTo450/
+  AppSettingsMigration.cs
+  LocalizationMigration.cs
+  SettingMigration.cs
+src/Presentation/Nop.Web.Framework/Migrations/UpgradeTo460/
+  LocalizationMigration.cs
+  SettingMigration.cs
+  UploadedImagesMigration.cs
+src/Presentation/Nop.Web.Framework/Migrations/UpgradeTo470/
+  AppSettingsMigration.cs
+  LocalizationMigration.cs
+  SettingMigration.cs
+src/Presentation/Nop.Web.Framework/Migrations/UpgradeTo480/
+  AclMigration.cs
+  LocalizationMigration.cs
+  SettingMigration.cs
+src/Presentation/Nop.Web.Framework/Migrations/UpgradeTo490/
+  AppSettingsMigration.cs
+  LocalizationMigration.cs
+  MenuMigration.cs
+  SettingMigration.cs
+src/Presentation/Nop.Web.Framework/Migrations/UpgradeTo500/
+  AppSettingsMigration.cs
+  LocalizationMigration.cs
+  RemindersMigration.cs
+  SettingMigration.cs
+src/Presentation/Nop.Web.Framework/Models/
+  ActionConfirmationModel.cs
+  AlertModel.cs
+  BaseNopEntityModel.cs
+  BaseNopModel.cs
+  BasePagedListModel.cs
+  BaseSearchModel.cs
+  DeleteConfirmationModel.cs
+  IAclSupportedModel.cs
+  IConfigModel.cs
+  IDiscountSupportedModel.cs
+  ILocalizedLocaleModel.cs
+  ILocalizedModel.cs
+  IPagedModel.cs
+  IPagingRequestModel.cs
+  IPluginModel.cs
+  ISettingsModel.cs
+  IStoreMappingSupportedModel.cs
+src/Presentation/Nop.Web.Framework/Models/AdminAreaTour/
+  TourStep.cs
+src/Presentation/Nop.Web.Framework/Models/ArtificialIntelligence/
+  IMetaTagsSupportedModel.cs
+src/Presentation/Nop.Web.Framework/Models/Cms/
+  NopModelCacheDefaults.cs
+  RenderWidgetModel.cs
+  WidgetNopCardModel.cs
+src/Presentation/Nop.Web.Framework/Models/DataTables/
+  ColumnProperty.cs
+  DataTablesModel.cs
+  DataUrl.cs
+  EditType.cs
+  FilterParameter.cs
+  IRender.cs
+  LayoutOption.cs
+  LayoutOptionType.cs
+  NopButtonClassDefaults.cs
+  NopColumnClassDefaults.cs
+  RenderBoolean.cs
+  RenderButtonCustom.cs
+  RenderButtonEdit.cs
+  RenderButtonRemove.cs
+  RenderButtonView.cs
+  RenderButtonsInlineEdit.cs
+  RenderCheckBox.cs
+  RenderChildCaret.cs
+  RenderCustom.cs
+  RenderDate.cs
+  RenderLink.cs
+  RenderPicture.cs
+src/Presentation/Nop.Web.Framework/Models/Extensions/
+  ModelExtensions.cs
+src/Presentation/Nop.Web.Framework/Models/Translation/
+  ITranslationSupportedModel.cs
+  TranslatedModel.cs
+  TranslationModel.cs
+src/Presentation/Nop.Web.Framework/Mvc/Filters/
+  AuthorizeAdminAttribute.cs
+  AutoValidationAttribute.cs
+  CheckAccessClosedStoreAttribute.cs
+  CheckAccessPublicStoreAttribute.cs
+  CheckAffiliateAttribute.cs
+  CheckDiscountCouponAttribute.cs
+  CheckLanguageSeoCodeAttribute.cs
+  CheckPermissionAttribute.cs
+  ForceMultiFactorAuthenticationAttribute.cs
+  HttpsRequirementAttribute.cs
+  NotNullValidationMessageAttribute.cs
+  ParameterBasedOnFormNameAndValueAttribute.cs
+  ParameterBasedOnFormNameAttribute.cs
+  PublishModelEventsAttribute.cs
+  SaveIpAddressAttribute.cs
+  SaveLastActivityAttribute.cs
+  SaveLastContinueShoppingPageAttribute.cs
+  SaveLastVisitedPageAttribute.cs
+  SaveSelectedTabsAttribute.cs
+  SignOutFromExternalAuthenticationAttribute.cs
+  ValidateCaptchaAttribute.cs
+  ValidateHoneypotAttribute.cs
+  ValidateIpAddressAttribute.cs
+  ValidatePasswordAttribute.cs
+  ValidateVendorAttribute.cs
+  WwwRequirementAttribute.cs
+src/Presentation/Nop.Web.Framework/Mvc/ModelBinding/Binders/
+  CustomPropertiesModelBinder.cs
+  NopModelBinderProvider.cs
+  StringModelBinder.cs
+src/Presentation/Nop.Web.Framework/Mvc/ModelBinding/
+  ModelStateExtensions.cs
+  NopResourceDisplayNameAttribute.cs
+src/Presentation/Nop.Web.Framework/Mvc/
+  NoTrimAttribute.cs
+  NullJsonResult.cs
+  RssActionResult.cs
+src/Presentation/Nop.Web.Framework/Mvc/Razor/
+  NopRazorPage.cs
+src/Presentation/Nop.Web.Framework/Mvc/Routing/
+  INopUrlHelper.cs
+  IRouteProvider.cs
+  IRoutePublisher.cs
+  LanguageParameterTransformer.cs
+  NopLocalRedirectResultExecutor.cs
+  NopRedirectResultExecutor.cs
+  NopRoutingDefaults.cs
+  NopUrlHelper.cs
+  RoutePublisher.cs
+  SlugRouteTransformer.cs
+src/Presentation/Nop.Web.Framework/Security/Captcha/
+  CaptchaHttpClient.cs
+  CaptchaResponse.cs
+  HtmlExtensions.cs
+src/Presentation/Nop.Web.Framework/Security/
+  CurrentOSUser.cs
+  FilePermissionHelper.cs
+src/Presentation/Nop.Web.Framework/Security/Honeypot/
+  HtmlExtensions.cs
+src/Presentation/Nop.Web.Framework/TagHelpers/Admin/
+  NopActionConfirmationTagHelper.cs
+  NopAlertTagHelper.cs
+  NopCardTagHelper.cs
+  NopCardsTagHelper.cs
+  NopDeleteConfirmationTagHelper.cs
+  NopDocReferenceTagHelper.cs
+  NopEditorTagHelper.cs
+  NopLabelTagHelper.cs
+  NopNestedSettingTagHelper.cs
+  NopOverrideStoreCheckboxHelper.cs
+  NopSelectTagHelper.cs
+  NopTabContextItem.cs
+  NopTabTagHelper.cs
+  NopTabsTagHelper.cs
+  NopTextAreaTagHelper.cs
+src/Presentation/Nop.Web.Framework/TagHelpers/Public/
+  InputTagHelper.cs
+  LabelTagHelper.cs
+  NopGenerateCaptchaTagHelper.cs
+  TextAreaTagHelper.cs
+src/Presentation/Nop.Web.Framework/TagHelpers/Shared/
+  NopAntiForgeryTokenTagHelper.cs
+  NopDatePickerTagHelper.cs
+  NopLinkTagHelper.cs
+  NopRequiredTagHelper.cs
+  NopScriptTagHelper.cs
+src/Presentation/Nop.Web.Framework/TagHelpers/
+  TagHelperExtensions.cs
+src/Presentation/Nop.Web.Framework/Themes/
+  ThemeContext.cs
+  ThemeableViewLocationExpander.cs
+src/Presentation/Nop.Web.Framework/UI/
+  INopHtmlHelper.cs
+  NopHtmlHelper.cs
+  NopNotificationsDefaults.cs
+  ResourceLocation.cs
+src/Presentation/Nop.Web.Framework/UI/Paging/
+  BasePageableModel.cs
+  IPageableModel.cs
+  Pager.cs
+src/Presentation/Nop.Web.Framework/Validators/
+  BaseNopValidator.cs
+  DecimalPropertyValidator.cs
+  EmailPropertyValidator.cs
+  NopValidationDefaults.cs
+  PasswordPropertyValidator.cs
+  PhoneNumberPropertyValidator.cs
+  RuleBuilderOptionsExtension.cs
+  UsernamePropertyValidator.cs
+  ValidateAttribute.cs
+  ValidatorExtensions.cs
+src/Presentation/Nop.Web.Framework/WebOptimizer/
+  DefaultAsset.cs
+  INopAssetHelper.cs
+  NopAssetHelper.cs
+  NopDefaultAssetHelper.cs
+  WebOptimizerConfig.cs
+src/Presentation/Nop.Web.Framework/WebOptimizer/Processors/
+  NopCssMinifier.cs
+  NopJsMinifier.cs
+src/Presentation/Nop.Web/Areas/Admin/Components/
+  AclCustomerRolesViewComponent.cs
+  AclDisabledWarningViewComponent.cs
+  AdminLanguageSelectorViewComponent.cs
+  AdminWidgetViewComponent.cs
+  CommonStatisticsViewComponent.cs
+  FullDescriptionGeneratorViewComponent.cs
+  MetaTagGeneratorViewComponent.cs
+  MultistoreDisabledWarningViewComponent.cs
+  MultistorePreviewViewComponent.cs
+  NopCommerceNewsViewComponent.cs
+  SettingModeViewComponent.cs
+  StoreScopeConfigurationViewComponent.cs
+src/Presentation/Nop.Web/Areas/Admin/Controllers/
+  ActivityLogController.cs
+  AddressAttributeController.cs
+  AffiliateController.cs
+  ArtificialIntelligenceController.cs
+  AuthenticationController.cs
+  BaseAdminController.cs
+  BlogController.cs
+  CampaignController.cs
+  CategoryController.cs
+  CheckoutAttributeController.cs
+  CommonController.cs
+  ContactFormAttributeController.cs
+  CountryController.cs
+  CurrencyController.cs
+  CustomerAttributeController.cs
+  CustomerController.cs
+  CustomerRoleController.cs
+  DiscountController.cs
+  DownloadController.cs
+  ElFinderController.cs
+  EmailAccountController.cs
+  FilterLevelValueController.cs
+  GiftCardController.cs
+  HomeController.cs
+  LanguageController.cs
+  LogController.cs
+  ManufacturerController.cs
+  MeasureController.cs
+  MenuController.cs
+  MessageTemplateController.cs
+  NewsLetterSubscriptionController.cs
+  NewsLetterSubscriptionTypeController.cs
+  OnlineCustomerController.cs
+  OrderController.cs
+  PaymentController.cs
+  PictureController.cs
+  PluginController.cs
+  PreferencesController.cs
+  PriceListController.cs
+  ProductAttributeController.cs
+  ProductController.cs
+  ProductReviewController.cs
+  QueuedEmailController.cs
+  RecurringPaymentController.cs
+  ReminderController.cs
+  ReportController.cs
+  ReturnRequestController.cs
+  ReviewTypeController.cs
+  ScheduleTaskController.cs
+  SearchCompleteController.cs
+  SecurityController.cs
+  SettingController.cs
+  ShippingController.cs
+  ShoppingCartController.cs
+  SmsController.cs
+  SpecificationAttributeController.cs
+  StoreController.cs
+  TaxController.cs
+  TemplateController.cs
+  TopicController.cs
+  VendorAttributeController.cs
+  VendorController.cs
+  WidgetController.cs
+src/Presentation/Nop.Web/Areas/Admin/Factories/
+  AclSupportedModelFactory.cs
+  ActivityLogModelFactory.cs
+  AddressAttributeModelFactory.cs
+  AddressModelFactory.cs
+  AffiliateModelFactory.cs
+  BaseAdminModelFactory.cs
+  BlogModelFactory.cs
+  CampaignModelFactory.cs
+  CategoryModelFactory.cs
+  CheckoutAttributeModelFactory.cs
+  CommonModelFactory.cs
+  ContactFormAttributeModelFactory.cs
+  CountryModelFactory.cs
+  CurrencyModelFactory.cs
+  CustomerAttributeModelFactory.cs
+  CustomerModelFactory.cs
+  CustomerRoleModelFactory.cs
+  DiscountModelFactory.cs
+  EmailAccountModelFactory.cs
+  ExternalAuthenticationModelFactory.cs
+  FilterLevelValueModelFactory.cs
+  GiftCardModelFactory.cs
+  HomeModelFactory.cs
+  IAclSupportedModelFactory.cs
+  IActivityLogModelFactory.cs
+  IAddressAttributeModelFactory.cs
+  IAddressModelFactory.cs
+  IAffiliateModelFactory.cs
+  IBaseAdminModelFactory.cs
+  IBlogModelFactory.cs
+  ICampaignModelFactory.cs
+  ICategoryModelFactory.cs
+  ICheckoutAttributeModelFactory.cs
+  ICommonModelFactory.cs
+  IContactFormAttributeModelFactory.cs
+  ICountryModelFactory.cs
+  ICurrencyModelFactory.cs
+  ICustomerAttributeModelFactory.cs
+  ICustomerModelFactory.cs
+  ICustomerRoleModelFactory.cs
+  IDiscountModelFactory.cs
+  IEmailAccountModelFactory.cs
+  IExternalAuthenticationModelFactory.cs
+  IFilterLevelValueModelFactory.cs
+  IGiftCardModelFactory.cs
+  IHomeModelFactory.cs
+  ILanguageModelFactory.cs
+  ILogModelFactory.cs
+  IManufacturerModelFactory.cs
+  IMeasureModelFactory.cs
+  IMenuModelFactory.cs
+  IMessageTemplateModelFactory.cs
+  IMultiFactorAuthenticationMethodModelFactory.cs
+  INewsletterSubscriptionModelFactory.cs
+  INewsletterSubscriptionTypeModelFactory.cs
+  IOrderModelFactory.cs
+  IPaymentModelFactory.cs
+  IPluginModelFactory.cs
+  IPriceListModelFactory.cs
+  IProductAttributeModelFactory.cs
+  IProductModelFactory.cs
+  IProductReviewModelFactory.cs
+  IQueuedEmailModelFactory.cs
+  IRecurringPaymentModelFactory.cs
+  IReminderModelFactory.cs
+  IReportModelFactory.cs
+  IReturnRequestModelFactory.cs
+  IReviewTypeModelFactory.cs
+  IScheduleTaskModelFactory.cs
+  ISecurityModelFactory.cs
+  ISettingModelFactory.cs
+  IShippingModelFactory.cs
+  IShoppingCartModelFactory.cs
+  ISmsModelFactory.cs
+  ISpecificationAttributeModelFactory.cs
+  IStoreModelFactory.cs
+  ITaxModelFactory.cs
+  ITemplateModelFactory.cs
+  ITopicModelFactory.cs
+  IVendorAttributeModelFactory.cs
+  IVendorModelFactory.cs
+  IWidgetModelFactory.cs
+  LanguageModelFactory.cs
+  LogModelFactory.cs
+  ManufacturerModelFactory.cs
+  MeasureModelFactory.cs
+  MenuModelFactory.cs
+  MessageTemplateModelFactory.cs
+  MultiFactorAuthenticationMethodModelFactory.cs
+  NewsLetterSubscriptionModelFactory.cs
+  NewsLetterSubscriptionTypeModelFactory.cs
+  OrderModelFactory.cs
+  PaymentModelFactory.cs
+  PluginModelFactory.cs
+  PriceListModelFactory.cs
+  ProductAttributeModelFactory.cs
+  ProductModelFactory.cs
+  ProductReviewModelFactory.cs
+  QueuedEmailModelFactory.cs
+  RecurringPaymentModelFactory.cs
+  ReminderModelFactory.cs
+  ReportModelFactory.cs
+  ReturnRequestModelFactory.cs
+  ReviewTypeModelFactory.cs
+  ScheduleTaskModelFactory.cs
+  SecurityModelFactory.cs
+  SettingModelFactory.cs
+  ShippingModelFactory.cs
+  ShoppingCartModelFactory.cs
+  SmsModelFactory.cs
+  SpecificationAttributeModelFactory.cs
+  StoreModelFactory.cs
+  TaxModelFactory.cs
+  TemplateModelFactory.cs
+  TopicModelFactory.cs
+  VendorAttributeModelFactory.cs
+  VendorModelFactory.cs
+  WidgetModelFactory.cs
+src/Presentation/Nop.Web/Areas/Admin/Helpers/
+  ISummernoteHelper.cs
+  SummernoteHelper.cs
+src/Presentation/Nop.Web/Areas/Admin/Infrastructure/
+  AclEventConsumer.cs
+  LicenseTermsConsumer.cs
+src/Presentation/Nop.Web/Areas/Admin/Infrastructure/Cache/
+  ModelCacheEventConsumer.cs
+  NopModelCacheDefaults.cs
+src/Presentation/Nop.Web/Areas/Admin/Infrastructure/Mapper/
+  AdminMapperConfiguration.cs
+src/Presentation/Nop.Web/Areas/Admin/Infrastructure/Mapper/Extensions/
+  MappingExtensions.cs
+src/Presentation/Nop.Web/Areas/Admin/Models/Affiliates/
+  AffiliateListModel.cs
+  AffiliateModel.cs
+  AffiliateSearchModel.cs
+  AffiliatedCustomerListModel.cs
+  AffiliatedCustomerModel.cs
+  AffiliatedCustomerSearchModel.cs
+  AffiliatedOrderListModel.cs
+  AffiliatedOrderModel.cs
+  AffiliatedOrderSearchModel.cs
+src/Presentation/Nop.Web/Areas/Admin/Models/Blogs/
+  BlogCommentListModel.cs
+  BlogCommentModel.cs
+  BlogCommentSearchModel.cs
+  BlogContentModel.cs
+  BlogPostListModel.cs
+  BlogPostModel.cs
+  BlogPostSearchModel.cs
+src/Presentation/Nop.Web/Areas/Admin/Models/Catalog/
+  AddAssociatedProductListModel.cs
+  AddAssociatedProductModel.cs
+  AddAssociatedProductSearchModel.cs
+  AddCrossSellProductListModel.cs
+  AddCrossSellProductModel.cs
+  AddCrossSellProductSearchModel.cs
+  AddFilterLevelValueModel.cs
+  AddProductToCategoryListModel.cs
+  AddProductToCategoryModel.cs
+  AddProductToCategorySearchModel.cs
+  AddProductToFilterLevelValueListModel.cs
+  AddProductToFilterLevelValueModel.cs
+  AddProductToFilterLevelValueSearchModel.cs
+  AddProductToManufacturerListModel.cs
+  AddProductToManufacturerModel.cs
+  AddProductToManufacturerSearchModel.cs
+  AddRelatedProductListModel.cs
+  AddRelatedProductModel.cs
+  AddRelatedProductSearchModel.cs
+  AddRequiredProductListModel.cs
+  AddRequiredProductSearchModel.cs
+  AddSpecificationAttributeLocalizedModel.cs
+  AddSpecificationAttributeModel.cs
+  ArtificialIntelligenceFullDescriptionModel.cs
+  AssociateProductToAttributeValueListModel.cs
+  AssociateProductToAttributeValueModel.cs
+  AssociateProductToAttributeValueSearchModel.cs
+  AssociatedProductListModel.cs
+  AssociatedProductModel.cs
+  AssociatedProductSearchModel.cs
+  CategoryListModel.cs
+  CategoryModel.cs
+  CategoryProductListModel.cs
+  CategoryProductModel.cs
+  CategoryProductSearchModel.cs
+  CategorySearchModel.cs
+  CopyProductModel.cs
+  CrossSellProductListModel.cs
+  CrossSellProductModel.cs
+  CrossSellProductSearchModel.cs
+  FilterLevelValueListModel.cs
+  FilterLevelValueModel.cs
+  FilterLevelValueProductListModel.cs
+  FilterLevelValueProductModel.cs
+  FilterLevelValueProductSearchModel.cs
+  FilterLevelValueSearchModel.cs
+  ManufacturerListModel.cs
+  ManufacturerModel.cs
+  ManufacturerProductListModel.cs
+  ManufacturerProductModel.cs
+  ManufacturerProductSearchModel.cs
+  ManufacturerSearchModel.cs
+  PredefinedProductAttributeValueListModel.cs
+  PredefinedProductAttributeValueModel.cs
+  PredefinedProductAttributeValueSearchModel.cs
+  Product3dObjectModel.cs
+  ProductAttributeCombinationListModel.cs
+  ProductAttributeCombinationModel.cs
+  ProductAttributeCombinationSearchModel.cs
+  ProductAttributeConditionModel.cs
+  ProductAttributeListModel.cs
+  ProductAttributeMappingListModel.cs
+  ProductAttributeMappingModel.cs
+  ProductAttributeMappingSearchModel.cs
+  ProductAttributeModel.cs
+  ProductAttributeProductListModel.cs
+  ProductAttributeProductModel.cs
+  ProductAttributeProductSearchModel.cs
+  ProductAttributeSearchModel.cs
+  ProductAttributeValueListModel.cs
+  ProductAttributeValueModel.cs
+  ProductAttributeValueSearchModel.cs
+  ProductListModel.cs
+  ProductModel.cs
+  ProductOrderListModel.cs
+  ProductOrderSearchModel.cs
+  ProductPictureListModel.cs
+  ProductPictureModel.cs
+  ProductPictureSearchModel.cs
+  ProductReviewListModel.cs
+  ProductReviewModel.cs
+  ProductReviewReviewTypeMappingListModel.cs
+  ProductReviewReviewTypeMappingModel.cs
+  ProductReviewReviewTypeMappingSearchModel.cs
+  ProductReviewSearchModel.cs
+  ProductSearchModel.cs
+  ProductSpecificationAttributeListModel.cs
+  ProductSpecificationAttributeModel.cs
+  ProductSpecificationAttributeSearchModel.cs
+  ProductTagListModel.cs
+  ProductTagModel.cs
+  ProductTagProductListModel.cs
+  ProductTagProductSearchModel.cs
+  ProductTagSearchModel.cs
+  ProductVideoListModel.cs
+  ProductVideoModel.cs
+  ProductVideoSearchModel.cs
+  ProductWarehouseInventoryModel.cs
+  RelatedProductListModel.cs
+  RelatedProductModel.cs
+  RelatedProductSearchModel.cs
+  ReviewTypeListModel.cs
+  ReviewTypeLocalizedModel.cs
+  ReviewTypeModel.cs
+  ReviewTypeSearchModel.cs
+  SpecificationAttributeGroupListModel.cs
+  SpecificationAttributeGroupLocalizedModel.cs
+  SpecificationAttributeGroupModel.cs
+  SpecificationAttributeListModel.cs
+  SpecificationAttributeLocalizedModel.cs
+  SpecificationAttributeModel.cs
+  SpecificationAttributeOptionListModel.cs
+  SpecificationAttributeOptionModel.cs
+  SpecificationAttributeOptionSearchModel.cs
+  SpecificationAttributeProductListModel.cs
+  SpecificationAttributeProductModel.cs
+  SpecificationAttributeProductSearchModel.cs
+  SpecificationAttributeSearchModel.cs
+  StockQuantityHistoryListModel.cs
+  StockQuantityHistoryModel.cs
+  StockQuantityHistorySearchModel.cs
+  TierPriceListModel.cs
+  TierPriceModel.cs
+  TierPriceSearchModel.cs
+src/Presentation/Nop.Web/Areas/Admin/Models/Cms/
+  WidgetListModel.cs
+  WidgetModel.cs
+  WidgetSearchModel.cs
+src/Presentation/Nop.Web/Areas/Admin/Models/Common/
+  AddressAttributeListModel.cs
+  AddressAttributeModel.cs
+  AddressAttributeSearchModel.cs
+  AddressAttributeValueListModel.cs
+  AddressAttributeValueModel.cs
+  AddressAttributeValueSearchModel.cs
+  AddressModel.cs
+  BackupFileListModel.cs
+  BackupFileModel.cs
+  BackupFileSearchModel.cs
+  CommonStatisticsModel.cs
+  ContactFormAttributeListModel.cs
+  ContactFormAttributeModel.cs
+  ContactFormAttributeSearchModel.cs
+  ContactFormAttributeValueListModel.cs
+  ContactFormAttributeValueModel.cs
+  ContactFormAttributeValueSearchModel.cs
+  EntityPreviewModel.cs
+  FullDescriptionGeneratorModel.cs
+  LanguageSelectorModel.cs
+  LicenseCheckModel.cs
+  MaintenanceModel.cs
+  MetaTagsGeneratorModel.cs
+  MultistorePreviewModel.cs
+  PopularSearchTermListModel.cs
+  PopularSearchTermModel.cs
+  PopularSearchTermSearchModel.cs
+  SystemInfoModel.cs
+  SystemWarningCreatedEvent.cs
+  SystemWarningLevel.cs
+  SystemWarningModel.cs
+  UrlRecordListModel.cs
+  UrlRecordModel.cs
+  UrlRecordSearchModel.cs
+src/Presentation/Nop.Web/Areas/Admin/Models/Customers/
+  AddProductToCustomerRoleModel.cs
+  AddRewardPointsToCustomerModel.cs
+  CustomerActivityLogListMode.cs
+  CustomerActivityLogModel.cs
+  CustomerActivityLogSearchModel.cs
+  CustomerAddressListModel.cs
+  CustomerAddressModel.cs
+  CustomerAddressSearchModel.cs
+  CustomerAssociatedExternalAuthModel.cs
+  CustomerAssociatedExternalAuthRecordsSearchModel.cs
+  CustomerAttributeListModel.cs
+  CustomerAttributeModel.cs
+  CustomerAttributeSearchModel.cs
+  CustomerAttributeValueListModel.cs
+  CustomerAttributeValueModel.cs
+  CustomerAttributeValueSearchModel.cs
+  CustomerBackInStockSubscriptionListModel.cs
+  CustomerBackInStockSubscriptionModel.cs
+  CustomerBackInStockSubscriptionSearchModel.cs
+  CustomerListModel.cs
+  CustomerModel.cs
+  CustomerOrderListModel.cs
+  CustomerOrderModel.cs
+  CustomerOrderSearchModel.cs
+  CustomerRewardPointsListModel.cs
+  CustomerRewardPointsModel.cs
+  CustomerRewardPointsSearchModel.cs
+  CustomerRoleListMode.cs
+  CustomerRoleModel.cs
+  CustomerRoleProductListModel.cs
+  CustomerRoleProductSearchModel.cs
+  CustomerRoleSearchModel.cs
+  CustomerSearchModel.cs
+  CustomerShoppingCartListModel.cs
+  CustomerShoppingCartSearchModel.cs
+  GdprLogListModel.cs
+  GdprLogModel.cs
+  GdprLogSearchModel.cs
+  OnlineCustomerListModel.cs
+  OnlineCustomerModel.cs
+  OnlineCustomerSearchModel.cs
+src/Presentation/Nop.Web/Areas/Admin/Models/Directory/
+  CountryListModel.cs
+  CountryModel.cs
+  CountrySearchModel.cs
+  CurrencyExchangeRateModel.cs
+  CurrencyExchangeRateProviderModel.cs
+  CurrencyListModel.cs
+  CurrencyModel.cs
+  CurrencySearchModel.cs
+  MeasureDimensionListModel.cs
+  MeasureDimensionModel.cs
+  MeasureDimensionSearchModel.cs
+  MeasureSearchModel.cs
+  MeasureWeightListModel.cs
+  MeasureWeightModel.cs
+  MeasureWeightSearchModel.cs
+  StateProvinceListModel.cs
+  StateProvinceModel.cs
+  StateProvinceSearchModel.cs
+src/Presentation/Nop.Web/Areas/Admin/Models/Discounts/
+  AddCategoryToDiscountListModel.cs
+  AddCategoryToDiscountModel.cs
+  AddCategoryToDiscountSearchModel.cs
+  AddManufacturerToDiscountListModel.cs
+  AddManufacturerToDiscountModel.cs
+  AddManufacturerToDiscountSearchModel.cs
+  AddProductToDiscountListModel.cs
+  AddProductToDiscountModel.cs
+  AddProductToDiscountSearchModel.cs
+  DiscountCategoryListModel.cs
+  DiscountCategoryModel.cs
+  DiscountCategorySearchModel.cs
+  DiscountListModel.cs
+  DiscountManufacturerListModel.cs
+  DiscountManufacturerModel.cs
+  DiscountManufacturerSearchModel.cs
+  DiscountModel.cs
+  DiscountProductListModel.cs
+  DiscountProductModel.cs
+  DiscountProductSearchModel.cs
+  DiscountRequirementRuleModel.cs
+  DiscountSearchModel.cs
+  DiscountUsageHistoryListModel.cs
+  DiscountUsageHistoryModel.cs
+  DiscountUsageHistorySearchModel.cs
+src/Presentation/Nop.Web/Areas/Admin/Models/ExternalAuthentication/
+  ExternalAuthenticationMethodListModel.cs
+  ExternalAuthenticationMethodModel.cs
+  ExternalAuthenticationMethodSearchModel.cs
+src/Presentation/Nop.Web/Areas/Admin/Models/Home/
+  DashboardModel.cs
+  NopCommerceNewsDetailsModel.cs
+  NopCommerceNewsModel.cs
+src/Presentation/Nop.Web/Areas/Admin/Models/Localization/
+  LanguageListModel.cs
+  LanguageModel.cs
+  LanguageSearchModel.cs
+  LocaleResourceListModel.cs
+  LocaleResourceModel.cs
+  LocaleResourceSearchModel.cs
+src/Presentation/Nop.Web/Areas/Admin/Models/Logging/
+  ActivityLogListModel.cs
+  ActivityLogModel.cs
+  ActivityLogSearchModel.cs
+  ActivityLogTypeModel.cs
+  ActivityLogTypeSearchModel.cs
+  LogListModel.cs
+  LogModel.cs
+  LogSearchModel.cs
+src/Presentation/Nop.Web/Areas/Admin/Models/Menus/
+  MenuItemListModel.cs
+  MenuItemModel.cs
+  MenuItemSearchModel.cs
+  MenuListModel.cs
+  MenuModel.cs
+  MenuSearchModel.cs
+  SelectMenuItemEntityModel.cs
+  SelectMenuItemProductListModel.cs
+  SelectMenuItemProductModel.cs
+  SelectMenuItemProductSearchModel.cs
+src/Presentation/Nop.Web/Areas/Admin/Models/Messages/
+  CampaignListModel.cs
+  CampaignModel.cs
+  CampaignSearchModel.cs
+  CopyCampaignModel.cs
+  EmailAccountListModel.cs
+  EmailAccountModel.cs
+  EmailAccountSearchModel.cs
+  MessageTemplateListModel.cs
+  MessageTemplateModel.cs
+  MessageTemplateSearchModel.cs
+  NewsLetterSubscriptionListModel.cs
+  NewsLetterSubscriptionModel.cs
+  NewsLetterSubscriptionTypeListModel.cs
+  NewsLetterSubscriptionTypeLocalizedModel.cs
+  NewsLetterSubscriptionTypeModel.cs
+  NewsLetterSubscriptionTypeSearchModel.cs
+  NewsletterSubscriptionSearchModel.cs
+  QueuedEmailListModel.cs
+  QueuedEmailModel.cs
+  QueuedEmailSearchModel.cs
+  TestMessageTemplateModel.cs
+src/Presentation/Nop.Web/Areas/Admin/Models/MultiFactorAuthentication/
+  MultiFactorAuthenticationMethodListModel.cs
+  MultiFactorAuthenticationMethodModel.cs
+  MultiFactorAuthenticationMethodSearchModel.cs
+src/Presentation/Nop.Web/Areas/Admin/Models/Orders/
+  AddProductToOrderListModel.cs
+  AddProductToOrderModel.cs
+  AddProductToOrderSearchModel.cs
+  CheckoutAttributeListModel.cs
+  CheckoutAttributeModel.cs
+  CheckoutAttributeSearchModel.cs
+  CheckoutAttributeValueListModel.cs
+  CheckoutAttributeValueModel.cs
+  CheckoutAttributeValueSearchModel.cs
+  GiftCardListModel.cs
+  GiftCardModel.cs
+  GiftCardSearchModel.cs
+  GiftCardUsageHistoryListModel.cs
+  GiftCardUsageHistoryModel.cs
+  GiftCardUsageHistorySearchModel.cs
+  OrderAddressModel.cs
+  OrderAverageReportListModel.cs
+  OrderAverageReportModel.cs
+  OrderAverageReportSearchModel.cs
+  OrderIncompleteReportListModel.cs
+  OrderIncompleteReportModel.cs
+  OrderIncompleteReportSearchModel.cs
+  OrderItemModel.cs
+  OrderListModel.cs
+  OrderModel.cs
+  OrderNoteListModel.cs
+  OrderNoteModel.cs
+  OrderNoteSearchModel.cs
+  OrderSearchModel.cs
+  OrderShipmentListModel.cs
+  OrderShipmentSearchModel.cs
+  RecurringPaymentHistoryListModel.cs
+  RecurringPaymentHistoryModel.cs
+  RecurringPaymentHistorySearchModel.cs
+  RecurringPaymentListModel.cs
+  RecurringPaymentModel.cs
+  RecurringPaymentSearchModel.cs
+  ReturnRequestActionListModel.cs
+  ReturnRequestActionModel.cs
+  ReturnRequestActionSearchModel.cs
+  ReturnRequestListModel.cs
+  ReturnRequestModel.cs
+  ReturnRequestReasonListModel.cs
+  ReturnRequestReasonModel.cs
+  ReturnRequestReasonSearchModel.cs
+  ReturnRequestSearchModel.cs
+  ShipmentEventModel.cs
+  ShipmentItemListModel.cs
+  ShipmentItemModel.cs
+  ShipmentItemSearchModel.cs
+  ShipmentListModel.cs
+  ShipmentModel.cs
+  ShipmentSearchModel.cs
+  UploadLicenseModel.cs
+src/Presentation/Nop.Web/Areas/Admin/Models/Payments/
+  PaymentMethodListModel.cs
+  PaymentMethodModel.cs
+  PaymentMethodRestrictionModel.cs
+  PaymentMethodSearchModel.cs
+  PaymentMethodsModel.cs
+src/Presentation/Nop.Web/Areas/Admin/Models/Plugins/
+  AdminNavigationPluginModel.cs
+  PluginListModel.cs
+  PluginModel.cs
+  PluginSearchModel.cs
+  PluginsConfigurationModel.cs
+src/Presentation/Nop.Web/Areas/Admin/Models/Plugins/Marketplace/
+  OfficialFeedPluginListModel.cs
+  OfficialFeedPluginModel.cs
+  OfficialFeedPluginSearchModel.cs
+src/Presentation/Nop.Web/Areas/Admin/Models/PriceLists/
+  AddCustomerToPriceListListModel.cs
+  AddCustomerToPriceListModel.cs
+  AddCustomerToPriceListSearchModel.cs
+  AddProductToPriceListListModel.cs
+  AddProductToPriceListModel.cs
+  AddProductToPriceListSearchModel.cs
+  PriceListCustomerListModel.cs
+  PriceListCustomerModel.cs
+  PriceListCustomerSearchModel.cs
+  PriceListItemListModel.cs
+  PriceListItemModel.cs
+  PriceListItemSearchModel.cs
+  PriceListListModel.cs
+  PriceListModel.cs
+  PriceListSearchModel.cs
+src/Presentation/Nop.Web/Areas/Admin/Models/Reminders/
+  FollowUpModel.cs
+  RemindersModel.cs
+src/Presentation/Nop.Web/Areas/Admin/Models/Reports/
+  BestCustomersReportListModel.cs
+  BestCustomersReportModel.cs
+  BestCustomersReportSearchModel.cs
+  BestsellerBriefListModel.cs
+  BestsellerBriefSearchModel.cs
+  BestsellerListModel.cs
+  BestsellerModel.cs
+  BestsellerSearchModel.cs
+  CountryReportListModel.cs
+  CountryReportModel.cs
+  CountryReportSearchModel.cs
+  CustomerReportsSearchModel.cs
+  LowStockProductListModel.cs
+  LowStockProductModel.cs
+  LowStockProductSearchModel.cs
+  NeverSoldReportListModel.cs
+  NeverSoldReportModel.cs
+  NeverSoldReportSearchModel.cs
+  RegisteredCustomersReportListModel.cs
+  RegisteredCustomersReportModel.cs
+  RegisteredCustomersReportSearchModel.cs
+  SalesSummaryListModel.cs
+  SalesSummaryModel.cs
+  SalesSummarySearchModel.cs
+src/Presentation/Nop.Web/Areas/Admin/Models/Security/
+  PermissionCategoryListModel.cs
+  PermissionCategoryModel.cs
+  PermissionCategorySearchModel.cs
+  PermissionConfigurationModel.cs
+  PermissionItemListModel.cs
+  PermissionItemModel.cs
+  PermissionItemSearchModel.cs
+  PermissionRecordModel.cs
+src/Presentation/Nop.Web/Areas/Admin/Models/Settings/
+  AddressSettingsModel.cs
+  AdminAreaSettingsModel.cs
+  AppSettingsModel.cs
+  ArtificialIntelligenceSettingsModel.cs
+  BlogSettingsModel.cs
+  CacheConfigModel.cs
+  CaptchaSettingsModel.cs
+  CatalogSettingsModel.cs
+  CommonConfigModel.cs
+  CustomHtmlSettingsModel.cs
+  CustomerSettingsModel.cs
+  CustomerUserSettingsModel.cs
+  DataConfigModel.cs
+  DateTimeSettingsModel.cs
+  DistributedCacheConfigModel.cs
+  ExternalAuthenticationSettingsModel.cs
+  FilterLevelListModel.cs
+  FilterLevelLocalizedModel.cs
+  FilterLevelModel.cs
+  FilterLevelSearchModel.cs
+  FilterLevelSettingsModel.cs
+  GdprConsentListModel.cs
+  GdprConsentLocalizedModel.cs
+  GdprConsentModel.cs
+  GdprConsentSearchModel.cs
+  GdprSettingsModel.cs
+  GeneralCommonSettingsModel.cs
+  GpsrSettingsModel.cs
+  HostingConfigModel.cs
+  InstallationConfigModel.cs
+  LocalizationSettingsModel.cs
+  MediaSettingsModel.cs
+  MinificationSettingsModel.cs
+  MultiFactorAuthenticationSettingsModel.cs
+  OrderSettingsModel.cs
+  OtpSettingsModel.cs
+  PdfSettingsModel.cs
+  PluginConfigModel.cs
+  PrivateMessageSettingsModel.cs
+  ProductEditorSettingsModel.cs
+  ReturnRequestSettingsModel.cs
+  RewardPointsSettingsModel.cs
+  RobotsTxtSettingsModel.cs
+  SecuritySettingsModel.cs
+  SeoSettingsModel.cs
+  SettingListModel.cs
+  SettingModeModel.cs
+  SettingModel.cs
+  SettingSearchModel.cs
+  ShippingSettingsModel.cs
+  ShoppingCartSettingsModel.cs
+  SitemapSettingsModel.cs
+  SortOptionListModel.cs
+  SortOptionModel.cs
+  SortOptionSearchModel.cs
+  StoreInformationSettingsModel.cs
+  StoreScopeConfigurationModel.cs
+  TaxSettingsModel.cs
+  TranslationSettingsModel.cs
+  VendorSettingsModel.cs
+  WebOptimizerConfigModel.cs
+src/Presentation/Nop.Web/Areas/Admin/Models/Shipping/
+  DatesRangesSearchModel.cs
+  DeliveryDateListModel.cs
+  DeliveryDateModel.cs
+  DeliveryDateSearchModel.cs
+  PickupPointProviderListModel.cs
+  PickupPointProviderModel.cs
+  PickupPointProviderSearchModel.cs
+  ProductAvailabilityRangeListModel.cs
+  ProductAvailabilityRangeModel.cs
+  ProductAvailabilityRangeSearchModel.cs
+  ShippingMethodListModel.cs
+  ShippingMethodModel.cs
+  ShippingMethodRestrictionModel.cs
+  ShippingMethodSearchModel.cs
+  ShippingProviderListModel.cs
+  ShippingProviderModel.cs
+  ShippingProviderSearchModel.cs
+  WarehouseListModel.cs
+  WarehouseModel.cs
+  WarehouseSearchModel.cs
+src/Presentation/Nop.Web/Areas/Admin/Models/ShoppingCart/
+  ShoppingCartItemListModel.cs
+  ShoppingCartItemModel.cs
+  ShoppingCartItemSearchModel.cs
+  ShoppingCartListModel.cs
+  ShoppingCartModel.cs
+  ShoppingCartSearchModel.cs
+src/Presentation/Nop.Web/Areas/Admin/Models/Sms/
+  SmsProviderListModel.cs
+  SmsProviderModel.cs
+  SmsProviderSearchModel.cs
+src/Presentation/Nop.Web/Areas/Admin/Models/Stores/
+  StoreListModel.cs
+  StoreModel.cs
+  StoreSearchModel.cs
+src/Presentation/Nop.Web/Areas/Admin/Models/Tasks/
+  ScheduleTaskListModel.cs
+  ScheduleTaskModel.cs
+  ScheduleTaskSearchModel.cs
+src/Presentation/Nop.Web/Areas/Admin/Models/Tax/
+  TaxCategoryListModel.cs
+  TaxCategoryModel.cs
+  TaxCategorySearchModel.cs
+  TaxConfigurationModel.cs
+  TaxProviderListModel.cs
+  TaxProviderModel.cs
+  TaxProviderSearchModel.cs
+src/Presentation/Nop.Web/Areas/Admin/Models/Templates/
+  CategoryTemplateListModel.cs
+  CategoryTemplateModel.cs
+  CategoryTemplateSearchModel.cs
+  ManufacturerTemplateListModel.cs
+  ManufacturerTemplateModel.cs
+  ManufacturerTemplateSearchModel.cs
+  ProductTemplateListModel.cs
+  ProductTemplateModel.cs
+  ProductTemplateSearchModel.cs
+  TemplatesModel.cs
+  TopicTemplateListModel.cs
+  TopicTemplateModel.cs
+  TopicTemplateSearchModel.cs
+src/Presentation/Nop.Web/Areas/Admin/Models/Topics/
+  TopicListModel.cs
+  TopicModel.cs
+  TopicSearchModel.cs
+src/Presentation/Nop.Web/Areas/Admin/Models/Vendors/
+  AddCustomerToVendorModel.cs
+  VendorAssociatedCustomerModel.cs
+  VendorAttributeListModel.cs
+  VendorAttributeModel.cs
+  VendorAttributeSearchModel.cs
+  VendorAttributeValueListModel.cs
+  VendorAttributeValueModel.cs
+  VendorAttributeValueSearchModel.cs
+  VendorCustomerListModel.cs
+  VendorCustomerSearchModel.cs
+  VendorListModel.cs
+  VendorModel.cs
+  VendorNoteListModel.cs
+  VendorNoteModel.cs
+  VendorNoteSearchModel.cs
+  VendorSearchModel.cs
+src/Presentation/Nop.Web/Areas/Admin/Validators/Affiliates/
+  AffiliateValidator.cs
+src/Presentation/Nop.Web/Areas/Admin/Validators/Blogs/
+  BlogPostValidator.cs
+src/Presentation/Nop.Web/Areas/Admin/Validators/Catalog/
+  ArtificialIntelligenceFullDescriptionValidator.cs
+  CategoryValidator.cs
+  ManufacturerValidator.cs
+  PredefinedProductAttributeValueModelValidator.cs
+  ProductAttributeValidator.cs
+  ProductAttributeValueModelValidator.cs
+  ProductReviewValidator.cs
+  ProductTagValidator.cs
+  ProductValidator.cs
+  ReviewTypeValidator.cs
+  SpecificationAttributeGroupValidator.cs
+  SpecificationAttributeOptionValidator.cs
+  SpecificationAttributeValidator.cs
+src/Presentation/Nop.Web/Areas/Admin/Validators/Common/
+  AddressAttributeValidator.cs
+  AddressAttributeValueValidator.cs
+  AddressValidator.cs
+  ContactFormAttributeValidator.cs
+  ContactFormAttributeValueValidator.cs
+src/Presentation/Nop.Web/Areas/Admin/Validators/Customers/
+  CustomerAddressValidator.cs
+  CustomerAttributeValidator.cs
+  CustomerAttributeValueValidator.cs
+  CustomerRoleValidator.cs
+  CustomerValidator.cs
+src/Presentation/Nop.Web/Areas/Admin/Validators/Directory/
+  CountryValidator.cs
+  CurrencyValidator.cs
+  MeasureDimensionValidator.cs
+  MeasureWeightValidator.cs
+  StateProvinceValidator.cs
+src/Presentation/Nop.Web/Areas/Admin/Validators/Discounts/
+  DiscountValidator.cs
+src/Presentation/Nop.Web/Areas/Admin/Validators/FilterLevelValues/
+  FilterLevelValueValidator.cs
+src/Presentation/Nop.Web/Areas/Admin/Validators/Localization/
+  LanguageResourceValidator.cs
+  LanguageValidator.cs
+src/Presentation/Nop.Web/Areas/Admin/Validators/Menus/
+  MenuItemValidator.cs
+  MenuValidator.cs
+src/Presentation/Nop.Web/Areas/Admin/Validators/Messages/
+  CampaignValidator.cs
+  EmailAccountValidator.cs
+  MessageTemplateValidator.cs
+  NewsLetterSubscriptionTypeValidator.cs
+  NewsLetterSubscriptionValidator.cs
+  QueuedEmailValidator.cs
+  TestMessageTemplateValidator.cs
+src/Presentation/Nop.Web/Areas/Admin/Validators/Orders/
+  CheckoutAttributeValidator.cs
+  CheckoutAttributeValueValidator.cs
+  OrderAddressValidator.cs
+  ReturnRequestActionValidator.cs
+  ReturnRequestReasonValidator.cs
+  ReturnRequestValidator.cs
+src/Presentation/Nop.Web/Areas/Admin/Validators/Plugins/
+  PluginValidator.cs
+src/Presentation/Nop.Web/Areas/Admin/Validators/PriceLists/
+  PriceListValidator.cs
+src/Presentation/Nop.Web/Areas/Admin/Validators/Reminders/
+  ReminderValidator.cs
+src/Presentation/Nop.Web/Areas/Admin/Validators/Settings/
+  CatalogSettingsValidator.cs
+  CustomerUserSettingValidator.cs
+  GdprConsentValidator.cs
+  SettingValidator.cs
+  ShippingSettingsValidator.cs
+  TaxSettingsValidator.cs
+src/Presentation/Nop.Web/Areas/Admin/Validators/Shipping/
+  DeliveryDateValidator.cs
+  ProductAvailabilityRangeValidator.cs
+  ShippingMethodValidator.cs
+  WarehouseValidator.cs
+src/Presentation/Nop.Web/Areas/Admin/Validators/Stores/
+  StoreValidator.cs
+src/Presentation/Nop.Web/Areas/Admin/Validators/Tasks/
+  ScheduleTaskValidator.cs
+src/Presentation/Nop.Web/Areas/Admin/Validators/Tax/
+  TaxCategoryValidator.cs
+src/Presentation/Nop.Web/Areas/Admin/Validators/Templates/
+  CategoryTemplateValidator.cs
+  ManufacturerTemplateValidator.cs
+  ProductTemplateValidator.cs
+  TopicTemplateValidator.cs
+src/Presentation/Nop.Web/Areas/Admin/Validators/Topics/
+  TopicValidator.cs
+src/Presentation/Nop.Web/Areas/Admin/Validators/
+  ValidatorUtilities.cs
+src/Presentation/Nop.Web/Areas/Admin/Validators/Vendors/
+  VendorAttributeValidator.cs
+  VendorAttributeValueValidator.cs
+  VendorValidator.cs
+src/Presentation/Nop.Web/Components/
+  AdminHeaderLinksViewComponent.cs
+  BlogMonthsViewComponent.cs
+  BlogRssHeaderLinkViewComponent.cs
+  BlogTagsViewComponent.cs
+  CategoryNavigationViewComponent.cs
+  CheckoutProgressViewComponent.cs
+  CompatibleWithFilterLevelValuesViewComponent.cs
+  CrossSellProductsViewComponent.cs
+  CurrencySelectorViewComponent.cs
+  CustomerNavigationViewComponent.cs
+  EuCookieLawViewComponent.cs
+  ExternalMethodsViewComponent.cs
+  FaviconViewComponent.cs
+  FilterLevelValueSearchViewComponent.cs
+  FlyoutShoppingCartViewComponent.cs
+  FooterMenuViewComponent.cs
+  FooterViewComponent.cs
+  HeaderLinksViewComponent.cs
+  HomepageBestSellersViewComponent.cs
+  HomepageCategoriesViewComponent.cs
+  HomepageProductsViewComponent.cs
+  LanguageSelectorViewComponent.cs
+  LogoViewComponent.cs
+  MainMenuViewComponent.cs
+  ManufacturerNavigationViewComponent.cs
+  NewsletterBoxViewComponent.cs
+  OrderSummaryViewComponent.cs
+  OrderTotalsViewComponent.cs
+  PopularProductTagsViewComponent.cs
+  PrivateMessagesInboxViewComponent.cs
+  PrivateMessagesSentItemsViewComponent.cs
+  ProductsAlsoPurchasedViewComponent.cs
+  ProfileInfoViewComponent.cs
+  RecentlyViewedProductsBlockViewComponent.cs
+  RelatedProductsViewComponent.cs
+  SearchBoxViewComponent.cs
+  SelectedCheckoutAttributesViewComponent.cs
+  ShoppingCartEstimateShippingViewComponent.cs
+  SocialButtonsViewComponent.cs
+  StoreThemeSelectorViewComponent.cs
+  TaxTypeSelectorViewComponent.cs
+  TopicBlockViewComponent.cs
+  VendorNavigationViewComponent.cs
+  WidgetViewComponent.cs
+src/Presentation/Nop.Web/Controllers/
+  BackInStockSubscriptionController.cs
+  BasePublicController.cs
+  BlogController.cs
+  CatalogController.cs
+  CheckoutController.cs
+  CommonController.cs
+  CountryController.cs
+  CustomerController.cs
+  DownloadController.cs
+  ErrorController.cs
+  HomeController.cs
+  InstallController.cs
+  KeepAliveController.cs
+  NewsletterController.cs
+  OrderController.cs
+  PrivateMessagesController.cs
+  ProductController.cs
+  ProfileController.cs
+  ReturnRequestController.cs
+  ScheduleTaskController.cs
+  ShoppingCartController.cs
+  TopicController.cs
+  VendorController.cs
+src/Presentation/Nop.Web/Extensions/
+  HtmlExtensions.cs
+src/Presentation/Nop.Web/Factories/
+  AddressModelFactory.cs
+  BlogModelFactory.cs
+  CatalogModelFactory.cs
+  CheckoutModelFactory.cs
+  CommonModelFactory.cs
+  CountryModelFactory.cs
+  CustomerModelFactory.cs
+  ExternalAuthenticationModelFactory.cs
+  FilterLevelValueModelFactory.cs
+  IAddressModelFactory.cs
+  IBlogModelFactory.cs
+  ICatalogModelFactory.cs
+  ICheckoutModelFactory.cs
+  ICommonModelFactory.cs
+  ICountryModelFactory.cs
+  ICustomerModelFactory.cs
+  IExternalAuthenticationModelFactory.cs
+  IFilterLevelValueModelFactory.cs
+  IJsonLdModelFactory.cs
+  IMenuModelFactory.cs
+  INewsletterModelFactory.cs
+  IOrderModelFactory.cs
+  IPrivateMessagesModelFactory.cs
+  IProductModelFactory.cs
+  IProfileModelFactory.cs
+  IReturnRequestModelFactory.cs
+  IShoppingCartModelFactory.cs
+  ISitemapModelFactory.cs
+  ITopicModelFactory.cs
+  IVendorModelFactory.cs
+  JsonLdModelFactory.cs
+  MenuModelFactory.cs
+  NewsletterModelFactory.cs
+  OrderModelFactory.cs
+  PrivateMessagesModelFactory.cs
+  ProductModelFactory.cs
+  ProfileModelFactory.cs
+  ReturnRequestModelFactory.cs
+  ShoppingCartModelFactory.cs
+  SitemapModelFactory.cs
+  TopicModelFactory.cs
+  VendorModelFactory.cs
+src/Presentation/Nop.Web/Infrastructure/
+  BaseRouteProvider.cs
+  BaseRouteValues.cs
+  GenericUrlRouteProvider.cs
+  IRouteValues.cs
+  NopStartup.cs
+  RouteProvider.cs
+src/Presentation/Nop.Web/Infrastructure/Cache/
+  ModelCacheEventConsumer.cs
+  NopModelCacheDefaults.cs
+src/Presentation/Nop.Web/Infrastructure/Installation/
+  IInstallationLocalizationService.cs
+  InstallationLanguage.cs
+  InstallationLocalizationService.cs
+src/Presentation/Nop.Web/Models/Blogs/
+  AddBlogCommentModel.cs
+  BlogCommentModel.cs
+  BlogPagingFilteringModel.cs
+  BlogPostListModel.cs
+  BlogPostModel.cs
+  BlogPostTagListModel.cs
+  BlogPostTagModel.cs
+  BlogPostYearMonthModel.cs
+src/Presentation/Nop.Web/Models/Catalog/
+  BackInStockSubscribeModel.cs
+  CatalogProductsCommand.cs
+  CatalogProductsModel.cs
+  CategoryModel.cs
+  CategoryNavigationModel.cs
+  CategorySimpleModel.cs
+  CompareProductsModel.cs
+  CustomerBackInStockSubscriptionsModel.cs
+  CustomerProductReviewModel.cs
+  FilterLevelValueOverviewModel.cs
+  FilterLevelValueSearchModel.cs
+  ManufacturerFilterModel.cs
+  ManufacturerModel.cs
+  ManufacturerNavigationModel.cs
+  NewProductsModel.cs
+  PopularProductTagsModel.cs
+  PriceRangeFilterModel.cs
+  PriceRangeModel.cs
+  ProductAttributeModel.cs
+  ProductCombinationModel.cs
+  ProductDetailsModel.cs
+  ProductEmailAFriendModel.cs
+  ProductOverviewModel.cs
+  ProductPriceModel.cs
+  ProductReviewModel.cs
+  ProductSpecificationAttributeGroupModel.cs
+  ProductSpecificationAttributeModel.cs
+  ProductSpecificationAttributeValueModel.cs
+  ProductSpecificationModel.cs
+  ProductTagModel.cs
+  ProductToWishlistModel.cs
+  ProductsByTagModel.cs
+  SearchBoxModel.cs
+  SearchFilterLevelValueModel.cs
+  SearchModel.cs
+  SpecificationAttributeFilterModel.cs
+  SpecificationAttributeValueFilterModel.cs
+  SpecificationFilterModel.cs
+  VendorModel.cs
+  VendorNavigationModel.cs
+  VendorProductReviewModel.cs
+  VendorProductReviewsListModel.cs
+  VendorReviewsPagingFilteringModel.cs
+src/Presentation/Nop.Web/Models/Checkout/
+  CheckoutBillingAddressModel.cs
+  CheckoutCompletedModel.cs
+  CheckoutConfirmModel.cs
+  CheckoutPaymentInfoModel.cs
+  CheckoutPaymentMethodModel.cs
+  CheckoutPickupPointModel.cs
+  CheckoutPickupPointsModel.cs
+  CheckoutProgressModel.cs
+  CheckoutShippingAddressModel.cs
+  CheckoutShippingMethodModel.cs
+  DesiredDeliveryDateModel.cs
+  OnePageCheckoutModel.cs
+  UpdateSectionJsonModel.cs
+src/Presentation/Nop.Web/Models/Common/
+  AddressAttributeModel.cs
+  AddressModel.cs
+  AdminHeaderLinksModel.cs
+  ContactFormAttributeModel.cs
+  ContactUsModel.cs
+  ContactVendorModel.cs
+  CurrencyModel.cs
+  CurrencySelectorModel.cs
+  FaviconAndAppIconsModel.cs
+  FooterModel.cs
+  HeaderLinksModel.cs
+  LanguageModel.cs
+  LanguageSelectorModel.cs
+  LogoModel.cs
+  PagerModel.cs
+  SocialModel.cs
+  StoreThemeModel.cs
+  StoreThemeSelectorModel.cs
+  TaxTypeSelectorModel.cs
+src/Presentation/Nop.Web/Models/Customer/
+  AccountActivationModel.cs
+  ChangePasswordModel.cs
+  CheckGiftCardBalanceModel.cs
+  CustomerAddressEditModel.cs
+  CustomerAddressListModel.cs
+  CustomerAttributeModel.cs
+  CustomerAvatarModel.cs
+  CustomerDownloadableProductsModel.cs
+  CustomerInfoModel.cs
+  CustomerNavigationModel.cs
+  EmailRevalidationModel.cs
+  ExternalAuthenticationMethodModel.cs
+  GdprConsentModel.cs
+  GdprToolsModel.cs
+  LoginModel.cs
+  MultiFactorAuthenticationModel.cs
+  MultiFactorAuthenticationProviderModel.cs
+  NewsLetterSubscriptionModel.cs
+  PasswordRecoveryConfirmModel.cs
+  PaswordRecoveryModel.cs
+  PhoneVerificationFlowEnum.cs
+  PhoneVerificationModel.cs
+  RegisterModel.cs
+  RegisterResultModel.cs
+src/Presentation/Nop.Web/Models/Directory/
+  StateProvinceModel.cs
+src/Presentation/Nop.Web/Models/Install/
+  InstallModel.cs
+  InstallProgressInfoModel.cs
+src/Presentation/Nop.Web/Models/JsonLD/
+  JsonLdAggregateRatingModel.cs
+  JsonLdBrandModel.cs
+  JsonLdBreadcrumbItemModel.cs
+  JsonLdBreadcrumbListItemModel.cs
+  JsonLdBreadcrumbListModel.cs
+  JsonLdCreatedEvent.cs
+  JsonLdInteractionStatisticModel.cs
+  JsonLdModel.cs
+  JsonLdOfferModel.cs
+  JsonLdPersonModel.cs
+  JsonLdProductModel.cs
+  JsonLdRatingModel.cs
+  JsonLdReviewModel.cs
+src/Presentation/Nop.Web/Models/Media/
+  PictureModel.cs
+  Product3dObjectModel.cs
+  VideoModel.cs
+src/Presentation/Nop.Web/Models/Menus/
+  MenuItemModel.cs
+  MenuModel.cs
+src/Presentation/Nop.Web/Models/Newsletter/
+  NewsletterBoxModel.cs
+  SubscriptionActivationModel.cs
+src/Presentation/Nop.Web/Models/Order/
+  CustomerOrderListModel.cs
+  CustomerOrderModel.cs
+  CustomerRecurringPaymentListModel.cs
+  CustomerRecurringPaymentModel.cs
+  CustomerReturnRequestsModel.cs
+  CustomerRewardPointsModel.cs
+  OrderDetailsModel.cs
+  ShipmentDetailsModel.cs
+  SubmitReturnRequestModel.cs
+  WithdrawalFormModel.cs
+src/Presentation/Nop.Web/Models/PrivateMessages/
+  PrivateMessageIndexModel.cs
+  PrivateMessageListModel.cs
+  PrivateMessageModel.cs
+  SendPrivateMessageModel.cs
+src/Presentation/Nop.Web/Models/Profile/
+  ProfileIndexModel.cs
+  ProfileInfoModel.cs
+src/Presentation/Nop.Web/Models/ShoppingCart/
+  CustomWishlistModel.cs
+  EstimateShippingModel.cs
+  MiniShoppingCartModel.cs
+  OrderTotalsModel.cs
+  ShoppingCartModel.cs
+  WishlistEmailAFriendModel.cs
+  WishlistModel.cs
+src/Presentation/Nop.Web/Models/Sitemap/
+  SitemapCreatedEvent.cs
+  SitemapModel.cs
+  SitemapPageModel.cs
+  SitemapUrlModel.cs
+  SitemapXmlModel.cs
+  UpdateFrequency.cs
+src/Presentation/Nop.Web/Models/Topics/
+  AuthenticatedTopicModel.cs
+  TopicModel.cs
+src/Presentation/Nop.Web/Models/Vendors/
+  ApplyVendorModel.cs
+  VendorAttributeModel.cs
+  VendorInfoModel.cs
+src/Presentation/Nop.Web/
+  Program.cs
+src/Presentation/Nop.Web/Validators/Blogs/
+  BlogPostValidator.cs
+src/Presentation/Nop.Web/Validators/Catalog/
+  ProductEmailAFriendValidator.cs
+  ProductReviewsValidator.cs
+src/Presentation/Nop.Web/Validators/Checkout/
+  CheckoutBillingAddressValidator.cs
+  CheckoutShippingAddressValidator.cs
+src/Presentation/Nop.Web/Validators/Common/
+  AddressValidator.cs
+  ContactUsValidator.cs
+  ContactVendorValidator.cs
+src/Presentation/Nop.Web/Validators/Customer/
+  ChangePasswordValidator.cs
+  CustomerAddressEditValidator.cs
+  CustomerInfoValidator.cs
+  GiftCardValidator.cs
+  LoginValidator.cs
+  PasswordRecoveryConfirmValidator.cs
+  PasswordRecoveryValidator.cs
+  RegisterValidator.cs
+src/Presentation/Nop.Web/Validators/Install/
+  InstallValidator.cs
+src/Presentation/Nop.Web/Validators/PrivateMessages/
+  SendPrivateMessageValidator.cs
+src/Presentation/Nop.Web/Validators/ReturnRequests/
+  WithdrawalFormValidator.cs
+src/Presentation/Nop.Web/Validators/ShoppingCart/
+  WishlistEmailAFriendValidator.cs
+src/Presentation/Nop.Web/Validators/Vendors/
+  ApplyVendorValidator.cs
+  VendorInfoValidator.cs

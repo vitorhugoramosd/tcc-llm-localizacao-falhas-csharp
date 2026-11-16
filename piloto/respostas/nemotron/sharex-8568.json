@@ -1,0 +1,77 @@
+{
+ "id": "sharex-8568",
+ "rotulo": "nemotron",
+ "modelo_pedido": "nvidia/nemotron-3-ultra-550b-a55b:free",
+ "meio": "API",
+ "data": "2026-11-07T16:41:05",
+ "reg_arquivo": [
+  {
+   "texto": "{\"files\": [\"ShareX.ImageEditor/Presentation/Controls/SKCanvasControl.cs\", \"ShareX.ImageEditor/Presentation/Rendering/BitmapConversionHelpers.cs\", \"ShareX.ImageEditor/Core/Editor/EditorCore.cs\", \"ShareX.ImageEditor/Presentation/ViewModels/MainViewModel.CanvasState.cs\", \"ShareX.ScreenCaptureLib/Helpers/ImageEditorControl.cs\"]}",
+   "modelo_resposta": "nvidia/nemotron-3-ultra-550b-a55b:free",
+   "tokens_entrada": 9176,
+   "tokens_saida": 568,
+   "tokens_total": 9744,
+   "custo_usd": 0,
+   "segundos": 11.6
+  }
+ ],
+ "arquivos": [
+  "ShareX.ImageEditor/Presentation/Controls/SKCanvasControl.cs",
+  "ShareX.ImageEditor/Presentation/Rendering/BitmapConversionHelpers.cs",
+  "ShareX.ImageEditor/Core/Editor/EditorCore.cs",
+  "ShareX.ImageEditor/Presentation/ViewModels/MainViewModel.CanvasState.cs",
+  "ShareX.ScreenCaptureLib/Helpers/ImageEditorControl.cs"
+ ],
+ "arquivos_lidos": [
+  "ShareX.ImageEditor/Presentation/Controls/SKCanvasControl.cs",
+  "ShareX.ImageEditor/Presentation/Rendering/BitmapConversionHelpers.cs",
+  "ShareX.ImageEditor/Core/Editor/EditorCore.cs",
+  "ShareX.ImageEditor/Presentation/ViewModels/MainViewModel.CanvasState.cs",
+  "ShareX.ScreenCaptureLib/Helpers/ImageEditorControl.cs"
+ ],
+ "reg_metodo": [
+  {
+   "texto": "{\"methods\": [{\"file\": \"ShareX.ImageEditor/Presentation/Controls/SKCanvasControl.cs\", \"method\": \"Draw\"}, {\"file\": \"ShareX.ImageEditor/Presentation/Controls/SKCanvasControl.cs\", \"method\": \"Initialize\"}, {\"file\": \"ShareX.ImageEditor/Presentation/Rendering/BitmapConversionHelpers.cs\", \"method\": \"ToAvaloniBitmap\"}, {\"file\": \"ShareX.ImageEditor/Presentation/Rendering/BitmapConversionHelpers.cs\", \"method\": \"ToSKBitmap\"}, {\"file\": \"ShareX.ImageEditor/Core/Editor/EditorCore.cs\", \"method\": \"Render\"}]}",
+   "modelo_resposta": "nvidia/nemotron-3-ultra-550b-a55b:free",
+   "tokens_entrada": 22440,
+   "tokens_saida": 3630,
+   "tokens_total": 26070,
+   "custo_usd": 0,
+   "segundos": 62.3
+  }
+ ],
+ "metodos": [
+  {
+   "file": "ShareX.ImageEditor/Presentation/Controls/SKCanvasControl.cs",
+   "method": "Draw"
+  },
+  {
+   "file": "ShareX.ImageEditor/Presentation/Controls/SKCanvasControl.cs",
+   "method": "Initialize"
+  },
+  {
+   "file": "ShareX.ImageEditor/Presentation/Rendering/BitmapConversionHelpers.cs",
+   "method": "ToAvaloniBitmap"
+  },
+  {
+   "file": "ShareX.ImageEditor/Presentation/Rendering/BitmapConversionHelpers.cs",
+   "method": "ToSKBitmap"
+  },
+  {
+   "file": "ShareX.ImageEditor/Core/Editor/EditorCore.cs",
+   "method": "Render"
+  }
+ ],
+ "reg_memorizacao": [
+  {
+   "texto": "{\"file\": \"ShareX/ImageEditor/ImageEditorForm.cs\"}",
+   "modelo_resposta": "nvidia/nemotron-3-ultra-550b-a55b:free",
+   "tokens_entrada": 215,
+   "tokens_saida": 782,
+   "tokens_total": 997,
+   "custo_usd": 0,
+   "segundos": 16.0
+  }
+ ],
+ "memorizacao": "ShareX/ImageEditor/ImageEditorForm.cs"
+}

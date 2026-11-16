@@ -1,0 +1,86 @@
+{
+ "id": "sharex-8699",
+ "rotulo": "cohere",
+ "modelo_pedido": "cohere/north-mini-code:free",
+ "meio": "API",
+ "data": "2026-11-08T16:18:15",
+ "reg_memorizacao": [
+  {
+   "texto": "{\"file\": \"ShareX/Editors/EditorForm.cs\"}",
+   "modelo_resposta": "cohere/north-mini-code:free",
+   "tokens_entrada": 189,
+   "tokens_saida": 5204,
+   "tokens_total": 5393,
+   "custo_usd": 0,
+   "segundos": 11.8
+  }
+ ],
+ "memorizacao": "ShareX/Editors/EditorForm.cs",
+ "reg_arquivo": [
+  {
+   "texto": "",
+   "modelo_resposta": "cohere/north-mini-code:free",
+   "tokens_entrada": 8673,
+   "tokens_saida": 5164,
+   "tokens_total": 13837,
+   "custo_usd": 0,
+   "segundos": 27.9
+  },
+  {
+   "texto": "{\"files\": [\"ShareX/Forms/AfterCaptureForm.cs\", \"ShareX.ImageEditor/Hosting/EditorServices.cs\", \"ShareX.ImageEditor/Core/Editor/EditorCore.cs\", \"ShareX.ImageEditor/Presentation/Views/EditorView.axaml.cs\", \"ShareX/TaskManager.cs\"]}",
+   "modelo_resposta": "cohere/north-mini-code:free",
+   "tokens_entrada": 8744,
+   "tokens_saida": 18500,
+   "tokens_total": 27244,
+   "custo_usd": 0,
+   "segundos": 85.1
+  }
+ ],
+ "arquivos": [
+  "ShareX/Forms/AfterCaptureForm.cs",
+  "ShareX.ImageEditor/Hosting/EditorServices.cs",
+  "ShareX.ImageEditor/Core/Editor/EditorCore.cs",
+  "ShareX.ImageEditor/Presentation/Views/EditorView.axaml.cs",
+  "ShareX/TaskManager.cs"
+ ],
+ "arquivos_lidos": [
+  "ShareX/Forms/AfterCaptureForm.cs",
+  "ShareX.ImageEditor/Hosting/EditorServices.cs",
+  "ShareX.ImageEditor/Core/Editor/EditorCore.cs",
+  "ShareX.ImageEditor/Presentation/Views/EditorView.axaml.cs",
+  "ShareX/TaskManager.cs"
+ ],
+ "reg_metodo": [
+  {
+   "texto": "{\"methods\": [{\"file\": \"ShareX/Forms/AfterCaptureForm.cs\", \"method\": \"Continue\"}, {\"file\": \"ShareX.ImageEditor/Presentation/Views/EditorView.axaml.cs\", \"method\": \"OnKeyDown\"}, {\"file\": \"ShareX.ImageEditor/Core/Editor/EditorCore.cs\", \"method\": \"ImageChanged\"}, {\"file\": \"ShareX.ImageEditor/Hosting/EditorServices.cs\", \"method\": \"Clipboard\"}, {\"file\": \"ShareX/TaskManager.cs\", \"method:\": \"Start\"}]}",
+   "modelo_resposta": "cohere/north-mini-code:free",
+   "tokens_entrada": 37570,
+   "tokens_saida": 2468,
+   "tokens_total": 40038,
+   "custo_usd": 0,
+   "segundos": 11.1
+  }
+ ],
+ "metodos": [
+  {
+   "file": "ShareX/Forms/AfterCaptureForm.cs",
+   "method": "Continue"
+  },
+  {
+   "file": "ShareX.ImageEditor/Presentation/Views/EditorView.axaml.cs",
+   "method": "OnKeyDown"
+  },
+  {
+   "file": "ShareX.ImageEditor/Core/Editor/EditorCore.cs",
+   "method": "ImageChanged"
+  },
+  {
+   "file": "ShareX.ImageEditor/Hosting/EditorServices.cs",
+   "method": "Clipboard"
+  },
+  {
+   "file": "ShareX/TaskManager.cs",
+   "method:": "Start"
+  }
+ ]
+}

@@ -1,0 +1,83 @@
+{
+ "id": "nop-8299",
+ "rotulo": "cohere",
+ "modelo_pedido": "cohere/north-mini-code:free",
+ "meio": "API",
+ "data": "2026-11-08T16:09:30",
+ "reg_memorizacao": [
+  {
+   "texto": "",
+   "modelo_resposta": "cohere/north-mini-code:free",
+   "tokens_entrada": 244,
+   "tokens_saida": 8000,
+   "tokens_total": 8244,
+   "custo_usd": 0,
+   "segundos": 29.3
+  },
+  {
+   "texto": "{\"file\": \"Nop.Web.Framework/Seo/JsonLd/ReviewJsonLd.cs\"}",
+   "modelo_resposta": "cohere/north-mini-code:free",
+   "tokens_entrada": 244,
+   "tokens_saida": 1726,
+   "tokens_total": 1970,
+   "custo_usd": 0,
+   "segundos": 8.9
+  }
+ ],
+ "memorizacao": "Nop.Web.Framework/Seo/JsonLd/ReviewJsonLd.cs",
+ "reg_arquivo": [
+  {
+   "texto": "",
+   "modelo_resposta": "cohere/north-mini-code:free",
+   "tokens_entrada": 28191,
+   "tokens_saida": 32000,
+   "tokens_total": 60191,
+   "custo_usd": 0,
+   "segundos": 149.7
+  },
+  {
+   "texto": "{\"files\": [\"src/Presentation/Nop.Web/Models/JsonLD/JsonLdPersonModel.cs\", \"src/Presentation/Nop.Web/Models/JsonLD/JsonLdReviewModel.cs\", \"src/Presentation/Nop.Web/Factories/JsonLdModelFactory.cs\", \"src/Libraries/Nop.Services/Catalog/ProductReviewService.cs\", \"src/Libraries/Nop.Core/Domain/Catalog/ProductReview.cs\"], \"explanation\": \"The bug is about the JSON-LD structured data for product reviews, specifically the `author.name` field being empty when CustomerName is empty. The most likely files to fix this are:\\n\\n1. **JsonLdPersonModel.cs** \\u2013 defines the Person schema used for the author field; likely contains the `name` property that should default to \\\"Guest\\\".\\n2. **JsonLdReviewModel.cs** \\u2013 defines the Review schema and references the Person model; may be where the author is populated.\\n3. **JsonLdModelFactory.cs** \\u2013 builds the JSON-LD for a product, including reviews; likely contains the logic that sets the author name.\\n4. **ProductReviewService.cs** \\u2013 handles product review data, possibly providing the customer name used by the JSON-LD factory.\\n5. **ProductReview.cs** \\u2013 the domain entity for reviews; may store the customer name and be used by the service/factory.\"}",
+   "modelo_resposta": "cohere/north-mini-code:free",
+   "tokens_entrada": 28191,
+   "tokens_saida": 4056,
+   "tokens_total": 32247,
+   "custo_usd": 0,
+   "segundos": 12.5
+  }
+ ],
+ "arquivos": [
+  "src/Presentation/Nop.Web/Models/JsonLD/JsonLdPersonModel.cs",
+  "src/Presentation/Nop.Web/Models/JsonLD/JsonLdReviewModel.cs",
+  "src/Presentation/Nop.Web/Factories/JsonLdModelFactory.cs",
+  "src/Libraries/Nop.Services/Catalog/ProductReviewService.cs",
+  "src/Libraries/Nop.Core/Domain/Catalog/ProductReview.cs"
+ ],
+ "arquivos_lidos": [
+  "src/Presentation/Nop.Web/Models/JsonLD/JsonLdPersonModel.cs",
+  "src/Presentation/Nop.Web/Models/JsonLD/JsonLdReviewModel.cs",
+  "src/Presentation/Nop.Web/Factories/JsonLdModelFactory.cs",
+  "src/Libraries/Nop.Services/Catalog/ProductReviewService.cs",
+  "src/Libraries/Nop.Core/Domain/Catalog/ProductReview.cs"
+ ],
+ "reg_metodo": [
+  {
+   "texto": "{\"methods\": [{\"file\": \"src/Presentation/Nop.Web/Factories/JsonLdModelFactory.cs\", \"method\": \"PrepareJsonLdProductAsync\"}, {\"file\": \"src/Presentation/Nop.Web/Factories/JsonLdModelFactory.cs\", \"method\": \"PrepareJsonLdForumTopicAsync\"}, {\"file\": \"src/Presentation/Nop.Web/Factories/JsonLdModelFactory.cs\", \"method\": \"PrepareJsonLdProductBreadcrumbAsync\"}, {\"file\": \"src/Presentation/Nop.Web/Factories/JsonLdModelFactory.cs\", \"method\": \"PrepareJsonLdCategoryBreadcrumbAsync\"}, {\"file\": \"src/Presentation/Nop.Web/Factories/Json",
+   "modelo_resposta": "cohere/north-mini-code:free",
+   "tokens_entrada": 7163,
+   "tokens_saida": 31997,
+   "tokens_total": 39160,
+   "custo_usd": 0,
+   "segundos": 123.0
+  },
+  {
+   "texto": "",
+   "modelo_resposta": "cohere/north-mini-code:free",
+   "tokens_entrada": 7163,
+   "tokens_saida": 32000,
+   "tokens_total": 39163,
+   "custo_usd": 0,
+   "segundos": 66.0
+  }
+ ],
+ "metodos": []
+}

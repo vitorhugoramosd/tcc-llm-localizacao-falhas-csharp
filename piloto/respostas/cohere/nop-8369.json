@@ -1,0 +1,86 @@
+{
+ "id": "nop-8369",
+ "rotulo": "cohere",
+ "modelo_pedido": "cohere/north-mini-code:free",
+ "meio": "API",
+ "data": "2026-11-08T16:21:50",
+ "reg_arquivo": [
+  {
+   "texto": "{\"files\": [\"src/Libraries/Nop.Services/Catalog/PriceCalculationService.cs\", \"src/Libraries/Nop.Services/Catalog/IPriceCalculationService.cs\", \"src/Libraries/Nop.Services/PriceLists/PriceListService.cs\", \"src/Libraries/Nop.Core/Domain/Catalog/ProductAttributeCombination.cs\", \"src/Libraries/Nop.Core/Domain/PriceLists/PriceListItem.cs\"]}",
+   "modelo_resposta": "cohere/north-mini-code:free",
+   "tokens_entrada": 30651,
+   "tokens_saida": 1527,
+   "tokens_total": 32178,
+   "custo_usd": 0,
+   "segundos": 10.5
+  }
+ ],
+ "arquivos": [
+  "src/Libraries/Nop.Services/Catalog/PriceCalculationService.cs",
+  "src/Libraries/Nop.Services/Catalog/IPriceCalculationService.cs",
+  "src/Libraries/Nop.Services/PriceLists/PriceListService.cs",
+  "src/Libraries/Nop.Core/Domain/Catalog/ProductAttributeCombination.cs",
+  "src/Libraries/Nop.Core/Domain/PriceLists/PriceListItem.cs"
+ ],
+ "reg_memorizacao": [
+  {
+   "texto": "",
+   "modelo_resposta": "cohere/north-mini-code:free",
+   "tokens_entrada": 338,
+   "tokens_saida": 8000,
+   "tokens_total": 8338,
+   "custo_usd": 0,
+   "segundos": 23.5
+  },
+  {
+   "texto": "{\"file\": \"Nop.Core/Service/PriceCalculationService.cs\"}",
+   "modelo_resposta": "cohere/north-mini-code:free",
+   "tokens_entrada": 338,
+   "tokens_saida": 2746,
+   "tokens_total": 3084,
+   "custo_usd": 0,
+   "segundos": 10.6
+  }
+ ],
+ "memorizacao": "Nop.Core/Service/PriceCalculationService.cs",
+ "arquivos_lidos": [
+  "src/Libraries/Nop.Services/Catalog/PriceCalculationService.cs",
+  "src/Libraries/Nop.Services/Catalog/IPriceCalculationService.cs",
+  "src/Libraries/Nop.Services/PriceLists/PriceListService.cs",
+  "src/Libraries/Nop.Core/Domain/Catalog/ProductAttributeCombination.cs",
+  "src/Libraries/Nop.Core/Domain/PriceLists/PriceListItem.cs"
+ ],
+ "reg_metodo": [
+  {
+   "texto": "{\"methods\": [{\"file\": \"src/Libraries/Nop.Services/Catalog/PriceCalculationService.cs\", \"method\": \"GetPriceListPriceAsync\"}, {\"file\": \"src/Libraries/Nop.Services/PriceLists/PriceListService.cs\", \"method\": \"ApplyAdjustmentPrice\"}, {\"file\": \"src/Libraries/Nop.Services/Catalog/PriceCalculationService.cs\", \"method\": \"GetFinalPriceAsync\"}, {\"file\": \"src/Libraries/Nop.Services/Catalog/PriceCalculationService.cs\", \"method\": \"GetProductAttributeValuePriceAdjustmentAsync\"}, {\"file\": \"src/Libraries/Nop.Services/Catalog/PriceCalculationService.cs\", \"method\": \"GetDiscountAmountAsync\"}]}",
+   "modelo_resposta": "cohere/north-mini-code:free",
+   "tokens_entrada": 12425,
+   "tokens_saida": 23186,
+   "tokens_total": 35611,
+   "custo_usd": 0,
+   "segundos": 97.4
+  }
+ ],
+ "metodos": [
+  {
+   "file": "src/Libraries/Nop.Services/Catalog/PriceCalculationService.cs",
+   "method": "GetPriceListPriceAsync"
+  },
+  {
+   "file": "src/Libraries/Nop.Services/PriceLists/PriceListService.cs",
+   "method": "ApplyAdjustmentPrice"
+  },
+  {
+   "file": "src/Libraries/Nop.Services/Catalog/PriceCalculationService.cs",
+   "method": "GetFinalPriceAsync"
+  },
+  {
+   "file": "src/Libraries/Nop.Services/Catalog/PriceCalculationService.cs",
+   "method": "GetProductAttributeValuePriceAdjustmentAsync"
+  },
+  {
+   "file": "src/Libraries/Nop.Services/Catalog/PriceCalculationService.cs",
+   "method": "GetDiscountAmountAsync"
+  }
+ ]
+}

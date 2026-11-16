@@ -1,0 +1,77 @@
+{
+ "id": "sharex-8699",
+ "rotulo": "gemini",
+ "modelo_pedido": "gemini-3.5-flash",
+ "meio": "API",
+ "data": "2026-11-08T06:00:43",
+ "reg_arquivo": [
+  {
+   "texto": "```json\n{\n  \"files\": [\n    \"ShareX.ImageEditor/Hosting/AvaloniaIntegration.cs\",\n    \"ShareX/TaskHelpers.cs\",\n    \"ShareX/WorkerTask.cs\",\n    \"ShareX.ImageEditor/Presentation/Views/EditorWindow.axaml.cs\",\n    \"ShareX.ImageEditor/Presentation/ViewModels/MainViewModel.cs\"\n  ]\n}\n```",
+   "modelo_resposta": "gemini-3.5-flash",
+   "tokens_entrada": 10344,
+   "tokens_saida": 95,
+   "tokens_total": 12365,
+   "custo_usd": null,
+   "segundos": 11.2
+  }
+ ],
+ "arquivos": [
+  "ShareX.ImageEditor/Hosting/AvaloniaIntegration.cs",
+  "ShareX/TaskHelpers.cs",
+  "ShareX/WorkerTask.cs",
+  "ShareX.ImageEditor/Presentation/Views/EditorWindow.axaml.cs",
+  "ShareX.ImageEditor/Presentation/ViewModels/MainViewModel.cs"
+ ],
+ "arquivos_lidos": [
+  "ShareX.ImageEditor/Hosting/AvaloniaIntegration.cs",
+  "ShareX/TaskHelpers.cs",
+  "ShareX/WorkerTask.cs",
+  "ShareX.ImageEditor/Presentation/Views/EditorWindow.axaml.cs",
+  "ShareX.ImageEditor/Presentation/ViewModels/MainViewModel.cs"
+ ],
+ "reg_metodo": [
+  {
+   "texto": "```json\n{\n  \"methods\": [\n    {\n      \"file\": \"ShareX.ImageEditor/Hosting/AvaloniaIntegration.cs\",\n      \"method\": \"ShowEditorDialogCore\"\n    },\n    {\n      \"file\": \"ShareX/TaskHelpers.cs\",\n      \"method\": \"AnnotateImageModern\"\n    },\n    {\n      \"file\": \"ShareX.ImageEditor/Hosting/AvaloniaIntegration.cs\",\n      \"method\": \"ShowEditorDialogBitmap\"\n    },\n    {\n      \"file\": \"ShareX/TaskHelpers.cs\",\n      \"method\": \"AnnotateImage\"\n    },\n    {\n      \"file\": \"ShareX/WorkerTask.cs\",\n      \"method\": \"DoAfterCaptureJobs\"\n    }\n  ]\n}\n```",
+   "modelo_resposta": "gemini-3.5-flash",
+   "tokens_entrada": 46917,
+   "tokens_saida": 183,
+   "tokens_total": 51617,
+   "custo_usd": null,
+   "segundos": 20.3
+  }
+ ],
+ "metodos": [
+  {
+   "file": "ShareX.ImageEditor/Hosting/AvaloniaIntegration.cs",
+   "method": "ShowEditorDialogCore"
+  },
+  {
+   "file": "ShareX/TaskHelpers.cs",
+   "method": "AnnotateImageModern"
+  },
+  {
+   "file": "ShareX.ImageEditor/Hosting/AvaloniaIntegration.cs",
+   "method": "ShowEditorDialogBitmap"
+  },
+  {
+   "file": "ShareX/TaskHelpers.cs",
+   "method": "AnnotateImage"
+  },
+  {
+   "file": "ShareX/WorkerTask.cs",
+   "method": "DoAfterCaptureJobs"
+  }
+ ],
+ "reg_memorizacao": [
+  {
+   "texto": "```json\n{\"file\": \"ShareX/TaskHelpers.cs\"}\n```",
+   "modelo_resposta": "gemini-3.5-flash",
+   "tokens_entrada": 207,
+   "tokens_saida": 17,
+   "tokens_total": 6935,
+   "custo_usd": null,
+   "segundos": 31.3
+  }
+ ],
+ "memorizacao": "ShareX/TaskHelpers.cs"
+}

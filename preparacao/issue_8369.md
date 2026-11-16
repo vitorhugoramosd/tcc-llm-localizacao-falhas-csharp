@@ -1,0 +1,19 @@
+Title: Price list adjustments ignore the overridden price of attribute combinations
+
+**Description**
+A price list's percentage or amount adjustment is always calculated from `product.Price`. When the selected attribute combination has an overridden price, that price is dropped and the customer is charged the adjusted base product price instead.
+
+**Steps to reproduce** (sample data, "Build your own computer", price 1200)
+1. Admin → Catalog → Price lists: create an active price list with "Percentage decrease" of **10**, no customer or role mappings.
+2. Add "Build your own computer" to the price list. Leave its manual price empty.
+3. Admin → Catalog → Products → "Build your own computer" → Product attributes → **Attribute combinations** → Add combination:
+   - Processor: 2.2 GHz
+   - RAM: 8GB
+   - HDD: 320 GB
+   - OS: Vista Home
+   - Software: none
+   - **Overridden price: 1500**
+4. On the storefront, open "Build your own computer" and select exactly that combination.
+
+**Actual:** 1080.00, which is 1200 − 10%. The overridden price is ignored.
+**Expected:** 1350.00, which is 1500 − 10%.

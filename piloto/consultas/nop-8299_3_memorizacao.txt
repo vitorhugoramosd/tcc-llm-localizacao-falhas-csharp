@@ -1,0 +1,22 @@
+Below is a bug report from the C# repository nopCommerce (github.com/nopSolutions/nopCommerce). You will not receive any list of files or code. Give the exact path of the .cs file that was changed to fix this bug. Do not search the web. Answer ONLY with JSON in the format {"file": "path"}.
+
+### Bug report
+Title: Missing name field in review.author JSON-LD schema when CustomerName is empty
+
+In the JSON-LD structured data implementation for product reviews, the `author.name` property generates an empty string (`"name": ""`) when a review is submitted by a guest user or a customer without a stored name.
+
+Google's Structured Data guidelines require the `name `property within the `Person `schema to contain a non-empty string. When this value is empty, Google Search Console flags it as a critical error: `Missing field "name" (in "review.author")`, which prevents the product from properly validating for Rich Snippets.
+
+```
+"review": [
+  {
+    "@type": "Review",
+    "author": {
+      "@type": "Person",
+      "name": ""
+    }
+  }
+]
+```
+
+It should be "Guest"

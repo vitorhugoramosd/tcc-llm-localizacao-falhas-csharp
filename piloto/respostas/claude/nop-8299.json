@@ -1,0 +1,77 @@
+{
+ "id": "nop-8299",
+ "rotulo": "claude",
+ "modelo_pedido": "claude-sonnet-5-5",
+ "meio": "API",
+ "data": "2026-11-07T14:56:29",
+ "reg_arquivo": [
+  {
+   "texto": "{\"files\": [\"src/Presentation/Nop.Web/Factories/JsonLdModelFactory.cs\", \"src/Presentation/Nop.Web/Models/JsonLD/JsonLdPersonModel.cs\", \"src/Presentation/Nop.Web/Models/JsonLD/JsonLdReviewModel.cs\", \"src/Presentation/Nop.Web/Factories/ProductModelFactory.cs\", \"src/Presentation/Nop.Web/Models/Catalog/ProductReviewModel.cs\"]}",
+   "modelo_resposta": "claude-sonnet-5-5",
+   "tokens_entrada": 64464,
+   "tokens_saida": 184,
+   "tokens_total": 64648,
+   "custo_usd": null,
+   "segundos": 2.9
+  }
+ ],
+ "arquivos": [
+  "src/Presentation/Nop.Web/Factories/JsonLdModelFactory.cs",
+  "src/Presentation/Nop.Web/Models/JsonLD/JsonLdPersonModel.cs",
+  "src/Presentation/Nop.Web/Models/JsonLD/JsonLdReviewModel.cs",
+  "src/Presentation/Nop.Web/Factories/ProductModelFactory.cs",
+  "src/Presentation/Nop.Web/Models/Catalog/ProductReviewModel.cs"
+ ],
+ "arquivos_lidos": [
+  "src/Presentation/Nop.Web/Factories/JsonLdModelFactory.cs",
+  "src/Presentation/Nop.Web/Models/JsonLD/JsonLdPersonModel.cs",
+  "src/Presentation/Nop.Web/Models/JsonLD/JsonLdReviewModel.cs",
+  "src/Presentation/Nop.Web/Factories/ProductModelFactory.cs",
+  "src/Presentation/Nop.Web/Models/Catalog/ProductReviewModel.cs"
+ ],
+ "reg_metodo": [
+  {
+   "texto": "{\"methods\": [{\"file\": \"src/Presentation/Nop.Web/Factories/JsonLdModelFactory.cs\", \"method\": \"PrepareJsonLdProductAsync\"}, {\"file\": \"src/Presentation/Nop.Web/Factories/ProductModelFactory.cs\", \"method\": \"PrepareProductReviewsModelAsync\"}, {\"file\": \"src/Presentation/Nop.Web/Factories/JsonLdModelFactory.cs\", \"method\": \"PrepareJsonLdForumTopicAsync\"}, {\"file\": \"src/Presentation/Nop.Web/Models/JsonLD/JsonLdPersonModel.cs\", \"method\": \"Name\"}, {\"file\": \"src/Presentation/Nop.Web/Models/JsonLD/JsonLdReviewModel.cs\", \"method\": \"Author\"}]}",
+   "modelo_resposta": "claude-sonnet-5-5",
+   "tokens_entrada": 41774,
+   "tokens_saida": 287,
+   "tokens_total": 42061,
+   "custo_usd": null,
+   "segundos": 3.3
+  }
+ ],
+ "metodos": [
+  {
+   "file": "src/Presentation/Nop.Web/Factories/JsonLdModelFactory.cs",
+   "method": "PrepareJsonLdProductAsync"
+  },
+  {
+   "file": "src/Presentation/Nop.Web/Factories/ProductModelFactory.cs",
+   "method": "PrepareProductReviewsModelAsync"
+  },
+  {
+   "file": "src/Presentation/Nop.Web/Factories/JsonLdModelFactory.cs",
+   "method": "PrepareJsonLdForumTopicAsync"
+  },
+  {
+   "file": "src/Presentation/Nop.Web/Models/JsonLD/JsonLdPersonModel.cs",
+   "method": "Name"
+  },
+  {
+   "file": "src/Presentation/Nop.Web/Models/JsonLD/JsonLdReviewModel.cs",
+   "method": "Author"
+  }
+ ],
+ "reg_memorizacao": [
+  {
+   "texto": "nopCommerce has JsonLdModelFactory in Nop.Web/Factories. In 4.80 it is Nop.Web/Factories/JsonLdModelFactory.cs, and it builds the review author from CustomerName.\n\n{\"file\": \"src/Presentation/Nop.Web/Factories/JsonLdModelFactory.cs\"}",
+   "modelo_resposta": "claude-sonnet-5-5",
+   "tokens_entrada": 370,
+   "tokens_saida": 117,
+   "tokens_total": 487,
+   "custo_usd": null,
+   "segundos": 2.1
+  }
+ ],
+ "memorizacao": "src/Presentation/Nop.Web/Factories/JsonLdModelFactory.cs"
+}
