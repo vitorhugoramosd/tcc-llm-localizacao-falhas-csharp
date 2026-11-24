@@ -23,6 +23,22 @@ TABELA_3 = {('claude', 'com testes'): (50, 75, 75, 0.58), ('claude', 'legado (se
             ('nemotron', 'com testes'): (50, 50, 50, 0.50), ('nemotron', 'legado (sem testes)'): (33, 33, 67, 0.42),
             ('cohere', 'com testes'): (50, 50, 50, 0.50), ('cohere', 'legado (sem testes)'): (0, 0, 0, 0.00)}
 
+# Tabela 4 do Cap. 4: posição do arquivo e do método certos em cada defeito (None = fora das cinco posições)
+TABELA_4 = {
+    'nop-8409':    {'claude': (1, 1), 'gemini': (1, 1), 'nemotron': (1, 1), 'cohere': (1, 1)},
+    'nop-8369':    {'claude': (1, 1), 'gemini': (1, 1), 'nemotron': (1, 1), 'cohere': (1, 1)},
+    'nop-7587':    {'claude': (1, 3), 'gemini': (1, 2), 'nemotron': (2, None), 'cohere': (2, None)},
+    'nop-8299':    {'claude': (None, None), 'gemini': (None, None), 'nemotron': (None, None), 'cohere': (None, None)},
+    'sharex-8699': {'claude': (1, 1), 'gemini': (1, 1), 'nemotron': (5, 1), 'cohere': (None, None)},
+    'sharex-8568': {'claude': (2, 3), 'gemini': (4, None), 'nemotron': (2, 4), 'cohere': (4, None)},
+    'sharex-8091': {'claude': (1, 1), 'gemini': (4, 1), 'nemotron': (None, None), 'cohere': (3, None)},
+}
+# Tabela 5 do Cap. 4: consultas, tokens enviados, tokens recebidos, tempo médio por defeito (s) e acertos na memorização
+TABELA_5 = {'claude': (21, 808860, 7110, 11.1, 1), 'gemini': (22, 495389, 3012, 51.5, 3),
+            'nemotron': (21, 381898, 38751, 89.5, 0), 'cohere': (32, 392558, 450981, 317.0, 0)}
+# Preço oficial do Claude Sonnet 5.5 na API da Anthropic (US$ por milhão de tokens), usado para estimar o custo do piloto
+PRECO_CLAUDE = {'entrada': 2.00, 'saida': 10.00}
+
 
 def posicoes(modelo, perfil, nivel):
     out = []
@@ -59,6 +75,32 @@ class TestTabelasDoCapitulo4(unittest.TestCase):
             with self.subTest(modelo=l['rotulo'], defeito=l['defeito']):
                 self.assertEqual(l['pos_arquivo'], str(piloto.posicao_arquivo(d, r['arquivos']) or ''))
                 self.assertEqual(l['pos_metodo'], str(piloto.posicao_metodo(d, r['metodos']) or ''))
+
+    def test_tabela_4_posicoes_por_defeito(self):
+        for did, por_modelo in TABELA_4.items():
+            d = next(x for x in piloto.DEF if x['id'] == did)
+            for m, esperado in por_modelo.items():
+                r = ler_json(RAIZ, 'piloto', 'respostas', m, f"{did}.json")
+                with self.subTest(defeito=did, modelo=m):
+                    self.assertEqual((piloto.posicao_arquivo(d, r['arquivos']), piloto.posicao_metodo(d, r['metodos'])), esperado)
+
+    def test_tabela_5_esforco_e_memorizacao(self):
+        with open(os.path.join(RAIZ, 'piloto', 'resultados.csv'), encoding='utf-8') as f:
+            linhas = list(csv.DictReader(f, delimiter=';'))
+        for m, esperado in TABELA_5.items():
+            ls = [l for l in linhas if l['rotulo'] == m]
+            obtido = (sum(int(l['consultas']) for l in ls), sum(int(l['tokens_entrada']) for l in ls),
+                      sum(int(l['tokens_saida']) for l in ls), round(sum(float(l['segundos']) for l in ls) / len(ls), 1),
+                      sum(l['memorizacao_acertou'] == 'True' for l in ls))
+            with self.subTest(modelo=m):
+                self.assertEqual(obtido, esperado)
+
+    def test_custo_do_claude(self):
+        # Cap. 4: cerca de US$ 1,70 no total e US$ 0,24 por defeito, estimados a partir dos tokens registrados
+        _, entrada, saida, _, _ = TABELA_5['claude']
+        custo = entrada / 1e6 * PRECO_CLAUDE['entrada'] + saida / 1e6 * PRECO_CLAUDE['saida']
+        self.assertAlmostEqual(custo, 1.70, delta=0.02)
+        self.assertEqual(round(custo / 7, 2), 0.24)
 
 
 class TestSorteio(unittest.TestCase):

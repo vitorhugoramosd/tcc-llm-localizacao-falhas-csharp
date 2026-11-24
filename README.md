@@ -2,9 +2,9 @@
 
 Material de apoio do Trabalho de Conclusão de Curso de **Vitor Hugo Ramos dos Santos**, Bacharelado em Engenharia de Software da Universidade da Região de Joinville (Univille), 2026, sob orientação do Prof. Christiano Piccinin.
 
-O trabalho avalia se LLMs conseguem indicar onde está o defeito em projetos C#, a partir do relato do problema (a issue), e compara o desempenho em código com testes automatizados e em código legado, sem testes. O desempenho é medido pelas métricas Top-N e Mean Reciprocal Rank (MRR), nos níveis de arquivo e de método.
+O trabalho avalia como o desempenho de LLMs na localização de falhas varia entre bases de código C# com diferentes níveis de cobertura de testes. Os modelos recebem o relato do problema (a issue) e indicam onde está o defeito, e o desempenho é comparado entre código com testes automatizados (SWE-Sharp-Bench) e código com baixa cobertura de testes (nopCommerce, com poucos testes, e ShareX, sem nenhum). O desempenho é medido pelas métricas Top-N e Mean Reciprocal Rank (MRR), nos níveis de arquivo e de método.
 
-Este repositório reúne **tudo o que foi usado na execução piloto** (o MVP do TCC-I): os scripts, os defeitos, as consultas enviadas aos modelos, as respostas recebidas, as métricas e os testes que conferem os números publicados no Capítulo 4.
+Este repositório reúne **tudo o que foi usado na execução piloto** (o MVP do TCC-I): os scripts, os defeitos, as consultas enviadas aos modelos, as respostas recebidas, as métricas, o script da Figura 9 e os testes que conferem os números publicados no Capítulo 4.
 
 ## O que tem aqui
 
@@ -26,8 +26,12 @@ piloto/          execução do piloto
   registros/                saída das execuções do Gemini e do Nemotron
 testes/          testes automáticos
   test_metricas.py          regras de pontuação (posição, caminho encurtado, Top-N, MRR, leitura do JSON)
-  test_reproducao.py        confere as Tabelas 2 e 3 do Capítulo 4, o sorteio e a referência de acerto
+  test_reproducao.py        confere as Tabelas 2 a 5 do Capítulo 4, o custo do piloto, o sorteio e a referência de acerto
+graficos/
+  figura9.py                gera a Figura 9 do Capítulo 4 a partir de piloto/resultados.csv (requer matplotlib)
 ```
+
+Os 7 defeitos do piloto serviram para ajustar o protocolo e, por isso, não entram na amostra da execução completa (TCC-II). Na coluna `perfil` de `defeitos.json` e `resultados.csv`, os rótulos são anteriores à nomenclatura final do TCC: "com testes" corresponde ao nopCommerce, tratado no texto como caso de poucos testes, e "legado (sem testes)" corresponde ao ShareX. Os dois pertencem ao conjunto de baixa cobertura de testes.
 
 ## Como reproduzir
 
@@ -41,7 +45,7 @@ cd piloto
 python piloto.py resultados
 ```
 
-Os testes recalculam, a partir das respostas gravadas, todos os valores das Tabelas 2 e 3 do Capítulo 4 e conferem que o sorteio com a semente registrada gera a mesma ordem usada no piloto. O comando `resultados` imprime a tabela de métricas e regrava o `resultados.csv`.
+Os testes recalculam, a partir das respostas gravadas, os valores das Tabelas 2, 3 e 4 do Capítulo 4, conferem a Tabela 5 e o custo do piloto a partir do `resultados.csv` e verificam que o sorteio com a semente registrada gera a mesma ordem usada no piloto. O comando `resultados` imprime a tabela de métricas e regrava o `resultados.csv`. Para gerar a Figura 9, instale a matplotlib (`pip install matplotlib==3.11.2`) e rode `python graficos/figura9.py` na pasta raiz.
 
 ### 2. Refazer a seleção dos defeitos e as consultas, a partir dos repositórios públicos
 
@@ -72,6 +76,18 @@ Requer uma chave de API de cada provedor. As chaves são lidas de variáveis de 
 Parâmetros: temperatura zero quando o modelo permite (o Claude Sonnet 5.5 recusa esse parâmetro), nenhuma ferramenta de busca na internet declarada e limite de 8.000 tokens na resposta. No Cohere, as consultas que voltaram vazias com esse limite foram refeitas com 32.000 tokens, como registra o Capítulo 4. Para rodar de novo, mova ou apague a pasta do modelo em `respostas/`, porque o script pula os defeitos que já têm resposta.
 
 As respostas dos LLMs não são totalmente determinísticas, e os provedores atualizam os modelos com o tempo. Uma nova execução pode, portanto, gerar respostas um pouco diferentes; as respostas originais do piloto ficam guardadas em `respostas/`.
+
+### Custo do piloto
+
+A coluna `custo_usd` do `resultados.csv` guarda apenas o custo devolvido pelo provedor, o que só acontece no OpenRouter, onde os dois modelos foram usados no plano gratuito (custo zero). O custo do Claude, informado no Capítulo 4, foi estimado a partir dos tokens registrados e do preço oficial do Claude Sonnet 5.5 na API da Anthropic, de US$ 2 por milhão de tokens de entrada e US$ 10 por milhão de tokens de saída (https://platform.claude.com/docs/en/about-claude/pricing, consultado em 24/11/2026):
+
+```
+808.860 tokens de entrada x US$ 2 / 1.000.000  = US$ 1,62
+  7.110 tokens de saída   x US$ 10 / 1.000.000 = US$ 0,07
+total                                          = US$ 1,69, cerca de US$ 0,24 por defeito
+```
+
+O Gemini foi usado no plano gratuito do Google AI Studio.
 
 ## Formato das respostas
 
